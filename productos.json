@@ -53,7 +53,7 @@
         "palabrasClave": [
             "mundo abierto",
             "farmeo",
-            "dificil"
+            "soulslike"
         ]
     },{
         "id": 5,
@@ -140,18 +140,298 @@
             "conquista"
         ]
     },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
+        "id": 11,
+        "nombre": "Pizza Tower",
+        "desarrolladora": "Tour de Pizza",
         "descripcion": "",
         "imagen": "",
-        "precio": 0,
-        "categoria": "",
+        "precio": 18.99,
+        "categoria": "Plataformas",
         "disponibilidad": true,
         "palabrasClave": [
-            "",
-            "",
-            ""
+            "frenetico",
+            "soundtrack",
+            "contrarreloj"
+        ]
+    },{
+        "id": 12,
+        "nombre": "God of War: Ragnarok",
+        "desarrolladora": "Play Station Studios",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 69.99,
+        "categoria": "Hack and Slash",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "mitologia",
+            "aventura",
+            "rol"
+        ]
+    },{
+        "id": 13,
+        "nombre": "Yakuza 7: Like a Dragon",
+        "desarrolladora": "Ryu Ga Gotoku Studios",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 39.99,
+        "categoria": "Por Turnos",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "mafia",
+            "JRPG",
+            "divertido"
+        ]
+    },{
+        "id": 14,
+        "nombre": "Like a Dragon: Infinite Wealth",
+        "desarrolladora": "Ryu Ga Gotoku Studios",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 59.99,
+        "categoria": "Por Turnos",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "mafia",
+            "JRPG",
+            "divertido"
+        ]
+    },{
+        "id": 15,
+        "nombre": "Factorio",
+        "desarrolladora": "Wube",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 32,
+        "categoria": "Automatización",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "simulacion",
+            "sandbox",
+            "gestión"
+        ]
+    },{
+        "id": 16,
+        "nombre": "Terraria",
+        "desarrolladora": "Re-Logic",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 9.75,
+        "categoria": "Supervivencia",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "sandbox",
+            "2D",
+            "exploracion"
+        ]
+    },{
+        "id": 17,
+        "nombre": "Lethal Company",
+        "desarrolladora": "Zeekerss",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 9.75,
+        "categoria": "Supervivencia",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "cooperativo",
+            "divertido",
+            "terror"
+        ]
+    },{
+        "id": 18,
+        "nombre": "Guilty Gear Strive",
+        "desarrolladora": "Arc System Works",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 20,
+        "categoria": "Peleas",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "arcade",
+            "anime",
+            "2D"
+        ]
+    },{
+        "id": 19,
+        "nombre": "Persona 5 Royal",
+        "desarrolladora": "Atlus",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 23.50,
+        "categoria": "Por Turnos",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "JRPG",
+            "novela visual",
+            "anime"
+        ]
+    },{
+        "id": 20,
+        "nombre": "Hollow Knight",
+        "desarrolladora": "Team Cherry",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 14.75,
+        "categoria": "Metroidvania",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "soulslike",
+            "plataformas",
+            "exploracion"
+        ]
+    },{
+        "id": 21,
+        "nombre": "Outer Wilds",
+        "desarrolladora": "Mobius Digital",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 25,
+        "categoria": "Exploración",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "espacio",
+            "puzles",
+            "trama"
+        ]
+    },{
+        "id": 22,
+        "nombre": "Portal 2",
+        "desarrolladora": "Valve",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 9.99,
+        "categoria": "Puzles",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "plataformas",
+            "trama",
+            "humor"
+        ]
+    },{
+        "id": 23,
+        "nombre": "Deep Rock Galactic",
+        "desarrolladora": "Ghost Ship Games",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 8.99,
+        "categoria": "Exploración",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "farmeo",
+            "cooperativo",
+            "fps"
+        ]
+    },{
+        "id": 24,
+        "nombre": "Celeste",
+        "desarrolladora": "Maddy Makes Games",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 19.50,
+        "categoria": "Plataformas",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "dificil",
+            "aventuras",
+            "pixel"
+        ]
+    },{
+        "id": 25,
+        "nombre": "Dragon's Dogma II",
+        "desarrolladora": "CAPCOM",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 64.99,
+        "categoria": "RPG",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "fantasia",
+            "exploracion",
+            "dragones"
+        ]
+    },{
+        "id": 26,
+        "nombre": "Baldur's Gate III",
+        "desarrolladora": "Larian Studios",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 59.99,
+        "categoria": "RPG",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "trama",
+            "D&D",
+            "fantasia"
+        ]
+    },{
+        "id": 27,
+        "nombre": "The Binding of Isaac: Rebirth",
+        "desarrolladora": "Nicalis, Inc",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 8.99,
+        "categoria": "Roguelite",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "dificil",
+            "pixel",
+            "procedural"
+        ]
+    },{
+        "id": 28,
+        "nombre": "Metal Gear Solid V: The Phantom Pain",
+        "desarrolladora": "PlatinumGames",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 18.99,
+        "categoria": "Sigilo",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "musica",
+            "tactico",
+            "trama"
+        ]
+    },{
+        "id": 29,
+        "nombre": "Metal Gear Rising: Revengeance",
+        "desarrolladora": "PlatinumGames",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 14.99,
+        "categoria": "Hack and Slash",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "accion",
+            "ninjas",
+            "dificil"
+        ]
+    },{
+        "id": 30,
+        "nombre": "Devil May Cry 5",
+        "desarrolladora": "CAPCOM",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 20.99,
+        "categoria": "Hack and Slash",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "accion",
+            "demonios",
+            "violento"
+        ]
+    },{
+        "id": 31,
+        "nombre": "Undertale",
+        "desarrolladora": "Toby Fox",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 4.99,
+        "categoria": "Lore/Historia",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "pixel",
+            "musica",
+            "rpg"
         ]
     },{
         "id": 1,
@@ -223,286 +503,6 @@
             "",
             ""
         ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
-        "disponibilidad": true,
-        "palabrasClave": [
-            "",
-            "",
-            ""
-        ]
-    },
+    }
     
 ]
