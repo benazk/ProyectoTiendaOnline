@@ -1,1 +1,508 @@
-
+[
+    {
+        "id": 1,
+        "nombre": "Grand Theft Auto V",
+        "desarrolladora": "Rockstar Games",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 30,
+        "categoria": "Hit and Run",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "Coches",
+            "Crimen",
+            "Armas de fuego"
+        ]
+    },{
+        "id": 2,
+        "nombre": "Elden Ring",
+        "desarrolladora": "From Software",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 60,
+        "categoria": "Juego de rol",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "dificil",
+            "magia",
+            "medieval"
+        ]
+    },{
+        "id": 3,
+        "nombre": "Doom Eternal",
+        "desarrolladora": "Id Software",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 30,
+        "categoria": "FPS frenetico",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "fps",
+            "demonios",
+            "frenetico"
+        ]
+    },{
+        "id": 4,
+        "nombre": "Valheim",
+        "desarrolladora": "Iron gate AB",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 19.99,
+        "categoria": "Supervivencia",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "mundo abierto",
+            "farmeo",
+            "dificil"
+        ]
+    },{
+        "id": 5,
+        "nombre": "Miside",
+        "desarrolladora": "AIHASTO",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 10.59,
+        "categoria": "Terror Psicológico",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "anime",
+            "miedo",
+            "cute"
+        ]
+    },{
+        "id": 6,
+        "nombre": "Sid Meier's Civilization VI",
+        "desarrolladora": "Fireaxis",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 18,
+        "categoria": "Estrategia por turnos",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "turnos",
+            "gestion",
+            "simulacion"
+        ]
+    },{
+        "id": 7,
+        "nombre": "Balatro",
+        "desarrolladora": "LocalThunk",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 13.99,
+        "categoria": "Roguelite",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "cartas",
+            "estrategia",
+            "turnos"
+        ]
+    },{
+        "id": 8,
+        "nombre": "Astroneer",
+        "desarrolladora": "System Era Softworks",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 25.99,
+        "categoria": "Supervivencia",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "espacio",
+            "farmeo",
+            "exploracion"
+        ]
+    },{
+        "id": 9,
+        "nombre": "Monster Hunter World",
+        "desarrolladora": "CAPCOM",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 30,
+        "categoria": "Hack and Slash",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "soulslike",
+            "cooperativos",
+            "fantasia"
+        ]
+    },{
+        "id": 10,
+        "nombre": "Helldivers II",
+        "desarrolladora": "Arrowhead Game Studios",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 40,
+        "categoria": "TPS",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "espacio",
+            "tercera persona",
+            "conquista"
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },{
+        "id": 1,
+        "nombre": "",
+        "desarrolladora": "",
+        "descripcion": "",
+        "imagen": "",
+        "precio": 0,
+        "categoria": "",
+        "disponibilidad": true,
+        "palabrasClave": [
+            "",
+            "",
+            ""
+        ]
+    },
+    
+]
