@@ -3,24 +3,24 @@
         "id": 1,
         "nombre": "Grand Theft Auto V",
         "desarrolladora": "Rockstar Games",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "El juego de hit and run más jugado de la última decada. Controla a Michael, Trevor y Franklin en Los Santos para cometer crímenes o ve al modo online y trolea a los demás jugadores. Saquen GTA 6 Rockstar porfavor",
+        "imagen": "GTAV.webp",
         "precio": 30,
-        "categoria": "Hit and Run",
+        "idCategoria": 1,
         "disponibilidad": true,
         "palabrasClave": [
             "Coches",
             "Crimen",
-            "Armas de fuego"
+            "disparos"
         ]
     },{
         "id": 2,
         "nombre": "Elden Ring",
         "desarrolladora": "From Software",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "La cuarta entrega de la saga de Dark Souls por parte de From Software (no nos dejemos engañar, Elden Ring es Dark Souls 4). Spawneas en las tierras intermedias y vas avanzando derrotando bosses. Nerfeen a Malenia, Blade of Miquella",
+        "imagen": "EldenRing.webp",
         "precio": 60,
-        "categoria": "Juego de rol",
+        "idCategoria": 2,
         "disponibilidad": true,
         "palabrasClave": [
             "dificil",
@@ -31,10 +31,10 @@
         "id": 3,
         "nombre": "Doom Eternal",
         "desarrolladora": "Id Software",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Comete atrocidades hacia los demonios que mataron a tu mascota conejito y haz que la única cosa a la que teman es a tí, SUFRIMIENTO Y DESTRUCCIÓN",
+        "imagen": "DoomEternal.webp",
         "precio": 30,
-        "categoria": "FPS frenetico",
+        "idCategoria": 19,
         "disponibilidad": true,
         "palabrasClave": [
             "fps",
@@ -45,10 +45,10 @@
         "id": 4,
         "nombre": "Valheim",
         "desarrolladora": "Iron gate AB",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Juego mundo abierto de supervivencia y farmeo con un ambiente nórdico. El juego es muy difícil, vas a sufrir. Advertencia: No aseguramos la supervivencia del jugador en el mundo de Valheim",
+        "imagen": "Valheim.webp",
         "precio": 19.99,
-        "categoria": "Supervivencia",
+        "idCategoria": 3,
         "disponibilidad": true,
         "palabrasClave": [
             "mundo abierto",
@@ -59,10 +59,10 @@
         "id": 5,
         "nombre": "Miside",
         "desarrolladora": "AIHASTO",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "No te dejes llevar por el aspecto cute del juego, el juego da más miedo de lo que parece (Aunque no demasiado)",
+        "imagen": "Miside.webp",
         "precio": 10.59,
-        "categoria": "Terror Psicológico",
+        "idCategoria": 4,
         "disponibilidad": true,
         "palabrasClave": [
             "anime",
@@ -73,10 +73,10 @@
         "id": 6,
         "nombre": "Sid Meier's Civilization VI",
         "desarrolladora": "Fireaxis",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Desde los primeros indicios de vida bajo el agua, hasta las grandes bestias de la Edad de Piedra, pasando por el hombre dando sus primeros pasos erguidos, has llegado lejos. Ahora comienza tu mayor búsqueda: desde esta cuna temprana de la civilización hacia las estrellas. BabiloGODnia.",
+        "imagen": "CivilizationVI.webp",
         "precio": 18,
-        "categoria": "Estrategia por turnos",
+        "idCategoria": 5,
         "disponibilidad": true,
         "palabrasClave": [
             "turnos",
@@ -87,10 +87,10 @@
         "id": 7,
         "nombre": "Balatro",
         "desarrolladora": "LocalThunk",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Este juego es la definición de si poker fuera un mejor juego. Una banana para dominarlos a todos.",
+        "imagen": "Balatro.webp",
         "precio": 13.99,
-        "categoria": "Roguelite",
+        "idCategoria": 6,
         "disponibilidad": true,
         "palabrasClave": [
             "cartas",
@@ -101,10 +101,10 @@
         "id": 8,
         "nombre": "Astroneer",
         "desarrolladora": "System Era Softworks",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "La experiencia de este juego es mejor si se juega en multijugador, sobre todo porque eso permite que tus amigos te troleen quitandote el oxígeno.",
+        "imagen": "Astroneer.webp",
         "precio": 25.99,
-        "categoria": "Supervivencia",
+        "idCategoria": 3,
         "disponibilidad": true,
         "palabrasClave": [
             "espacio",
@@ -113,26 +113,26 @@
         ]
     },{
         "id": 9,
-        "nombre": "Monster Hunter World",
+        "nombre": "Monster Hunter: World",
         "desarrolladora": "CAPCOM",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Caza monstruos, farmea unos 3*10^22 Nergigantes para hacerte esa armadura que tan buena es, o simplemente sufre luchando contra el Velkhana.",
+        "imagen": "MonsterHunterWorld.webp",
         "precio": 30,
-        "categoria": "Hack and Slash",
+        "idCategoria": 7,
         "disponibilidad": true,
         "palabrasClave": [
             "soulslike",
-            "cooperativos",
+            "cooperativo",
             "fantasia"
         ]
     },{
         "id": 10,
         "nombre": "Helldivers II",
         "desarrolladora": "Arrowhead Game Studios",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Extermina a los tiránidos por su petroleo y extiende la democracia por la galaxia mientras ejecutas a los robots comunistas traidores de la patria. Pro tip: No mueras.",
+        "imagen": "HelldiversII.webp",
         "precio": 40,
-        "categoria": "TPS",
+        "idCategoria": 19,
         "disponibilidad": true,
         "palabrasClave": [
             "espacio",
@@ -143,10 +143,10 @@
         "id": 11,
         "nombre": "Pizza Tower",
         "desarrolladora": "Tour de Pizza",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "A Peppino le subieron la renta y eso no le gustó nada. Corre lo más rápido que puedas para llegar a tiempo al Pizza Time!. WOAGH.",
+        "imagen": "PizzaTower.webp",
         "precio": 18.99,
-        "categoria": "Plataformas",
+        "idCategoria": 8,
         "disponibilidad": true,
         "palabrasClave": [
             "frenetico",
@@ -157,52 +157,52 @@
         "id": 12,
         "nombre": "God of War: Ragnarok",
         "desarrolladora": "Play Station Studios",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "El semidiós más mamado de todos. Kratos, el diós de la guerra que a todos los dioses matará",
+        "imagen": "GodofWarRagnarok.webp",
         "precio": 69.99,
-        "categoria": "Hack and Slash",
+        "idCategoria": 7,
         "disponibilidad": true,
         "palabrasClave": [
             "mitologia",
             "aventura",
-            "rol"
+            "rpg"
         ]
     },{
         "id": 13,
         "nombre": "Yakuza 7: Like a Dragon",
         "desarrolladora": "Ryu Ga Gotoku Studios",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Ichiban Kasuga be like: Dame da ne dame yo dame na no yo. Anta ga suki de sukisugite.Dore dake tsuyoi osake demo.Yugamanai omoide ga baka mitai.",
+        "imagen": "YakuzaLikeaDragon.webp",
         "precio": 39.99,
-        "categoria": "Por Turnos",
+        "idCategoria": 9,
         "disponibilidad": true,
         "palabrasClave": [
             "mafia",
-            "JRPG",
+            "jrpg",
             "divertido"
         ]
     },{
         "id": 14,
         "nombre": "Like a Dragon: Infinite Wealth",
         "desarrolladora": "Ryu Ga Gotoku Studios",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Este juego es como su predecesor, pero esta vez estás en un simulador al estilo animal crossing.",
+        "imagen": "LikeaDragonInfiniteWealth.webp",
         "precio": 59.99,
-        "categoria": "Por Turnos",
+        "idCategoria": 9,
         "disponibilidad": true,
         "palabrasClave": [
             "mafia",
-            "JRPG",
+            "jrpg",
             "divertido"
         ]
     },{
         "id": 15,
         "nombre": "Factorio",
         "desarrolladora": "Wube",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Factorio. Un juego sobre automatización, industrialización, expansionismo, colonialismo y las consecuencias de la falta de sueño en el cuerpo y mente humanas.",
+        "imagen": "Factorio.webp",
         "precio": 32,
-        "categoria": "Automatización",
+        "idCategoria": 10,
         "disponibilidad": true,
         "palabrasClave": [
             "simulacion",
@@ -213,10 +213,10 @@
         "id": 16,
         "nombre": "Terraria",
         "desarrolladora": "Re-Logic",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Un diós no le teme a la muerte y menos a un Chthulu del Hacendado al que todo el mundo llama 'Moon Lord'.",
+        "imagen": "Terraria.webp",
         "precio": 9.75,
-        "categoria": "Supervivencia",
+        "idCategoria": 3,
         "disponibilidad": true,
         "palabrasClave": [
             "sandbox",
@@ -227,10 +227,10 @@
         "id": 17,
         "nombre": "Lethal Company",
         "desarrolladora": "Zeekerss",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Todo por la compañia. Debes de cumplir la cuota para que no te expulsen al espacio (NO VAYAS A TITAN, REPITO, NO VAYAS A TITAN). Hey, It's me, Goku",
+        "imagen": "LethalCompany.webp",
         "precio": 9.75,
-        "categoria": "Supervivencia",
+        "idCategoria": 3,
         "disponibilidad": true,
         "palabrasClave": [
             "cooperativo",
@@ -241,10 +241,10 @@
         "id": 18,
         "nombre": "Guilty Gear Strive",
         "desarrolladora": "Arc System Works",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Según la opinion pública, es el mejor juego de lucha 2D de la época. Entra en piques con tus amigos o desconocidos porque son mejores que tú o practica pegando al Ky Kiske. Sol Badguy",
+        "imagen": "GuiltyGearStrive.webp",
         "precio": 20,
-        "categoria": "Peleas",
+        "idCategoria": 11,
         "disponibilidad": true,
         "palabrasClave": [
             "arcade",
@@ -255,13 +255,13 @@
         "id": 19,
         "nombre": "Persona 5 Royal",
         "desarrolladora": "Atlus",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "NOSE",
+        "imagen": "Persona5Royal.webp",
         "precio": 23.50,
-        "categoria": "Por Turnos",
+        "idCategoria": 9,
         "disponibilidad": true,
         "palabrasClave": [
-            "JRPG",
+            "jrpg",
             "novela visual",
             "anime"
         ]
@@ -269,10 +269,10 @@
         "id": 20,
         "nombre": "Hollow Knight",
         "desarrolladora": "Team Cherry",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Lo pido desde lo más profundo de mi corazón. Team Cherry, saquen Silksong porfavor.",
+        "imagen": "HollowKnight.webp",
         "precio": 14.75,
-        "categoria": "Metroidvania",
+        "idCategoria": 12,
         "disponibilidad": true,
         "palabrasClave": [
             "soulslike",
@@ -283,10 +283,10 @@
         "id": 21,
         "nombre": "Outer Wilds",
         "desarrolladora": "Mobius Digital",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Cualquier cosa que diga sobre este juego es spoiler pero puedo decir con seguridad que debería de haber ganado el juego del año de 2019.",
+        "imagen": "OuterWilds.webp",
         "precio": 25,
-        "categoria": "Exploración",
+        "idCategoria": 13,
         "disponibilidad": true,
         "palabrasClave": [
             "espacio",
@@ -297,10 +297,10 @@
         "id": 22,
         "nombre": "Portal 2",
         "desarrolladora": "Valve",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "(Spoiler alert): El único juego en el que una IA superpoderosa es metida en una patata y un robot con acento british te traiciona y te llama adoptada.",
+        "imagen": "Portal2.webp",
         "precio": 9.99,
-        "categoria": "Puzles",
+        "idCategoria": 14,
         "disponibilidad": true,
         "palabrasClave": [
             "plataformas",
@@ -311,10 +311,10 @@
         "id": 23,
         "nombre": "Deep Rock Galactic",
         "desarrolladora": "Ghost Ship Games",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Rock and Stone guys",
+        "imagen": "DeepRockGalactic.webp",
         "precio": 8.99,
-        "categoria": "Exploración",
+        "idCategoria": 13,
         "disponibilidad": true,
         "palabrasClave": [
             "farmeo",
@@ -325,10 +325,10 @@
         "id": 24,
         "nombre": "Celeste",
         "desarrolladora": "Maddy Makes Games",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Escala la montaña celeste como Madeline y desvela los secretos de la misma mientras te pones a prueba y te enfrentas a ti misma (literalmente).",
+        "imagen": "Celeste.webp",
         "precio": 19.50,
-        "categoria": "Plataformas",
+        "idCategoria": 8,
         "disponibilidad": true,
         "palabrasClave": [
             "dificil",
@@ -339,10 +339,10 @@
         "id": 25,
         "nombre": "Dragon's Dogma II",
         "desarrolladora": "CAPCOM",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "NOSE",
+        "imagen": "DragonsDogmaII.webp",
         "precio": 64.99,
-        "categoria": "RPG",
+        "idCategoria": 2,
         "disponibilidad": true,
         "palabrasClave": [
             "fantasia",
@@ -353,10 +353,10 @@
         "id": 26,
         "nombre": "Baldur's Gate III",
         "desarrolladora": "Larian Studios",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "El juego del año del 2023 con más de 1 millon de diálogos que cambian el transcurso de la historia. Recordatorio: Nunca sacarás el número que necesitas en el D20.",
+        "imagen": "BaldursGateIII.webp",
         "precio": 59.99,
-        "categoria": "RPG",
+        "idCategoria": 2,
         "disponibilidad": true,
         "palabrasClave": [
             "trama",
@@ -367,27 +367,27 @@
         "id": 27,
         "nombre": "The Binding of Isaac: Rebirth",
         "desarrolladora": "Nicalis, Inc",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Angeles o demonios? tú eliges.",
+        "imagen": "TheBindingofIsaacRebirth.webp",
         "precio": 8.99,
-        "categoria": "Roguelite",
+        "idCategoria": 6,
         "disponibilidad": true,
         "palabrasClave": [
             "dificil",
             "pixel",
-            "procedural"
+            "calabozos"
         ]
     },{
         "id": 28,
         "nombre": "Metal Gear Solid V: The Phantom Pain",
         "desarrolladora": "PlatinumGames",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "When you can't even say my name, has the memory gone? Are you feeling numb? Go and call my name, I can't play this game, so I ask again will you say my name? Has the memory gone? Are you feeling numb? Or have I become invisible?",
+        "imagen": "MetalGearSolidV.webp",
         "precio": 18.99,
-        "categoria": "Sigilo",
+        "idCategoria": 15,
         "disponibilidad": true,
         "palabrasClave": [
-            "musica",
+            "soundtrack",
             "tactico",
             "trama"
         ]
@@ -395,10 +395,10 @@
         "id": 29,
         "nombre": "Metal Gear Rising: Revengeance",
         "desarrolladora": "PlatinumGames",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "¿Que juego puede molar más que uno en el que eres un ninja cyborg y te enfrentas contra un brasileño con una espada con stats muy poco balanceadas?",
+        "imagen": "MetalGearRisingRevengeance.webp",
         "precio": 14.99,
-        "categoria": "Hack and Slash",
+        "idCategoria": 7,
         "disponibilidad": true,
         "palabrasClave": [
             "accion",
@@ -409,10 +409,10 @@
         "id": 30,
         "nombre": "Devil May Cry 5",
         "desarrolladora": "CAPCOM",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "NOSE",
+        "imagen": "DevilMayCry5.webp",
         "precio": 20.99,
-        "categoria": "Hack and Slash",
+        "idCategoria": 7,
         "disponibilidad": true,
         "palabrasClave": [
             "accion",
@@ -423,85 +423,351 @@
         "id": 31,
         "nombre": "Undertale",
         "desarrolladora": "Toby Fox",
-        "descripcion": "",
-        "imagen": "",
+        "descripcion": "Tremenda obra maestra 10/10, música 10/10, historia 10/10. ¿Quieres pasar un mal rato?",
+        "imagen": "Undertale.webp",
         "precio": 4.99,
-        "categoria": "Lore/Historia",
+        "idCategoria": 16,
         "disponibilidad": true,
         "palabrasClave": [
             "pixel",
-            "musica",
+            "soundtrack",
             "rpg"
         ]
     },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
+        "id": 32,
+        "nombre": "Blasphemous II",
+        "desarrolladora": "The Game Kitchen",
+        "descripcion": "Un juego español sobre la historia de Sevilla bastante cruel y sangriento",
+        "imagen": "BlasphemousII.webp",
+        "precio": 27.99,
+        "idCategoria": 12,
         "disponibilidad": true,
         "palabrasClave": [
-            "",
-            "",
-            ""
+            "soulslike",
+            "fantasia",
+            "pixel"
         ]
     },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
+        "id": 33,
+        "nombre": "Lisa: The Painuful",
+        "desarrolladora": "Dingaling Productions",
+        "descripcion": "¿Que harías si eres un hombre y encuentras a una niña en un mundo en el que las mujeres desaparecieron?",
+        "imagen": "LisaThePainful.webp",
+        "precio": 19.99,
+        "idCategoria": 16,
         "disponibilidad": true,
         "palabrasClave": [
-            "",
-            "",
-            ""
+            "humor",
+            "terror",
+            "pixel"
         ]
     },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
+        "id": 34,
+        "nombre": "Final Fantasy VII Rebirth",
+        "desarrolladora": "Square Enix",
+        "descripcion": "NOSE",
+        "imagen": "FinalfantasyVII.webp",
+        "precio": 70,
+        "idCategoria": 2,
         "disponibilidad": true,
         "palabrasClave": [
-            "",
-            "",
-            ""
+            "accion",
+            "fantasia",
+            "jrpg"
         ]
     },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
+        "id": 35,
+        "nombre": "Destiny 2",
+        "desarrolladora": "Bungie",
+        "descripcion": "NOSE",
+        "imagen": "Destiny2.webp",
+        "precio": 9.99,
+        "idCategoria": 1,
         "disponibilidad": true,
         "palabrasClave": [
-            "",
-            "",
-            ""
+            "disparos",
+            "mmorpg",
+            "fps"
         ]
     },{
-        "id": 1,
-        "nombre": "",
-        "desarrolladora": "",
-        "descripcion": "",
-        "imagen": "",
-        "precio": 0,
-        "categoria": "",
+        "id": 36,
+        "nombre": "Diablo IV",
+        "desarrolladora": "Blizzard Entertainment, Inc",
+        "descripcion": "NOSE",
+        "imagen": "DiabloIV.webp",
+        "precio": 49.99,
+        "idCategoria": 7,
         "disponibilidad": true,
         "palabrasClave": [
-            "",
-            "",
-            ""
+            "isometrico",
+            "calabozos",
+            "rpg"
+        ]
+    },{
+        "id": 37,
+        "nombre": "Rust",
+        "desarrolladora": "Facepunch Studios",
+        "descripcion": "Tengo total seguridad de que la gente solo juega este juego con el objetivo de ir a servidores públicos y raidear las bases de los jugadores.",
+        "imagen": "Rust.webp",
+        "precio": 39.99,
+        "idCategoria": 3,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "accion",
+            "sandbox",
+            "farmeo"
+        ]
+    },{
+        "id": 38,
+        "nombre": "The Witcher 3: Wild Hunt",
+        "desarrolladora": "CD PROYEKT RED",
+        "descripcion": "NOSE",
+        "imagen": "TheWitcher3.webp",
+        "precio": 5.99,
+        "idCategoria": 2,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "trama",
+            "fantasia",
+            "soundtrack"
+        ]
+    },{
+        "id": 39,
+        "nombre": "Warhammer 40.000: Space Marine II",
+        "desarrolladora": "Saber Interactive",
+        "descripcion": "En el universo de WarHammer 40000 solo existe la guerra",
+        "imagen": "SpaceMarineII.webp",
+        "precio": 60,
+        "idCategoria": 17,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "espacio",
+            "cooperativo",
+            "guerra"
+        ]
+    },{
+        "id": 40,
+        "nombre": "Bully",
+        "desarrolladora": "Rockstar Games",
+        "descripcion": "NOSE",
+        "imagen": "Bully.webp",
+        "precio": 3.50,
+        "idCategoria": 2,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "accion",
+            "divertido",
+            "tercera persona"
+        ]
+    },{
+        "id": 41,
+        "nombre": "Black Myth: Wukong",
+        "desarrolladora": "Game Science",
+        "descripcion": "NOSE",
+        "imagen": "BlackMythWukong.webp",
+        "precio": 59.99,
+        "idCategoria": 2,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "mitologia",
+            "soulslike",
+            "trama"
+        ]
+    },{
+        "id": 42,
+        "nombre": "Lies of P",
+        "desarrolladora": "NEOWIZ",
+        "descripcion": "NOSE",
+        "imagen": "LiesofP.webp",
+        "precio": 59.99,
+        "idCategoria": 18,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "exploracion",
+            "trama",
+            "rpg"
+        ]
+    },{
+        "id": 43,
+        "nombre": "Detroit: Become Human",
+        "desarrolladora": "Quantic Dream",
+        "descripcion": "NOSE",
+        "imagen": "DetroitBecomeHuman.webp",
+        "precio": 39.99,
+        "idCategoria": 16,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "elecciones",
+            "futurista",
+            "aventura"
+        ]
+    },{
+        "id": 44,
+        "nombre": "Counter Strike 2",
+        "desarrolladora": "Valve",
+        "descripcion": "",
+        "imagen": "CounterStrike2.webp",
+        "precio": 4.99,
+        "idCategoria": 19,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "competitivo",
+            "accion",
+            "disparos"
+        ]
+    },{
+        "id": 45,
+        "nombre": "It Takes Two",
+        "desarrolladora": "Hazelight Studios",
+        "descripcion": "",
+        "imagen": "ItTakesTwo.webp",
+        "precio": 7.99,
+        "idCategoria": 14,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "cooperativo",
+            "trama",
+            "aventura"
+        ]
+    },{
+        "id": 46,
+        "nombre": "Dragon Ball: Sparking! Zero",
+        "desarrolladora": "Spike Chunsoft Co., Ltd",
+        "descripcion": "",
+        "imagen": "DragonBallSparkingZero.webp",
+        "precio": 70,
+        "idCategoria": 11,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "anime",
+            "3D",
+            "goku"
+        ]
+    },{
+        "id": 47,
+        "nombre": "Mortal Kombat 11",
+        "desarrolladora": "NetherRealm Studios",
+        "descripcion": "NOSE",
+        "imagen": "MortalKombat11.webp",
+        "precio": 49.99,
+        "idCategoria": 11,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "violento",
+            "accion",
+            "gore"
+        ]
+    },{
+        "id": 48,
+        "nombre": "CyberPunk 2077",
+        "desarrolladora": "CD PROYEKT RED",
+        "descripcion": "",
+        "imagen": "CyberPunk2077.webp",
+        "precio": 64.99,
+        "idCategoria": 2,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "futurista",
+            "cyberpunk",
+            "fps"
+        ]
+    },{
+        "id": 49,
+        "nombre": "Raft",
+        "desarrolladora": "Redbeet Interactive",
+        "descripcion": "NOSE",
+        "imagen": "Raft.webp",
+        "precio": 20,
+        "idCategoria": 3,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "cooperativo",
+            "construccion",
+            "sandbox"
+        ]
+    },{
+        "id": 50,
+        "nombre": "Resident Evil 4",
+        "desarrolladora": "CAPCOM",
+        "descripcion": "NOSE",
+        "imagen": "ResidentEvil4.webp",
+        "precio": 40,
+        "idCategoria": 4,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "zombis",
+            "accion",
+            "disparos"
+        ]
+    },{
+        "id": 51,
+        "nombre": "Uncharted",
+        "desarrolladora": "Naughty Dog LLC",
+        "descripcion": "NOSE",
+        "imagen": "Uncharted.webp",
+        "precio": 49.99,
+        "idCategoria": 20,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "aventura",
+            "trama",
+            "puzles"
+        ]
+    },{
+        "id": 52,
+        "nombre": "Age of Empires 4",
+        "desarrolladora": "Relic Entertainment",
+        "descripcion": "NOSE",
+        "imagen": "AgeofEmpires4.webp",
+        "precio": 39.99,
+        "idCategoria": 21,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "guerra",
+            "construccion",
+            "conquista"
+        ]
+    },{
+        "id": 53,
+        "nombre": "Little Nightmares II",
+        "desarrolladora": "Tarsier Studios",
+        "descripcion": "NOSE",
+        "imagen": "LittleNightmares.webp",
+        "precio": 30,
+        "idCategoria": 14,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "terror",
+            "trama",
+            "aventura"
+        ]
+    },{
+        "id": 54,
+        "nombre": "Red Dead Redemption II",
+        "desarrolladora": "Rockstar Games",
+        "descripcion": "",
+        "imagen": "RedDeadRedemptionII.webp",
+        "precio": 29.99,
+        "idCategoria": 22,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "trama",
+            "aventura",
+            "disparos"
+        ]
+    },{
+        "id": 55,
+        "nombre": "Sackboy: A Big Adventure",
+        "desarrolladora": "Sumo Digital",
+        "descripcion": "NOSE",
+        "imagen": "SackboyaBigAdventure.webp",
+        "precio": 60,
+        "idCategoria": 8,
+        "disponibilidad": true,
+        "palabrasClave": [
+            "cooperativo",
+            "soundtrack",
+            "cute"
         ]
     }
     
