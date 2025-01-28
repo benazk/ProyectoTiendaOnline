@@ -4,8 +4,8 @@
         "nombre": "Grand Theft Auto V",
         "desarrolladora": "Rockstar Games",
         "descripcion": "El juego de hit and run más jugado de la última decada. Controla a Michael, Trevor y Franklin en Los Santos para cometer crímenes o ve al modo online y trolea a los demás jugadores. Saquen GTA 6 Rockstar porfavor",
-        "imagen": "GTAV.webp",
-        "precio": 30,
+        "imagen": "GTA5.webp",
+        "precio": 39.98,
         "idCategoria": 1,
         "disponibilidad": true,
         "palabrasClave": [
@@ -18,8 +18,8 @@
         "nombre": "Elden Ring",
         "desarrolladora": "From Software",
         "descripcion": "La cuarta entrega de la saga de Dark Souls por parte de From Software (no nos dejemos engañar, Elden Ring es Dark Souls 4). Spawneas en las tierras intermedias y vas avanzando derrotando bosses. Nerfeen a Malenia, Blade of Miquella",
-        "imagen": "EldenRing.webp",
-        "precio": 60,
+        "imagen": "Eldenring.webp",
+        "precio": 100,
         "idCategoria": 2,
         "disponibilidad": true,
         "palabrasClave": [
@@ -33,7 +33,7 @@
         "desarrolladora": "Id Software",
         "descripcion": "Comete atrocidades hacia los demonios que mataron a tu mascota conejito y haz que la única cosa a la que teman es a tí, SUFRIMIENTO Y DESTRUCCIÓN",
         "imagen": "DoomEternal.webp",
-        "precio": 30,
+        "precio": 9.99,
         "idCategoria": 19,
         "disponibilidad": true,
         "palabrasClave": [
@@ -59,9 +59,9 @@
         "id": 5,
         "nombre": "Miside",
         "desarrolladora": "AIHASTO",
-        "descripcion": "No te dejes llevar por el aspecto cute del juego, el juego da más miedo de lo que parece (Aunque no demasiado)",
-        "imagen": "Miside.webp",
-        "precio": 10.59,
+        "descripcion": "No te dejes llevar por el aspecto cute del juego, el juego da más miedo que tu madre llamandote por tu nombre completo (Aunque no demasiado)",
+        "imagen": "miside.webp",
+        "precio": 14.79,
         "idCategoria": 4,
         "disponibilidad": true,
         "palabrasClave": [
@@ -74,8 +74,8 @@
         "nombre": "Sid Meier's Civilization VI",
         "desarrolladora": "Fireaxis",
         "descripcion": "Desde los primeros indicios de vida bajo el agua, hasta las grandes bestias de la Edad de Piedra, pasando por el hombre dando sus primeros pasos erguidos, has llegado lejos. Ahora comienza tu mayor búsqueda: desde esta cuna temprana de la civilización hacia las estrellas. BabiloGODnia.",
-        "imagen": "CivilizationVI.webp",
-        "precio": 18,
+        "imagen": "civilization vi.webp",
+        "precio": 100.80,
         "idCategoria": 5,
         "disponibilidad": true,
         "palabrasClave": [
@@ -88,7 +88,7 @@
         "nombre": "Balatro",
         "desarrolladora": "LocalThunk",
         "descripcion": "Este juego es la definición de si poker fuera un mejor juego. Una banana para dominarlos a todos.",
-        "imagen": "Balatro.webp",
+        "imagen": "balatro.webp",
         "precio": 13.99,
         "idCategoria": 6,
         "disponibilidad": true,
@@ -103,7 +103,7 @@
         "desarrolladora": "System Era Softworks",
         "descripcion": "La experiencia de este juego es mejor si se juega en multijugador, sobre todo porque eso permite que tus amigos te troleen quitandote el oxígeno.",
         "imagen": "Astroneer.webp",
-        "precio": 25.99,
+        "precio": 29.99,
         "idCategoria": 3,
         "disponibilidad": true,
         "palabrasClave": [
@@ -116,8 +116,8 @@
         "nombre": "Monster Hunter: World",
         "desarrolladora": "CAPCOM",
         "descripcion": "Caza monstruos, farmea unos 3*10^22 Nergigantes para hacerte esa armadura que tan buena es, o simplemente sufre luchando contra el Velkhana.",
-        "imagen": "MonsterHunterWorld.webp",
-        "precio": 30,
+        "imagen": "monsterhunterworld.webp",
+        "precio": 29.99,
         "idCategoria": 7,
         "disponibilidad": true,
         "palabrasClave": [
@@ -131,7 +131,7 @@
         "desarrolladora": "Arrowhead Game Studios",
         "descripcion": "Extermina a los tiránidos por su petroleo y extiende la democracia por la galaxia mientras ejecutas a los robots comunistas traidores de la patria. Pro tip: No mueras.",
         "imagen": "HelldiversII.webp",
-        "precio": 40,
+        "precio": 39.99,
         "idCategoria": 19,
         "disponibilidad": true,
         "palabrasClave": [
@@ -145,7 +145,7 @@
         "desarrolladora": "Tour de Pizza",
         "descripcion": "A Peppino le subieron la renta y eso no le gustó nada. Corre lo más rápido que puedas para llegar a tiempo al Pizza Time!. WOAGH.",
         "imagen": "PizzaTower.webp",
-        "precio": 18.99,
+        "precio": 19.50,
         "idCategoria": 8,
         "disponibilidad": true,
         "palabrasClave": [
@@ -159,7 +159,7 @@
         "desarrolladora": "Play Station Studios",
         "descripcion": "El semidiós más mamado de todos. Kratos, el diós de la guerra que a todos los dioses matará",
         "imagen": "GodofWarRagnarok.webp",
-        "precio": 69.99,
+        "precio": 59.99,
         "idCategoria": 7,
         "disponibilidad": true,
         "palabrasClave": [
@@ -173,7 +173,7 @@
         "desarrolladora": "Ryu Ga Gotoku Studios",
         "descripcion": "Ichiban Kasuga be like: Dame da ne dame yo dame na no yo. Anta ga suki de sukisugite.Dore dake tsuyoi osake demo.Yugamanai omoide ga baka mitai.",
         "imagen": "YakuzaLikeaDragon.webp",
-        "precio": 39.99,
+        "precio": 19.99,
         "idCategoria": 9,
         "disponibilidad": true,
         "palabrasClave": [
@@ -187,7 +187,7 @@
         "desarrolladora": "Ryu Ga Gotoku Studios",
         "descripcion": "Este juego es como su predecesor, pero esta vez estás en un simulador al estilo animal crossing.",
         "imagen": "LikeaDragonInfiniteWealth.webp",
-        "precio": 59.99,
+        "precio": 69.99,
         "idCategoria": 9,
         "disponibilidad": true,
         "palabrasClave": [
@@ -243,7 +243,7 @@
         "desarrolladora": "Arc System Works",
         "descripcion": "Según la opinion pública, es el mejor juego de lucha 2D de la época. Entra en piques con tus amigos o desconocidos porque son mejores que tú o practica pegando al Ky Kiske. Sol Badguy",
         "imagen": "GuiltyGearStrive.webp",
-        "precio": 20,
+        "precio": 39.99,
         "idCategoria": 11,
         "disponibilidad": true,
         "palabrasClave": [
@@ -257,7 +257,7 @@
         "desarrolladora": "Atlus",
         "descripcion": "NOSE",
         "imagen": "Persona5Royal.webp",
-        "precio": 23.50,
+        "precio": 59.99,
         "idCategoria": 9,
         "disponibilidad": true,
         "palabrasClave": [
@@ -271,7 +271,7 @@
         "desarrolladora": "Team Cherry",
         "descripcion": "Lo pido desde lo más profundo de mi corazón. Team Cherry, saquen Silksong porfavor.",
         "imagen": "HollowKnight.webp",
-        "precio": 14.75,
+        "precio": 14.79,
         "idCategoria": 12,
         "disponibilidad": true,
         "palabrasClave": [
@@ -285,7 +285,7 @@
         "desarrolladora": "Mobius Digital",
         "descripcion": "Cualquier cosa que diga sobre este juego es spoiler pero puedo decir con seguridad que debería de haber ganado el juego del año de 2019.",
         "imagen": "OuterWilds.webp",
-        "precio": 25,
+        "precio": 22.99,
         "idCategoria": 13,
         "disponibilidad": true,
         "palabrasClave": [
@@ -299,7 +299,7 @@
         "desarrolladora": "Valve",
         "descripcion": "(Spoiler alert): El único juego en el que una IA superpoderosa es metida en una patata y un robot con acento british te traiciona y te llama adoptada.",
         "imagen": "Portal2.webp",
-        "precio": 9.99,
+        "precio": 9.75,
         "idCategoria": 14,
         "disponibilidad": true,
         "palabrasClave": [
@@ -313,7 +313,7 @@
         "desarrolladora": "Ghost Ship Games",
         "descripcion": "Rock and Stone guys",
         "imagen": "DeepRockGalactic.webp",
-        "precio": 8.99,
+        "precio": 29.99,
         "idCategoria": 13,
         "disponibilidad": true,
         "palabrasClave": [
@@ -369,7 +369,7 @@
         "desarrolladora": "Nicalis, Inc",
         "descripcion": "Angeles o demonios? tú eliges.",
         "imagen": "TheBindingofIsaacRebirth.webp",
-        "precio": 8.99,
+        "precio": 14.99,
         "idCategoria": 6,
         "disponibilidad": true,
         "palabrasClave": [
@@ -383,7 +383,7 @@
         "desarrolladora": "PlatinumGames",
         "descripcion": "When you can't even say my name, has the memory gone? Are you feeling numb? Go and call my name, I can't play this game, so I ask again will you say my name? Has the memory gone? Are you feeling numb? Or have I become invisible?",
         "imagen": "MetalGearSolidV.webp",
-        "precio": 18.99,
+        "precio": 29.99,
         "idCategoria": 15,
         "disponibilidad": true,
         "palabrasClave": [
@@ -397,7 +397,7 @@
         "desarrolladora": "PlatinumGames",
         "descripcion": "¿Que juego puede molar más que uno en el que eres un ninja cyborg y te enfrentas contra un brasileño con una espada con stats muy poco balanceadas?",
         "imagen": "MetalGearRisingRevengeance.webp",
-        "precio": 14.99,
+        "precio": 19.99,
         "idCategoria": 7,
         "disponibilidad": true,
         "palabrasClave": [
@@ -411,7 +411,7 @@
         "desarrolladora": "CAPCOM",
         "descripcion": "NOSE",
         "imagen": "DevilMayCry5.webp",
-        "precio": 20.99,
+        "precio": 29.99,
         "idCategoria": 7,
         "disponibilidad": true,
         "palabrasClave": [
@@ -425,7 +425,7 @@
         "desarrolladora": "Toby Fox",
         "descripcion": "Tremenda obra maestra 10/10, música 10/10, historia 10/10. ¿Quieres pasar un mal rato?",
         "imagen": "Undertale.webp",
-        "precio": 4.99,
+        "precio": 9.99,
         "idCategoria": 16,
         "disponibilidad": true,
         "palabrasClave": [
