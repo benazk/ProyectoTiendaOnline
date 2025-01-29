@@ -1,0 +1,3 @@
+-Añadir campo de ruta de imagen en bbdd
+-probar que se renderize todo en HTML
+-comenzar con vue
