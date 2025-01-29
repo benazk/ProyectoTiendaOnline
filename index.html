@@ -22,10 +22,26 @@
             </button>
             <!-- Menú del navbar que se colapsa en pantallas pequeñas -->
             <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0 d-flex align-items-">
                     <li class="nav-item">
                         <!-- Botón Tienda -->
-                        <button class="btn btn-primary fs-5" type="button">Tienda</button>
+                        <button class="btn btn-primary btn-sm fs-6 ms-3 btn-lg-3 " type="button">Tienda</button>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Botón Producto -->
+                        <button class="btn btn-primary btn-sm fs-6 ms-3 " type="button">Producto</button>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Botón Carrito -->
+                        <button class="btn btn-primary btn-sm fs-6 ms-3" type="button">Carrito</button>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Botón Favoritos -->
+                        <button class="btn btn-primary btn-sm fs-6 ms-3" type="button">Favoritos</button>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Botón Historial -->
+                        <button class="btn btn-primary btn-sm fs-6 ms-3" type="button">Historial</button>
                     </li>
                 </ul>
                 <!-- Barra de búsqueda en el navbar -->
@@ -57,7 +73,7 @@
     </div>
 
     <!-- Sidebar de categorías en pantallas grandes -->
-    <div class="position-fixed top-0 end-0 vh-100 bg-light p-4 d-none d-md-block"
+    <div class="position-fixed top-0 end-0 vh-100 bg-light p-4 d-block d-md-block"
          style="width: 250px; margin-top: 70px; border-left: 1px solid #ccc;">
         <h5 class="text-primary mb-3">Categorías</h5>
         <ul class="list-unstyled">
@@ -71,7 +87,7 @@
                 </button>
                 <div class="collapse show" id="home-collapse">
                     <ul class="list-unstyled fw-normal pb-1 small">
-                        <li><a href="#" class="link-dark rounded p-1">PRG</a></li>
+                        <li><a href="#" class="link-dark rounded p-1">RPG</a></li>
                         <li><a href="#" class="link-dark rounded p-1">Supervivencia</a></li>
                         <li><a href="#" class="link-dark rounded p-1">Hit and Run</a></li>
                     </ul>
@@ -105,6 +121,11 @@
             </li>
         </ul>
     </div>
+
+    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+<button type="button" class="btn btn-secondary btn-lg">Large button</button>
+<button type="button" class="btn btn-primary btn-sm">Small button</button>
+<button type="button" class="btn btn-secondary btn-sm">Small button</button>
 
     <!-- Agregar iconos a los botones de categorías -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
