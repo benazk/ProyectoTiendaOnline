@@ -11,7 +11,10 @@
         "palabrasClave": [
             "Coches",
             "Crimen",
-            "disparos"
+            "disparos",
+            "gta",
+            "GTA",
+            "GTAV"
         ]
     },{
         "id": 2,
@@ -25,7 +28,13 @@
         "palabrasClave": [
             "dificil",
             "magia",
-            "medieval"
+            "medieval",
+            "dark souls",
+            "elden",
+            "elden ring",
+            "ds4",
+            "DS",
+            "malenia"
         ]
     },{
         "id": 3,
@@ -39,7 +48,10 @@
         "palabrasClave": [
             "fps",
             "demonios",
-            "frenetico"
+            "frenetico",
+            "doom",
+            "doomguy",
+            "marte"
         ]
     },{
         "id": 4,
@@ -67,7 +79,9 @@
         "palabrasClave": [
             "anime",
             "miedo",
-            "cute"
+            "cute",
+            "waifu",
+            "sus"
         ]
     },{
         "id": 6,
@@ -81,7 +95,10 @@
         "palabrasClave": [
             "turnos",
             "gestion",
-            "simulacion"
+            "simulacion",
+            "babilonia",
+            "civ",
+            "civ 6"
         ]
     },{
         "id": 7,
@@ -95,7 +112,8 @@
         "palabrasClave": [
             "cartas",
             "estrategia",
-            "turnos"
+            "turnos",
+            "poker"
         ]
     },{
         "id": 8,
@@ -109,7 +127,8 @@
         "palabrasClave": [
             "espacio",
             "farmeo",
-            "exploracion"
+            "exploracion",
+            "astro"
         ]
     },{
         "id": 9,
@@ -123,7 +142,9 @@
         "palabrasClave": [
             "soulslike",
             "cooperativo",
-            "fantasia"
+            "fantasia",
+            "mhw",
+            "monster hunter"
         ]
     },{
         "id": 10,
@@ -137,7 +158,10 @@
         "palabrasClave": [
             "espacio",
             "tercera persona",
-            "conquista"
+            "conquista",
+            "helldivers",
+            "democracia",
+            "secuela"
         ]
     },{
         "id": 11,
@@ -151,7 +175,9 @@
         "palabrasClave": [
             "frenetico",
             "soundtrack",
-            "contrarreloj"
+            "contrarreloj",
+            "peppino",
+            "pizza"
         ]
     },{
         "id": 12,
@@ -165,7 +191,10 @@
         "palabrasClave": [
             "mitologia",
             "aventura",
-            "rpg"
+            "rpg",
+            "god of war",
+            "kratos",
+            "ragnarok"
         ]
     },{
         "id": 13,
@@ -179,7 +208,12 @@
         "palabrasClave": [
             "mafia",
             "jrpg",
-            "divertido"
+            "divertido",
+            "yakuza",
+            "like a dragon",
+            "kazuma",
+            "ichiban",
+            "kasuga"
         ]
     },{
         "id": 14,
@@ -193,7 +227,12 @@
         "palabrasClave": [
             "mafia",
             "jrpg",
-            "divertido"
+            "divertido",
+            "infinite wealth",
+            "yakuza",
+            "ichiban",
+            "kasuga",
+            "kazuma"
         ]
     },{
         "id": 15,
@@ -207,7 +246,9 @@
         "palabrasClave": [
             "simulacion",
             "sandbox",
-            "gestión"
+            "gestion",
+            "adiccion",
+            "fabrica"
         ]
     },{
         "id": 16,
@@ -221,7 +262,8 @@
         "palabrasClave": [
             "sandbox",
             "2D",
-            "exploracion"
+            "exploracion",
+            "minecraft 2d"
         ]
     },{
         "id": 17,
@@ -235,7 +277,9 @@
         "palabrasClave": [
             "cooperativo",
             "divertido",
-            "terror"
+            "terror",
+            "lethal",
+            "company"
         ]
     },{
         "id": 18,
@@ -249,7 +293,10 @@
         "palabrasClave": [
             "arcade",
             "anime",
-            "2D"
+            "2D",
+            "ggs",
+            "guilty",
+            "guilty gear"
         ]
     },{
         "id": 19,
@@ -263,7 +310,10 @@
         "palabrasClave": [
             "jrpg",
             "novela visual",
-            "anime"
+            "anime",
+            "p5",
+            "persona",
+            "persona 5"
         ]
     },{
         "id": 20,
@@ -277,7 +327,9 @@
         "palabrasClave": [
             "soulslike",
             "plataformas",
-            "exploracion"
+            "exploracion",
+            "silksong",
+            "hornet"
         ]
     },{
         "id": 21,
@@ -291,7 +343,8 @@
         "palabrasClave": [
             "espacio",
             "puzles",
-            "trama"
+            "trama",
+            "spoiler"
         ]
     },{
         "id": 22,
@@ -305,7 +358,9 @@
         "palabrasClave": [
             "plataformas",
             "trama",
-            "humor"
+            "humor",
+            "glados",
+            "portal"
         ]
     },{
         "id": 23,
@@ -319,7 +374,10 @@
         "palabrasClave": [
             "farmeo",
             "cooperativo",
-            "fps"
+            "fps",
+            "rock and stone",
+            "drg",
+            "deep rock"
         ]
     },{
         "id": 24,
@@ -333,7 +391,8 @@
         "palabrasClave": [
             "dificil",
             "aventuras",
-            "pixel"
+            "pixel",
+            "madeline"
         ]
     },{
         "id": 25,
@@ -347,7 +406,9 @@
         "palabrasClave": [
             "fantasia",
             "exploracion",
-            "dragones"
+            "dragones",
+            "dd2",
+            "secuela"
         ]
     },{
         "id": 26,
@@ -361,7 +422,9 @@
         "palabrasClave": [
             "trama",
             "D&D",
-            "fantasia"
+            "fantasia",
+            "bg3",
+            "secuela"
         ]
     },{
         "id": 27,
@@ -375,7 +438,9 @@
         "palabrasClave": [
             "dificil",
             "pixel",
-            "calabozos"
+            "calabozos",
+            "tboi",
+            "isaac"
         ]
     },{
         "id": 28,
@@ -389,7 +454,12 @@
         "palabrasClave": [
             "soundtrack",
             "tactico",
-            "trama"
+            "trama",
+            "mgs5",
+            "snake",
+            "big boss",
+            "solid snake",
+            "invisible"
         ]
     },{
         "id": 29,
@@ -403,7 +473,11 @@
         "palabrasClave": [
             "accion",
             "ninjas",
-            "dificil"
+            "dificil",
+            "raiden",
+            "nanomachines",
+            "cyborg",
+            "mgrr"
         ]
     },{
         "id": 30,
@@ -417,7 +491,11 @@
         "palabrasClave": [
             "accion",
             "demonios",
-            "violento"
+            "violento",
+            "dante",
+            "vergil",
+            "yamato",
+            "dmc5"
         ]
     },{
         "id": 31,
@@ -431,7 +509,9 @@
         "palabrasClave": [
             "pixel",
             "soundtrack",
-            "rpg"
+            "rpg",
+            "sans",
+            "ut"
         ]
     },{
         "id": 32,
@@ -445,7 +525,9 @@
         "palabrasClave": [
             "soulslike",
             "fantasia",
-            "pixel"
+            "pixel",
+            "sevilla",
+            "secuela"
         ]
     },{
         "id": 33,
@@ -459,7 +541,8 @@
         "palabrasClave": [
             "humor",
             "terror",
-            "pixel"
+            "pixel",
+            "lisa"
         ]
     },{
         "id": 34,
@@ -473,7 +556,10 @@
         "palabrasClave": [
             "accion",
             "fantasia",
-            "jrpg"
+            "jrpg",
+            "ff7",
+            "cloud",
+            "final fantasy"
         ]
     },{
         "id": 35,
@@ -487,7 +573,8 @@
         "palabrasClave": [
             "disparos",
             "mmorpg",
-            "fps"
+            "fps",
+            "destiny"
         ]
     },{
         "id": 36,
@@ -501,7 +588,8 @@
         "palabrasClave": [
             "isometrico",
             "calabozos",
-            "rpg"
+            "rpg",
+            "diablo"
         ]
     },{
         "id": 37,
@@ -529,7 +617,8 @@
         "palabrasClave": [
             "trama",
             "fantasia",
-            "soundtrack"
+            "soundtrack",
+            "gerald"
         ]
     },{
         "id": 39,
@@ -543,7 +632,11 @@
         "palabrasClave": [
             "espacio",
             "cooperativo",
-            "guerra"
+            "guerra",
+            "humanidad",
+            "emperador",
+            "space marine",
+            "secuela"
         ]
     },{
         "id": 40,
@@ -557,7 +650,8 @@
         "palabrasClave": [
             "accion",
             "divertido",
-            "tercera persona"
+            "tercera persona",
+            "bullying"
         ]
     },{
         "id": 41,
@@ -571,7 +665,9 @@
         "palabrasClave": [
             "mitologia",
             "soulslike",
-            "trama"
+            "trama",
+            "monkey",
+            "wukong"
         ]
     },{
         "id": 42,
@@ -585,7 +681,8 @@
         "palabrasClave": [
             "exploracion",
             "trama",
-            "rpg"
+            "rpg",
+            "P"
         ]
     },{
         "id": 43,
@@ -599,7 +696,8 @@
         "palabrasClave": [
             "elecciones",
             "futurista",
-            "aventura"
+            "aventura",
+            "detroit"
         ]
     },{
         "id": 44,
@@ -613,7 +711,9 @@
         "palabrasClave": [
             "competitivo",
             "accion",
-            "disparos"
+            "disparos",
+            "cs2",
+            "cs"
         ]
     },{
         "id": 45,
@@ -627,7 +727,8 @@
         "palabrasClave": [
             "cooperativo",
             "trama",
-            "aventura"
+            "aventura",
+            "two"
         ]
     },{
         "id": 46,
@@ -641,7 +742,11 @@
         "palabrasClave": [
             "anime",
             "3D",
-            "goku"
+            "goku",
+            "dragon ball",
+            "sparking zero",
+            "db",
+            "dragon ball sparking zero"
         ]
     },{
         "id": 47,
@@ -655,7 +760,9 @@
         "palabrasClave": [
             "violento",
             "accion",
-            "gore"
+            "gore",
+            "mk11",
+            "mortal kombat"
         ]
     },{
         "id": 48,
@@ -669,7 +776,9 @@
         "palabrasClave": [
             "futurista",
             "cyberpunk",
-            "fps"
+            "fps",
+            "2077",
+            "cyberpunk"
         ]
     },{
         "id": 49,
@@ -683,7 +792,8 @@
         "palabrasClave": [
             "cooperativo",
             "construccion",
-            "sandbox"
+            "sandbox",
+            "oceano"
         ]
     },{
         "id": 50,
@@ -697,7 +807,10 @@
         "palabrasClave": [
             "zombis",
             "accion",
-            "disparos"
+            "disparos",
+            "re4",
+            "resident",
+            "resident evil"
         ]
     },{
         "id": 51,
@@ -711,7 +824,8 @@
         "palabrasClave": [
             "aventura",
             "trama",
-            "puzles"
+            "puzles",
+            "tom holland"
         ]
     },{
         "id": 52,
@@ -725,7 +839,10 @@
         "palabrasClave": [
             "guerra",
             "construccion",
-            "conquista"
+            "conquista",
+            "aoe4",
+            "age of empires",
+            "empires"
         ]
     },{
         "id": 53,
@@ -739,7 +856,9 @@
         "palabrasClave": [
             "terror",
             "trama",
-            "aventura"
+            "aventura",
+            "little nightmares",
+            "secuela"
         ]
     },{
         "id": 54,
@@ -753,7 +872,10 @@
         "palabrasClave": [
             "trama",
             "aventura",
-            "disparos"
+            "disparos",
+            "rdr2",
+            "red dead",
+            "secuela"
         ]
     },{
         "id": 55,
@@ -767,7 +889,9 @@
         "palabrasClave": [
             "cooperativo",
             "soundtrack",
-            "cute"
+            "cute",
+            "sackboy",
+            "little"
         ]
     }
     
