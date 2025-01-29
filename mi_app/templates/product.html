@@ -1,0 +1,12 @@
+{% extends 'home.html' %}
+
+{% block container %}
+  <div>
+    <!-- Si producto es un diccionario podemos usar la notación
+    'product.name', pero es mejor usar product['name'] -->
+    <h1>Producto: {{ product.nombre }}</h1>
+    <h3>Categoría: {{ product['categoria'] }}</h3>
+    <h5>Precio(€): {{ product['precio'] }}</h5>
+    <a href="{{ url_for('catalog.home') }}">Volver a home</a>
+  </div>
+{% endblock %}
