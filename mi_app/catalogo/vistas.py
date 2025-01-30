@@ -55,12 +55,31 @@ catalog = Blueprint('catalog',__name__)
 @catalog.route('/')
 @catalog.route('/home')
 def home():
-    return render_template('home.html')
+    products = Product.query.all()
+    productosDict = {}
+    for product in products:
+        productosDict[product.idProducto] ={
+            "id": product.idProducto,
+            "nombre": product.nombre,
+            "desarrolladora": product.desarrolladora,
+            "descripcion": product.descripcion,
+            "imagen": "GTA5.webp",
+            "precio": product.precio,
+            "idCategoria": product.category_id,
+            "disponibilidad": product.disponibilidad,
+            "palabrasClave": product.palabrasClave
+        }
+    
+    with open('./mi_app/static/datos/prdouctos2.json', 'w') as file:
+        json.dump(productosDict, file) #json.dumps(productosDict)
+    return render_template('home.html', products=products)  
+
 
 
 @catalog.route('/product/<int:id>')
 @login_required
 def product(id):
+    
     product = Product.query.get_or_404(id)        
     return render_template('producto.html', product=product)
 
@@ -132,78 +151,8 @@ def logout():
 
 @catalog.route('/category-create')
 def create_category():
-
-    categorias = [
-    {
-        "nombreCategoria": "Hit and Run"
-    },
-    {
-        "nombreCategoria": "RPG"
-    },
-    {
-        "nombreCategoria": "Supervivencia"
-    },
-    {
-        "nombreCategoria": "Terror Psicológico"
-    },
-    {
-        "nombreCategoria": "Estrategia por turnos"
-    },
-    {
-        "nombreCategoria": "Roguelite"
-    },
-    {
-        "nombreCategoria": "Hack and Slash"
-    },
-    {
-        "nombreCategoria": "Plataformas"
-    },
-    {
-        "nombreCategoria": "Por Turnos"
-    },
-    {
-        "nombreCategoria": "Automatización"
-    },
-    {
-        "nombreCategoria": "Peleas"
-    },
-    {
-        "nombreCategoria": "Metroidvania"
-    },
-    {
-        "nombreCategoria": "Exploración"
-    },
-    {
-        "nombreCategoria": "Puzles"
-    },
-    {
-        "nombreCategoria": "Sigilo"
-    },
-    {
-        "nombreCategoria": "Lore/Historia"
-    },
-    {
-        "nombreCategoria": "Warhammer 40K"
-    },
-    {
-        "nombreCategoria": "Soulslike"
-    },
-    {
-        "nombreCategoria": "FPS"
-    }
-    ,
-    {
-        "nombreCategoria": "Acción"
-    }
-    ,
-    {
-        "nombreCategoria": "Real Time Strategy"
-    }
-    ,
-    {
-        "nombreCategoria": "Vaqueros"
-    }
-    ]
+    with open("./mi_app/static/datos/categorias.json") as f:
+        categorias = json.load(f)
     for categ in categorias:
         nombre = categ["nombreCategoria"]
         category = Category(nombre)    
