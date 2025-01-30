@@ -63,9 +63,10 @@
     </nav>
 
     <!-- Botón para desplegar categorías en pantallas pequeñas (justo debajo del navbar) -->
-    <div class="d-block d-md-none mt-3">
-        <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-categories">
-            Categorías
+     <div class="d-block d-md-none"> <!-- asegura que el contenido dentro de este <div> solo sea visible en pantallas pequeñas (por debajo de 768px de ancho). -->
+        <button class="btn btn-success w-20" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-categories">
+            
+            <i class="bi bi-chevron-down"></i>
         </button>
         <div class="collapse" id="mobile-categories">
             <ul class="list-unstyled">
@@ -109,11 +110,11 @@
 
     <!-- Sidebar de categorías (se muestra solo en pantallas grandes) -->
     <div class="position-fixed top-0 end-0 vh-100 bg-light p-4 d-none d-md-block"
-         style="width: 250px; margin-top: 70px; border-left: 1px solid #ccc;">
-        <h5 class="text-primary mb-3">Categorías</h5>
+         style="width: 250px; margin-top: 68px; border-left: 1px solid #ccc;">
+        
         <ul class="list-unstyled">
             <li class="mb-3">
-                <button class="btn btn-toggle align-items-center rounded d-flex justify-content-between w-100"
+                <button class="btn text-primary btn-toggle align-items-center rounded d-flex justify-content-between w-100"
                         data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
                     Categorias
                     <i class="bi bi-chevron-down"></i>
