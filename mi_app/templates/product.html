@@ -2,9 +2,9 @@
 
 {% block container %}
   <div>
-    <!-- Si producto es un diccionario podemos usar la notación
-    'product.name', pero es mejor usar product['name'] -->
-    <div id="app">HOLA ESTIMADOS CABALLEROS</div>
+    <img src="{{url_for('static', filename='{{producto[`imagen`]}}')}}" alt="">
+    <h2>{{producto["nombre"]}}</h2>
+    <p>{{producto["descripcion"]}}</p>
     <a href="{{ url_for('catalog.home') }}">Volver a home</a>
   </div>
 {% endblock %}

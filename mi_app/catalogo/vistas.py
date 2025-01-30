@@ -21,50 +21,12 @@ def home():
     print("esto deberia de ocurrir antes que el fetch (no cap)")
     return render_template('home.html')  
 
-@catalog.route('/api/productos') # Esta ruta saca los productos de la base de datos y su función devuelve un diccionario en formato JSON
-def apiDeProductos():            # Esta ruta la usará vue para hacer un fetch e insertar los datos en el html   
-    products = Product.query.all()
-    productosDict = {}
-    for product in products:
-        productosDict[product.idProducto] ={
-            "id": product.idProducto,
-            "nombre": product.nombre,
-            "desarrolladora": product.desarrolladora,
-            "descripcion": product.descripcion,
-            "imagen": product.imagen,
-            "precio": product.precio,
-            "idCategoria": product.category_id,
-            "disponibilidad": product.disponibilidad,
-            "palabrasClave": product.palabrasClave
-        }
-    print(f"productos conseguidos con api a las: {datetime.now()}")
-    return jsonify(productosDict)  
-@catalog.route('/api/categorias') 
-def apiDeProductos():            
-    categorias = Category.query.all()
-    categoriasDict = {}
-    for categoria in categorias:
-        categoriasDict[categoria.idCategoria] ={
-            "id": categoria.idCategoria,
-            "nombre": categoria.nombre
-        }
-    return jsonify(categoriasDict)  
-@catalog.route('/api/producto/<int:id>')
-def product(id):
-    product = Product.query.get_or_404(id)
-    return jsonify(product)
-
-
-#@catalog.route('/products')
-#def products():
-#    products = Product.query.all()    
-#    return render_template('products.html', products=products)
-
-@catalog.route('/producto/<int:id>')
-def products(id):
-    return render_template('product.html')
-
-
+@catalog.route('/products')
+def products():
+   products = Product.query.all()
+   print(f"ola gente {type(products)}")
+   return render_template('products.html', products=products)
+   
 
 #@catalog.route('/products/<int:page>')
 #@login_required
@@ -72,14 +34,21 @@ def products(id):
 #    products = Product.query.paginate(page=page, per_page=3)    
 #    return render_template('products.html', products=products)
 
+@catalog.route('/producto/<int:id>')
+def producto(id):
+    producto = Product.query.get_or_404(id)
+    return render_template('product.html', producto=producto)
 
-@catalog.route('/categories')
+
+
+
+"""@catalog.route('/categories')
 @login_required
 def categories():
     categories = Category.query.all()
     return render_template('categories.html', categories=categories)
 
-
+"""
 @catalog.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:        
@@ -130,7 +99,7 @@ def create_category():
         categorias = json.load(f)
     for categ in categorias:
         nombre = categ["nombreCategoria"]
-        category = Category(nombre)    
+        category = Category(nombre)
         db.session.add(category)
         db.session.commit()
     return render_template('home.html')
@@ -153,10 +122,12 @@ def create_product():
             nombre=nombre,
             precio=precio,
             descripcion=descripcion,
+            imagen=imagen,
             disponibilidad=disponibilidad,
             desarrolladora=desarrolladora,
             palabrasClave=palabrasClave,
-            category=category)    
+            category=category
+        )    
         db.session.add(product)
         db.session.commit()
     return render_template('home.html')
