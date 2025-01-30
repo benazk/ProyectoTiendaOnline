@@ -30,6 +30,7 @@ class Product(db.Model, miCRUD):
     nombre = db.Column(db.String(255))
     precio = db.Column(db.Float)
     descripcion = db.Column(db.Text)
+    imagen = db.Column(db.String(255))
     disponibilidad = db.Column(db.Boolean) 
     desarrolladora = db.Column(db.String(255))
     palabrasClave = db.Column(db.ARRAY(db.String(255)))

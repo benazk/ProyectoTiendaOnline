@@ -6,44 +6,7 @@ from flask import flash
 from flask import redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 import json
-
-
-
-'''
-prod = {
-    "id": 1,
-    "nombre": "Grand Theft Auto V",
-    "desarrolladora": "Rockstar Games",
-    "descripcion": "El juego de hit and run más jugado de la última decada. Controla a Michael, Trevor y Franklin en Los Santos para cometer crímenes o ve al modo online y trolea a los demás jugadores. Saquen GTA 6 Rockstar porfavor",
-    "imagen": "GTA5.webp",
-    "precio": 39.98,
-    "idCategoria": 1,
-    "disponibilidad": True,
-    "palabrasClave": [
-        "Coches",
-        "Crimen",
-        "disparos"
-    ]
-}
-
-
-
-
-
-db.session.add(producto)
-db.session.commit()
-print("Producto añadido")
-
-'''
-
-
-
-
-
-
-
-
-
+from datetime import datetime
 
 
 @login_manager.user_loader
@@ -55,6 +18,11 @@ catalog = Blueprint('catalog',__name__)
 @catalog.route('/')
 @catalog.route('/home')
 def home():
+    print("esto deberia de ocurrir antes que el fetch (no cap)")
+    return render_template('home.html')  
+
+@catalog.route('/api/productos') # Esta ruta saca los productos de la base de datos y su función devuelve un diccionario en formato JSON
+def apiDeProductos():            # Esta ruta la usará vue para hacer un fetch e insertar los datos en el html   
     products = Product.query.all()
     productosDict = {}
     for product in products:
@@ -63,39 +31,46 @@ def home():
             "nombre": product.nombre,
             "desarrolladora": product.desarrolladora,
             "descripcion": product.descripcion,
-            "imagen": "GTA5.webp",
+            "imagen": product.imagen,
             "precio": product.precio,
             "idCategoria": product.category_id,
             "disponibilidad": product.disponibilidad,
             "palabrasClave": product.palabrasClave
         }
-    
-    with open('./mi_app/static/datos/prdouctos2.json', 'w') as file:
-        json.dump(productosDict, file) #json.dumps(productosDict)
-    return render_template('home.html', products=products)  
-
-
-
-@catalog.route('/product/<int:id>')
-@login_required
+    print(f"productos conseguidos con api a las: {datetime.now()}")
+    return jsonify(productosDict)  
+@catalog.route('/api/categorias') 
+def apiDeProductos():            
+    categorias = Category.query.all()
+    categoriasDict = {}
+    for categoria in categorias:
+        categoriasDict[categoria.idCategoria] ={
+            "id": categoria.idCategoria,
+            "nombre": categoria.nombre
+        }
+    return jsonify(categoriasDict)  
+@catalog.route('/api/producto/<int:id>')
 def product(id):
-    
-    product = Product.query.get_or_404(id)        
-    return render_template('producto.html', product=product)
+    product = Product.query.get_or_404(id)
+    return jsonify(product)
 
 
-@catalog.route('/products')
-def products():
-    products = Product.query.all()    
-    return render_template('products.html', products=products)
+#@catalog.route('/products')
+#def products():
+#    products = Product.query.all()    
+#    return render_template('products.html', products=products)
+
+@catalog.route('/producto/<int:id>')
+def products(id):
+    return render_template('product.html')
 
 
 
-@catalog.route('/products/<int:page>')
-@login_required
-def productsPag(page=1):
-    products = Product.query.paginate(page=page, per_page=3)    
-    return render_template('products.html', products=products)
+#@catalog.route('/products/<int:page>')
+#@login_required
+#def productsPag(page=1):
+#    products = Product.query.paginate(page=page, per_page=3)    
+#    return render_template('products.html', products=products)
 
 
 @catalog.route('/categories')
@@ -168,6 +143,7 @@ def create_product():
         nombre = prod["nombre"]
         precio = prod["precio"]
         descripcion = prod["descripcion"]
+        imagen = prod["imagen"]
         disponibilidad = prod["disponibilidad"] 
         desarrolladora = prod["desarrolladora"]
         palabrasClave = prod["palabrasClave"]

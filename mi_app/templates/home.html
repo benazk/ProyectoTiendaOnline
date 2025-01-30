@@ -10,18 +10,5 @@
     or <a href="{{ url_for('catalog.register') }}">register</a>
   {% endif %}
 
-
-<div>
-  <h1>Crear nuevo Producto
-  <a href="{{ url_for('catalog.create_product') }}">Formulario</a>
-</h1>
-{% for product in products %}
-    <div>
-      <h2>
-        <a href="#">{{ product.nombre }}</a>
-        <small>{{ product.precio }}€</small>
-        <small>{{ product.descripcion }}</small>
-      </h2>
-    </div>
-  {% endfor %}
+<div id="app">ALO GENTE</div>
   {% endblock %}
