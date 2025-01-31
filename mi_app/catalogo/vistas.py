@@ -1,6 +1,6 @@
 from flask  import request, jsonify, Blueprint
 from mi_app import db, login_manager
-from mi_app.catalogo.modelos import Product, Category, User, Favorite, Cart, History
+from mi_app.catalogo.modelos import Product, Category, User, favorite, cart, History, details
 from flask import render_template
 from flask import flash
 from flask import redirect, url_for
@@ -52,16 +52,16 @@ def categories():
 def login():
     if current_user.is_authenticated:        
         return redirect(url_for('catalog.home'))
-    
+    print("Tierra")
     nombre = request.args.get('nombre')
     contrasena = request.args.get('contrasena')
     existing_user = User.query.filter_by(nombre=nombre).first()
 
     if not (existing_user and existing_user.check_password(contrasena)):
         return render_template('login.html')
-
+    print("luna", existing_user.idUsuario)
     login_user(existing_user, remember=True) #recuerda usuario al cerrar la ventana
-    return redirect(url_for('catalog.products'))
+    return render_template('catalog.home')
     
 
 
@@ -105,8 +105,9 @@ def create_category():
 
 @catalog.route('/product-create')
 def create_product():
-    with open("./mi_app/static/datos/productos.json") as f:
+    with open("./mi_app/static/datos/productos.json", encoding='utf-8') as f:
         productos = json.load(f)
+        
     for prod in productos:
         nombre = prod["nombre"]
         precio = prod["precio"]
@@ -116,11 +117,13 @@ def create_product():
         desarrolladora = prod["desarrolladora"]
         palabrasClave = prod["palabrasClave"]
         idcategory = prod.get("idCategoria")
+        destacados = False
         category = Category.query.get(idcategory)  # Assuming you have a Category model defined
         product = Product(
             nombre=nombre,
             precio=precio,
             descripcion=descripcion,
+            destacados=destacados,
             imagen=imagen,
             disponibilidad=disponibilidad,
             desarrolladora=desarrolladora,

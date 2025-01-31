@@ -1,5 +1,7 @@
 [
+    
     {
+        "_comment": "Todos los diccionarios de JSON en este archivo son los datos de los productos",
         "id": 1,
         "nombre": "Grand Theft Auto V",
         "desarrolladora": "Rockstar Games",
@@ -550,6 +552,8 @@
         "desarrolladora": "The Game Kitchen",
         "descripcion": "Blasphemous II es un juego de acción y plataformas en 2D que sigue la historia del 'Penitente', un héroe en un mundo oscuro y religioso lleno de criaturas grotescas. Con combates intensos y un estilo visual pixel art único, el juego combina exploración y narrativa profunda en un ambiente macabro.",
         "imagen": "imagen/BlasphemousII.webp",
+        "descripcion": "Un juego español sobre la historia de Sevilla bastante cruel y sangriento",
+        "imagen": "imagen/Blasphemous2.webp",
         "precio": 27.99,
         "idCategoria": 12,
         "disponibilidad": true,
