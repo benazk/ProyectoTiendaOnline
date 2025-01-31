@@ -1,6 +1,6 @@
 from flask  import request, jsonify, Blueprint
 from mi_app import db, login_manager
-from mi_app.catalogo.modelos import Product, Category, User, Favorite, Cart, History
+from mi_app.catalogo.modelos import Product, Category, User, favorite, cart, History, details
 from flask import render_template
 from flask import flash
 from flask import redirect, url_for
