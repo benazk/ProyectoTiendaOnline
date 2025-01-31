@@ -4,7 +4,7 @@
   <div>
     <img src="{{url_for('static', filename=producto['imagen'])}}" alt="">
     <h2>{{producto["nombre"]}}</h2>
-    <p>{{producto["descripcion"]}}</p>
+    <p>{{producto["descripcion"]|decode_utf8}}</p>
     <a href="{{ url_for('catalog.home') }}">Volver a home</a>
   </div>
 {% endblock %}
