@@ -92,14 +92,11 @@ class Product(db.Model, miCRUD):
 
     
 
-<<<<<<< HEAD
-    def __init__(self, nombre, precio, descripcion, disponibilidad, desarrolladora, palabrasClave, destacados, category):
-=======
-    def __init__(self, nombre, precio, descripcion, disponibilidad, desarrolladora, palabrasClave, category, imagen):
->>>>>>> 873dc7fa6a2a2e7194892a9d51e00aa83a24d44b
+    def __init__(self, nombre, precio, descripcion, disponibilidad, desarrolladora, palabrasClave, destacados, category, imagen):
         self.nombre = nombre
         self.precio = precio 
         self.imagen = imagen
+        self.destacados = destacados
         self.descripcion = descripcion
         self.disponibilidad = disponibilidad
         self.desarrolladora = desarrolladora

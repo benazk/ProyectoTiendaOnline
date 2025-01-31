@@ -61,7 +61,7 @@ def login():
         return render_template('login.html')
 
     login_user(existing_user, remember=True) #recuerda usuario al cerrar la ventana
-    return redirect(url_for('catalog.products'))
+    return render_template('catalog.home')
     
 
 

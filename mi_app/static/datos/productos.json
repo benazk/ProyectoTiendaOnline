@@ -1,5 +1,7 @@
 [
+    
     {
+        "_comment": "Todos los diccionarios de JSON en este archivo son los datos de los productos",
         "id": 1,
         "nombre": "Grand Theft Auto V",
         "desarrolladora": "Rockstar Games",
