@@ -92,17 +92,13 @@ class Product(db.Model, miCRUD):
 
     
 
-<<<<<<< HEAD
-    def __init__(self, nombre, precio, descripcion, disponibilidad, desarrolladora, palabrasClave, destacados, category):
-=======
-    def __init__(self, nombre, precio, descripcion, disponibilidad, desarrolladora, palabrasClave, category, imagen):
->>>>>>> 873dc7fa6a2a2e7194892a9d51e00aa83a24d44b
+    def __init__(self, nombre, precio, descripcion, disponibilidad, desarrolladora, imagen, palabrasClave, destacados, category):
         self.nombre = nombre
         self.precio = precio 
-        self.imagen = imagen
         self.descripcion = descripcion
         self.disponibilidad = disponibilidad
         self.desarrolladora = desarrolladora
+        self.imagen = imagen
         self.palabrasClave = palabrasClave
         self.destacados = destacados
         self.category = category
@@ -157,6 +153,8 @@ class User(db.Model, UserMixin, miCRUD):
      
     def __repr__(self):
         return f'<User {self.idUsuario}>'
+    def get_id(self):
+        return str(self.idUsuario)
 
 class Category(db.Model, miCRUD):
     __tablename__ = 'category'
@@ -168,4 +166,5 @@ class Category(db.Model, miCRUD):
 
     def __repr__(self):
         return f'<Category {self.idCategoria}>'
+    
     

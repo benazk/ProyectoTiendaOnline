@@ -52,14 +52,14 @@ def categories():
 def login():
     if current_user.is_authenticated:        
         return redirect(url_for('catalog.home'))
-    
+    print("Tierra")
     nombre = request.args.get('nombre')
     contrasena = request.args.get('contrasena')
     existing_user = User.query.filter_by(nombre=nombre).first()
 
     if not (existing_user and existing_user.check_password(contrasena)):
         return render_template('login.html')
-
+    print("luna", existing_user.idUsuario)
     login_user(existing_user, remember=True) #recuerda usuario al cerrar la ventana
     return redirect(url_for('catalog.products'))
     
@@ -110,17 +110,19 @@ def create_product():
     for prod in productos:
         nombre = prod["nombre"]
         precio = prod["precio"]
-        descripcion = prod["descripcion"]
+        descripcion = prod["descripcion"].encode('UTF-8')
         imagen = prod["imagen"]
         disponibilidad = prod["disponibilidad"] 
         desarrolladora = prod["desarrolladora"]
         palabrasClave = prod["palabrasClave"]
         idcategory = prod.get("idCategoria")
+        destacados = False
         category = Category.query.get(idcategory)  # Assuming you have a Category model defined
         product = Product(
             nombre=nombre,
             precio=precio,
             descripcion=descripcion,
+            destacados=destacados,
             imagen=imagen,
             disponibilidad=disponibilidad,
             desarrolladora=desarrolladora,
