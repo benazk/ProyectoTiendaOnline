@@ -105,12 +105,13 @@ def create_category():
 
 @catalog.route('/product-create')
 def create_product():
-    with open("./mi_app/static/datos/productos.json") as f:
+    with open("./mi_app/static/datos/productos.json", encoding='utf-8') as f:
         productos = json.load(f)
+        
     for prod in productos:
         nombre = prod["nombre"]
         precio = prod["precio"]
-        descripcion = prod["descripcion"].encode('UTF-8')
+        descripcion = prod["descripcion"]
         imagen = prod["imagen"]
         disponibilidad = prod["disponibilidad"] 
         desarrolladora = prod["desarrolladora"]

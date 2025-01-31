@@ -1,3 +1,9 @@
--Añadir campo de ruta de imagen en bbdd
--probar que se renderize todo en HTML
--comenzar con vue
+- Poner descripción a las categorías
+- hacer carrito
+- barra de búsqueda
+- (Opcional) divisas
+- Lista de deseados
+- productos destacados en el home
+- categorías en el home
+- pago con PayPal
+- Diseño
