@@ -6,44 +6,7 @@ from flask import flash
 from flask import redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 import json
-
-
-
-'''
-prod = {
-    "id": 1,
-    "nombre": "Grand Theft Auto V",
-    "desarrolladora": "Rockstar Games",
-    "descripcion": "El juego de hit and run más jugado de la última decada. Controla a Michael, Trevor y Franklin en Los Santos para cometer crímenes o ve al modo online y trolea a los demás jugadores. Saquen GTA 6 Rockstar porfavor",
-    "imagen": "GTA5.webp",
-    "precio": 39.98,
-    "idCategoria": 1,
-    "disponibilidad": True,
-    "palabrasClave": [
-        "Coches",
-        "Crimen",
-        "disparos"
-    ]
-}
-
-
-
-
-
-db.session.add(producto)
-db.session.commit()
-print("Producto añadido")
-
-'''
-
-
-
-
-
-
-
-
-
+from datetime import datetime
 
 
 @login_manager.user_loader
@@ -55,56 +18,36 @@ catalog = Blueprint('catalog',__name__)
 @catalog.route('/')
 @catalog.route('/home')
 def home():
-    products = Product.query.all()
-    productosDict = {}
-    for product in products:
-        productosDict[product.idProducto] ={
-            "id": product.idProducto,
-            "nombre": product.nombre,
-            "desarrolladora": product.desarrolladora,
-            "descripcion": product.descripcion,
-            "imagen": "GTA5.webp",
-            "precio": product.precio,
-            "idCategoria": product.category_id,
-            "disponibilidad": product.disponibilidad,
-            "palabrasClave": product.palabrasClave
-        }
-    
-    with open('./mi_app/static/datos/prdouctos2.json', 'w') as file:
-        json.dump(productosDict, file) #json.dumps(productosDict)
-    return render_template('home.html', products=products)  
-
-
-
-@catalog.route('/product/<int:id>')
-@login_required
-def product(id):
-    
-    product = Product.query.get_or_404(id)        
-    return render_template('producto.html', product=product)
-
+    print("esto deberia de ocurrir antes que el fetch (no cap)")
+    return render_template('home.html')  
 
 @catalog.route('/products')
 def products():
-    products = Product.query.all()    
-    return render_template('products.html', products=products)
+   products = Product.query.all()
+   return render_template('products.html', products=products)
+   
+
+#@catalog.route('/products/<int:page>')
+#@login_required
+#def productsPag(page=1):
+#    products = Product.query.paginate(page=page, per_page=3)    
+#    return render_template('products.html', products=products)
+
+@catalog.route('/producto/<int:id>')
+def producto(id):
+    producto = Product.query.get_or_404(id)
+    return render_template('product.html', producto=producto)
 
 
 
-@catalog.route('/products/<int:page>')
-@login_required
-def productsPag(page=1):
-    products = Product.query.paginate(page=page, per_page=3)    
-    return render_template('products.html', products=products)
 
-
-@catalog.route('/categories')
+"""@catalog.route('/categories')
 @login_required
 def categories():
     categories = Category.query.all()
     return render_template('categories.html', categories=categories)
 
-
+"""
 @catalog.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:        
@@ -155,7 +98,7 @@ def create_category():
         categorias = json.load(f)
     for categ in categorias:
         nombre = categ["nombreCategoria"]
-        category = Category(nombre)    
+        category = Category(nombre)
         db.session.add(category)
         db.session.commit()
     return render_template('home.html')
@@ -168,6 +111,7 @@ def create_product():
         nombre = prod["nombre"]
         precio = prod["precio"]
         descripcion = prod["descripcion"]
+        imagen = prod["imagen"]
         disponibilidad = prod["disponibilidad"] 
         desarrolladora = prod["desarrolladora"]
         palabrasClave = prod["palabrasClave"]
@@ -177,10 +121,12 @@ def create_product():
             nombre=nombre,
             precio=precio,
             descripcion=descripcion,
+            imagen=imagen,
             disponibilidad=disponibilidad,
             desarrolladora=desarrolladora,
             palabrasClave=palabrasClave,
-            category=category)    
+            category=category
+        )    
         db.session.add(product)
         db.session.commit()
     return render_template('home.html')

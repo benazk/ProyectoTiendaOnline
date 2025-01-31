@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Flask</title>
-    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
-  </head>
-  <body>
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flask</title>
+  <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+</head>
 
-    <div id="app">
-      <!-- Vue.js template will be rendered here -->
-    </div>
+<body>
+  <div>
+    <a href="{{ url_for('catalog.home') }}">Flask Home</a>
+  </div>
+  <div>
+    {% block container %}{% endblock %}
     <script src="https://unpkg.com/vue@3"></script>
-    <script src="{{ url_for('static', filename='js/vue.js') }}"></script> 
-  
-        <div>
-          <a href="{{ url_for('catalog.home') }}">Flask Home</a>
-        </div>
-  
-    
-    <div>       
-        {% block container %}{% endblock %}
-    </div>
-    
-  </body>
+    <script src="{{ url_for('static', filename='js/vue.js') }}"></script>
+  </div>
+</body>
+
 </html>

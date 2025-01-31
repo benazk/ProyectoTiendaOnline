@@ -62,6 +62,7 @@ class Product(db.Model, miCRUD):
     nombre = db.Column(db.String(255))
     precio = db.Column(db.Float)
     descripcion = db.Column(db.Text)
+    imagen = db.Column(db.String(255))
     disponibilidad = db.Column(db.Boolean) 
     desarrolladora = db.Column(db.String(255))
     palabrasClave = db.Column(db.ARRAY(db.String(255)))
@@ -91,9 +92,14 @@ class Product(db.Model, miCRUD):
 
     
 
+<<<<<<< HEAD
     def __init__(self, nombre, precio, descripcion, disponibilidad, desarrolladora, palabrasClave, destacados, category):
+=======
+    def __init__(self, nombre, precio, descripcion, disponibilidad, desarrolladora, palabrasClave, category, imagen):
+>>>>>>> 873dc7fa6a2a2e7194892a9d51e00aa83a24d44b
         self.nombre = nombre
         self.precio = precio 
+        self.imagen = imagen
         self.descripcion = descripcion
         self.disponibilidad = disponibilidad
         self.desarrolladora = desarrolladora
