@@ -24,7 +24,6 @@ def home():
 @catalog.route('/products')
 def products():
    products = Product.query.all()
-   print(f"ola gente {type(products)}")
    return render_template('products.html', products=products)
    
 

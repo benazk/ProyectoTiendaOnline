@@ -2,7 +2,7 @@
 
 {% block container %}
   <div>
-    <img src="{{url_for('static', filename='{{producto[`imagen`]}}')}}" alt="">
+    <img src="{{url_for('static', filename=producto['imagen'])}}" alt="">
     <h2>{{producto["nombre"]}}</h2>
     <p>{{producto["descripcion"]}}</p>
     <a href="{{ url_for('catalog.home') }}">Volver a home</a>
