@@ -9,6 +9,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+        body {
+            background-color: #1b2838;
+            color: #ffffff;
+        }
+
+        .navbar {
+            background-color: #171a21;
+        }
+
+        .navbar-brand {
+            color: #66c0f4 !important;
+        }
+
+        .nav-item button {
+            background: none;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+        }
+
+        .nav-item button:hover {
+            background-color: #4c6b90;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #66c0f4;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #417a9b;
+        }
+
         /* En pantallas pequeñas, los botones de la navbar ocuparán toda la anchura */
         @media (max-width: 991px) {
             .nav-item button {
@@ -19,6 +53,32 @@
                 width: 90%;
                 margin-right: 6%;
             }
+        }
+
+        .sidebar {
+            background-color: #16202d;
+            padding: 15px;
+        }
+
+        .footer {
+            background-color: #171a21;
+            color: #ffffff;
+        }
+
+        .footer a {
+            color: #66c0f4;
+        }
+
+        .footer a:hover {
+            color: #417a9b;
+        }
+
+        .list-unstyled li a {
+            color: #66c0f4;
+        }
+
+        .list-unstyled li a:hover {
+            color: #417a9b;
         }
     </style>
 </head>
@@ -54,8 +114,7 @@
                 </ul>
                 <!-- Barra de búsqueda -->
                 <form class="d-flex ms-auto barraBusqueda">
-                    <input class="form-control form-control-sm me-2" type="search" placeholder="Buscar"
-                        aria-label="Search">
+                    <input class="form-control form-control-sm me-2" type="search" placeholder="Buscar" aria-label="Search">
                     <button class="btn btn-primary btn-sm" type="submit">Buscar</button>
                 </form>
                 <!-- Usuario y moneda en pantallas grandes -->
@@ -73,8 +132,7 @@
 
     <!-- Botón para desplegar categorías en pantallas pequeñas (justo debajo del navbar) -->
     <div class="d-block d-md-none">
-        <button style="width: 80px; height: 50px" class="btn btn-dark w-20 ms-auto d-block" type="button"
-            data-bs-toggle="collapse" data-bs-target="#mobile-categories">
+        <button style="width: 80px; height: 50px" class="btn btn-dark w-20 ms-auto d-block" type="button" data-bs-toggle="collapse" data-bs-target="#mobile-categories">
             <i class="bi bi-chevron-down"></i>
         </button>
         <div class="collapse" id="mobile-categories">
@@ -87,21 +145,24 @@
         </div>
     </div>
 
+    
+    <!--
 
+    aqui debe ir el contenido
+
+    -->
 
     <!-- Sidebar de categorías (se muestra solo en pantallas grandes) -->
     <div class="col-md-3">
-        <div class="position- top-0 end-0 vh-100 bg-light p-4 d-none d-md-block categoria"
-            style="width: 250px; border-left: 1px solid #ccc;">
+        <div class="position-top-0 end-0 vh-100 bg-light p-4 d-none d-md-block categoria" style="width: 250px; border-left: 1px solid #ccc;">
             <ul class="list-unstyled">
                 <li class="mb-3">
-                    <button class="btn text-dark btn-toggle align-items-center rounded d-flex justify-content-between w-100"
-                        data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                    <button class="btn text-dark btn-toggle align-items-center rounded d-flex justify-content-between w-100" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
                         Categorias
                         <i class="bi bi-chevron-down"></i>
                     </button>
                     <div class="collapse show" id="home-collapse">
-                        <ul class="list-unstyled fw-normal small ">
+                        <ul class="list-unstyled fw-normal small">
                             <li><a href="#" class="link-success rounded p-1">Hit and Run</a></li>
                             <li><a href="#" class="link-success rounded p-1">RPG</a></li>
                             <li><a href="#" class="link-success rounded p-1">Supervivencia</a></li>
@@ -113,42 +174,37 @@
             </ul>
         </div>
     </div>
+</div>
+</div>
 
     <!-- Footer -->
-    <footer class="bg-body-tertiary text-center">
+    <footer class="footer text-center">
         <div class="container p-4 pb-0">
             <!-- Sección: Redes sociales -->
             <section class="mb-4">
                 <!-- Facebook -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;"
-                    href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
 
                 <!-- Twitter -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;"
-                    href="#!" role="button"><i class="fab fa-twitter"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i class="fab fa-twitter"></i></a>
 
                 <!-- Google -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #dd4b39;"
-                    href="#!" role="button"><i class="fab fa-google"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #dd4b39;" href="#!" role="button"><i class="fab fa-google"></i></a>
 
                 <!-- Instagram -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;"
-                    href="#!" role="button"><i class="fab fa-instagram"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i class="fab fa-instagram"></i></a>
 
                 <!-- Linkedin -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;"
-                    href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
 
                 <!-- Github -->
-                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #333333;"
-                    href="#!" role="button"><i class="fab fa-github"></i></a>
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #333333;" href="#!" role="button"><i class="fab fa-github"></i></a>
             </section>
         </div>
 
         <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2020 Copyright:
-            <a class="text-body" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        <div class="text-center p-3" style="background-color: rgba(58, 56, 56, 0.05);">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span property="dct:title">© 2025 Copyright Juegos</span> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p>
         </div>
     </footer>
 
