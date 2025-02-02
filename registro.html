@@ -49,6 +49,9 @@
         .form-text a:hover {
             text-decoration: underline;
         }
+        .terms-label {
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -62,13 +65,19 @@
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Correo electrónico</label>
-            <input type="text" class="form-control" id="email" placeholder="Ingresa tu correo electrónico" required>
+            <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico" required>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
             <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required>
         </div>
-        
+
+        <!-- Checkbox para aceptar términos y condiciones -->
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="terms" required>
+            <label class="form-check-label terms-label" for="terms">Acepto los <a href="#">términos y condiciones</a></label>
+        </div>
+
         <button type="submit" class="btn btn-login">Registro</button>
         <div class="form-text">
             ¿Ya tienes una cuenta? <a href="#">Inicia sesión</a>
@@ -76,7 +85,6 @@
     </form>
 </div>
 
-<!-- Bootstrap JS (opcional, solo si necesitas funcionalidades de JS) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
