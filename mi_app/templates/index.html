@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% block container %}
+
+<head>
+    <title>Página principal</title>
+    <style>
+        /* En pantallas pequeñas, los botones de la navbar ocuparán toda la anchura */
+        @media (max-width: 991px) {
+            .nav-item button {
+                width: 90%;
+                margin: 5px 0;
+            }
+
+            .barraBusqueda {
+                width: 90%;
+                margin-right: 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar (barra de navegación) -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo en el navbar -->
+            <a class="navbar-brand fs-3" href="{{ url_for('catalog.home') }}">Logo</a>
+            <!-- Botón "hamburguesa" para pantallas pequeñas -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Menú del navbar que se colapsa en pantallas pequeñas -->
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a href="{{ url_for('catalog.home', page=1) }}"><button class="btn btn-primary btn-sm fs-6 ms-3"
+                                type="button">Menú</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('catalog.productos') }}"><button class="btn btn-light btn-sm fs-6 ms-3"
+                                type="button">Productos</button></a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{{ url_for('catalog.carrito', user=current_user.nombre )}}"><button
+                                class="btn btn-light btn-sm fs-6 ms-3" type="button">Carrito</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('catalog.favs', user=current_user.nombre  )}}"><button
+                                class="btn btn-light btn-sm fs-6 ms-3" type="button">Favoritos</button></a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+
+                    </li>
+                </ul>
+                <!-- Barra de búsqueda -->
+                <form class="d-flex ms-auto barraBusqueda">
+                    <input class="form-control form-control-sm me-2" type="search" placeholder="Buscar"
+                        aria-label="Search">
+                    <button class="btn btn-primary btn-sm" type="submit">Buscar</button>
+                </form>
+                <!-- Usuario y moneda en pantallas grandes -->
+                {% if current_user.is_authenticated %}
+                <div class="text-light fs-5 ms-3 d-none d-md-block">{{ current_user.nombre }}<span id="username"></span>
+                </div>
+                <a href="{{ url_for('catalog.logout') }}">Click here to logout</a>
+                {% else %}
+                <a href="{{ url_for('catalog.login') }}"><button class="btn btn-light btn-sm fs-6 ms-3"
+                        type="button">Iniciar Sesión</button></a>
+                <a href="{{ url_for('catalog.register') }}"><button class="btn btn-light btn-sm fs-6 ms-3"
+                        type="button">Registrarse</button></a>
+                {% endif %}
+
+                <div class="ms-3 d-none d-md-block">
+                    <select class="form-select form-select-sm" id="currencySelector">
+                        <option value="eur">EUR (€)</option>
+                        <option value="usd">USD ($)</option>
+                        <option value="gbp">GBP (£)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Botón para desplegar categorías en pantallas pequeñas (justo debajo del navbar) -->
+    <div class="d-block d-md-none">
+        <button style="width: 80px; height: 50px" class="btn btn-dark w-20 ms-auto d-block" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mobile-categories">
+            <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="collapse" id="mobile-categories">
+            <ul class="list-unstyled">
+                {% for categ in categorias%} <!--Bucle para mostrar todas las categorías dentro del menú desplegable-->
+                <li><a href="{{url_for('catalog.categoria', categ=categ['idCategoria'])}}"
+                        class="link-dark rounded p-1">{{ categ["nombre"] }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!-- Sidebar de categorías (se muestra solo en pantallas grandes) -->
+    <div class="d-flex">
+        <div class="col-md-3">
+            <div class="position- top-0 end-0 vh-100 bg-light p-4 d-none d-md-block categoria"
+                style="width: 250px; border-left: 1px solid #ccc;">
+
+
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <button
+                            class="btn text-dark btn-toggle align-items-center rounded d-flex justify-content-between w-100"
+                            data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                            Categorias
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <div class="collapse show" id="home-collapse">
+                            <ul class="list-unstyled fw-normal small ">
+                                {% for categ in categorias%}
+                                <!--Bucle para mostrar todas las categorías dentro del menú desplegable-->
+                                <li><a href="{{url_for('catalog.categoria', categ=categ['idCategoria'])}}"
+                                        class="link-dark rounded p-1">{{ categ["nombre"] }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="border-top my-2"></li>
+
+
+                </ul>
+            </div>
+        </div>
+        <!--Este div de aquí le corresponde al carrusel de los juegos destacados de nuestra tienda y clicar en ellos te llevará a la página de dicho producto-->
+        <div class="col-sm-12 col-md-6 col-lg-8">
+            <div class="container-fluid">
+                <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        {% set num = {"count":0} %} <!--Este diccionario con la key count sirve para hacer un conteo desde 0 porque el carrusel 
+                                                necesita llevar un tracking de que imagen se muestra-->
+                        {% for destacado in destacados %}
+                        {% if destacado["destacados"] == true %}
+                        <button type="button" class="bg-dark" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="{{ num.count }}" class="{% if num.count == 0 %}active{% endif %}"
+                            aria-label="Slide {{ num.count + 1 }}"></button>
+                        {% set _ = num.update({'count': num.count + 1}) %}
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="carousel-inner">
+                        <!--La clase carousel-inner es la que muestra el contenido en el carrusel-->
+                        {% for destacado in destacados %}
+                        {% if destacado["destacados"] == true %}
+                        <div class="carousel-item {% if loop.first %}active{% endif %}">
+                            <a href="{{url_for('catalog.producto', id=destacado['idProducto'])}}"><img
+                                    src="{{url_for('static', filename=destacado['imagen'])}}" class="d-block w-100"
+                                    alt="...">
+                            </a>
+                            <h3 style="margin-left: 40%; margin-right: 40%;">{{destacado['nombre']}}</h3>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <br>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev"> <!--Estos de aquí son botones para ir al siguente/anterior juego-->
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

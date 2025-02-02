@@ -18,7 +18,7 @@
             "GTA",
             "GTAV"
         ],
-        "Destacado":true
+        "destacado":true
     },{
         "id": 2,
         "nombre": "Elden Ring",
@@ -39,7 +39,7 @@
             "DS",
             "malenia"
         ],
-        "Destacado":true
+        "destacado":true
     },{
         "id": 3,
         "nombre": "Doom Eternal",
@@ -57,7 +57,7 @@
             "doomguy",
             "marte"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 4,
         "nombre": "Valheim",
@@ -72,7 +72,7 @@
             "farmeo",
             "soulslike"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 5,
         "nombre": "Miside",
@@ -89,7 +89,7 @@
             "waifu",
             "sus"
         ],
-        "Destacado":true
+        "destacado":false
     },{
         "id": 6,
         "nombre": "Sid Meier's Civilization VI",
@@ -107,7 +107,7 @@
             "civ",
             "civ 6"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 7,
         "nombre": "Balatro",
@@ -123,7 +123,7 @@
             "turnos",
             "poker"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 8,
         "nombre": "Astroneer",
@@ -139,7 +139,7 @@
             "exploracion",
             "astro"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 9,
         "nombre": "Monster Hunter: World",
@@ -156,7 +156,7 @@
             "mhw",
             "monster hunter"
         ],
-        "Destacado":false
+        "destacado":true
     },{
         "id": 10,
         "nombre": "Helldivers II",
@@ -174,7 +174,7 @@
             "democracia",
             "secuela"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 11,
         "nombre": "Pizza Tower",
@@ -191,7 +191,7 @@
             "peppino",
             "pizza"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 12,
         "nombre": "God of War: Ragnarok",
@@ -209,7 +209,7 @@
             "kratos",
             "ragnarok"
         ],
-        "Destacado":true
+        "destacado":false
     },{
         "id": 13,
         "nombre": "Yakuza 7: Like a Dragon",
@@ -229,7 +229,7 @@
             "ichiban",
             "kasuga"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 14,
         "nombre": "Like a Dragon: Infinite Wealth",
@@ -249,7 +249,7 @@
             "kasuga",
             "kazuma"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 15,
         "nombre": "Factorio",
@@ -266,7 +266,7 @@
             "adiccion",
             "fabrica"
         ],
-        "Destacado":false
+        "destacado":true
     },{
         "id": 16,
         "nombre": "Terraria",
@@ -282,7 +282,7 @@
             "exploracion",
             "minecraft 2d"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 17,
         "nombre": "Lethal Company",
@@ -299,7 +299,7 @@
             "lethal",
             "company"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 18,
         "nombre": "Guilty Gear Strive",
@@ -317,7 +317,7 @@
             "guilty",
             "guilty gear"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 19,
         "nombre": "Persona 5 Royal",
@@ -335,7 +335,7 @@
             "persona",
             "persona 5"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 20,
         "nombre": "Hollow Knight",
@@ -352,7 +352,7 @@
             "silksong",
             "hornet"
         ],
-        "Destacado":false
+        "destacado":true
     },{
         "id": 21,
         "nombre": "Outer Wilds",
@@ -368,7 +368,7 @@
             "trama",
             "spoiler"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 22,
         "nombre": "Portal 2",
@@ -385,7 +385,7 @@
             "glados",
             "portal"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 23,
         "nombre": "Deep Rock Galactic",
@@ -403,7 +403,7 @@
             "drg",
             "deep rock"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 24,
         "nombre": "Celeste",
@@ -419,7 +419,7 @@
             "pixel",
             "madeline"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 25,
         "nombre": "Dragon's Dogma II",
@@ -436,7 +436,7 @@
             "dd2",
             "secuela"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 26,
         "nombre": "Baldur's Gate III",
@@ -453,7 +453,7 @@
             "bg3",
             "secuela"
         ],
-        "Destacado":true
+        "destacado":true
     },{
         "id": 27,
         "nombre": "The Binding of Isaac: Rebirth",
@@ -470,7 +470,7 @@
             "tboi",
             "isaac"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 28,
         "nombre": "Metal Gear Solid V: The Phantom Pain",
@@ -490,7 +490,7 @@
             "solid snake",
             "invisible"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 29,
         "nombre": "Metal Gear Rising: Revengeance",
@@ -509,7 +509,7 @@
             "cyborg",
             "mgrr"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 30,
         "nombre": "Devil May Cry 5",
@@ -528,7 +528,7 @@
             "yamato",
             "dmc5"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 31,
         "nombre": "Undertale",
@@ -545,7 +545,7 @@
             "sans",
             "ut"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 32,
         "nombre": "Blasphemous II",
@@ -562,7 +562,7 @@
             "sevilla",
             "secuela"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 33,
         "nombre": "Lisa: The Painuful",
@@ -578,7 +578,7 @@
             "pixel",
             "lisa"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 34,
         "nombre": "Final Fantasy VII Rebirth",
@@ -596,7 +596,7 @@
             "cloud",
             "final fantasy"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 35,
         "nombre": "Destiny 2",
@@ -612,7 +612,7 @@
             "fps",
             "destiny"
         ],
-        "Destacado":true
+        "destacado":false
     },{
         "id": 36,
         "nombre": "Diablo IV",
@@ -628,7 +628,7 @@
             "rpg",
             "diablo"
         ],
-        "Destacado":true
+        "destacado":false
     },{
         "id": 37,
         "nombre": "Rust",
@@ -643,7 +643,7 @@
             "sandbox",
             "farmeo"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 38,
         "nombre": "The Witcher 3: Wild Hunt",
@@ -659,7 +659,7 @@
             "soundtrack",
             "gerald"
         ],
-        "Destacado":true
+        "destacado":false
     },{
         "id": 39,
         "nombre": "Warhammer 40.000: Space Marine II",
@@ -678,7 +678,7 @@
             "space marine",
             "secuela"
         ],
-        "Destacado":false 
+        "destacado":false 
     },{
         "id": 40,
         "nombre": "Bully",
@@ -694,7 +694,7 @@
             "tercera persona",
             "bullying"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 41,
         "nombre": "Black Myth: Wukong",
@@ -711,7 +711,7 @@
             "monkey",
             "wukong"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 42,
         "nombre": "Lies of P",
@@ -727,7 +727,7 @@
             "rpg",
             "P"
         ],
-        "Destacado":true
+        "destacado":false
     },{
         "id": 43,
         "nombre": "Detroit: Become Human",
@@ -743,7 +743,7 @@
             "aventura",
             "detroit"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 44,
         "nombre": "Counter Strike 2",
@@ -760,7 +760,7 @@
             "cs2",
             "cs"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 45,
         "nombre": "It Takes Two",
@@ -776,7 +776,7 @@
             "aventura",
             "two"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 46,
         "nombre": "Dragon Ball: Sparking! Zero",
@@ -795,7 +795,7 @@
             "db",
             "dragon ball sparking zero"
         ],
-        "Destacado":false
+        "destacado":true
     },{
         "id": 47,
         "nombre": "Mortal Kombat 11",
@@ -812,7 +812,7 @@
             "mk11",
             "mortal kombat"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 48,
         "nombre": "CyberPunk 2077",
@@ -829,7 +829,7 @@
             "2077",
             "cyberpunk"
         ],
-        "Destacado":true
+        "destacado":false
     },{
         "id": 49,
         "nombre": "Raft",
@@ -845,7 +845,7 @@
             "sandbox",
             "oceano"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 50,
         "nombre": "Resident Evil 4",
@@ -863,7 +863,7 @@
             "resident",
             "resident evil"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 51,
         "nombre": "Uncharted",
@@ -879,7 +879,7 @@
             "puzles",
             "tom holland"
         ],
-        "Destacado": false
+        "destacado": false
     },{
         "id": 52,
         "nombre": "Age of Empires 4",
@@ -897,7 +897,7 @@
             "age of empires",
             "empires"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 53,
         "nombre": "Little Nightmares II",
@@ -914,7 +914,7 @@
             "little nightmares",
             "secuela"
         ],
-        "Destacado":false
+        "destacado":false
     },{
         "id": 54,
         "nombre": "Red Dead Redemption II",
@@ -932,7 +932,7 @@
             "red dead",
             "secuela"
         ],
-        "Destacado":false
+        "destacado":true
     },{
         "id": 55,
         "nombre": "Sackboy: A Big Adventure",
@@ -949,7 +949,7 @@
             "sackboy",
             "little"
         ],
-        "Destacado":false
+        "destacado":false
     }
     
 ]

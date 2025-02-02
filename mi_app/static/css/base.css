@@ -1,0 +1,13 @@
+.navbar{
+    background-color: rgb(78, 78, 78);
+    text-decoration: none;
+}
+.btn{
+    border-radius: 0px;
+}
+.form-control{
+    border-radius: 0px;
+}
+.form-select{
+    border-radius: 0px;
+}

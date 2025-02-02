@@ -19,35 +19,47 @@ catalog = Blueprint('catalog',__name__)
 @catalog.route('/home')
 def home():
     print("esto deberia de ocurrir antes que el fetch (no cap)")
-    return render_template('home.html')  
-
-@catalog.route('/products')
-def products():
-   products = Product.query.all()
-   return render_template('products.html', products=products)
+    categorias = Category.query.all()
+    destacados = Product.query.all()
+    return render_template('index.html', categorias=categorias, destacados=destacados)  
    
-
-#@catalog.route('/products/<int:page>')
-#@login_required
-#def productsPag(page=1):
-#    products = Product.query.paginate(page=page, per_page=3)    
-#    return render_template('products.html', products=products)
+@catalog.route('/productos')
+@catalog.route('/productos/<int:page>')
+def productos(page=1):
+    productos = Product.query.paginate(page=page, per_page=12)  
+    return render_template('productos.html', productos=productos)
+    
 
 @catalog.route('/producto/<int:id>')
 def producto(id):
     producto = Product.query.get_or_404(id)
-    return render_template('product.html', producto=producto)
+    categoria = Category.query.get_or_404(producto.category_id)
+    return render_template('pagina-producto-especifico.html', producto=producto, categoria=categoria)
+
+@catalog.route('/categoria/<int:categ>')
+def categoria(categ):
+    categoria = Category.query.get_or_404(categ)
+    res=[]
+    for product in categoria.products:
+        res.append({
+            'id': product.idProducto,
+            'nombre': product.nombre,
+            'precio': product.precio,
+            'imagen': product.imagen
+        })
+    return render_template('prods-por-categ.html', res=res, nombreCateg=categoria.nombre)
 
 
+@catalog.route('/carrito/<string:user>')
+def carrito(user):
+    return "Carrito de " + user
 
 
-"""@catalog.route('/categories')
-@login_required
-def categories():
-    categories = Category.query.all()
-    return render_template('categories.html', categories=categories)
+@catalog.route('/lista-deseados/<string:user>')
+def favs(user):
+    return "Lista de deseados de " + user
 
-"""
+
 @catalog.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:        
@@ -61,7 +73,7 @@ def login():
         return render_template('login.html')
     print("luna", existing_user.idUsuario)
     login_user(existing_user, remember=True) #recuerda usuario al cerrar la ventana
-    return render_template('catalog.home')
+    return redirect(url_for('catalog.home'))
     
 
 
@@ -94,14 +106,14 @@ def logout():
 
 @catalog.route('/category-create')
 def create_category():
-    with open("./mi_app/static/datos/categorias.json") as f:
+    with open("./mi_app/static/datos/categorias.json", encoding='utf-8') as f:
         categorias = json.load(f)
     for categ in categorias:
         nombre = categ["nombreCategoria"]
-        category = Category(nombre)
+        category = Category(nombre=nombre)
         db.session.add(category)
         db.session.commit()
-    return render_template('home.html')
+    return redirect(url_for('catalog.home'))
 
 @catalog.route('/product-create')
 def create_product():
@@ -117,7 +129,7 @@ def create_product():
         desarrolladora = prod["desarrolladora"]
         palabrasClave = prod["palabrasClave"]
         idcategory = prod.get("idCategoria")
-        destacados = False
+        destacados = prod["destacado"]
         category = Category.query.get(idcategory)  # Assuming you have a Category model defined
         product = Product(
             nombre=nombre,
@@ -132,4 +144,4 @@ def create_product():
         )    
         db.session.add(product)
         db.session.commit()
-    return render_template('home.html')
+    return redirect(url_for('catalog.home'))
