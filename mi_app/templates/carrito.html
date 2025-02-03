@@ -1,25 +1,10 @@
-{% extends 'index.html' %}
+{% extends "base.html" %}
 {% block container %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Todos los juegos</title>
-    <style>
-        /* En pantallas pequeñas, los botones de la navbar ocuparán toda la anchura */
-        @media (max-width: 991px) {
-            .nav-item button {
-                width: 90%;
-                margin: 5px 0;
-            }
-            .barraBusqueda {
-                width: 90%;
-                margin-right: 6%;
-            }
-        }
-    </style>
+    <title>Document</title>
 </head>
-
 <body>
     <!-- Navbar (barra de navegación) -->
     <nav class="navbar navbar-expand-lg">
@@ -37,11 +22,11 @@
                         <a href="{{ url_for('catalog.home', page=1) }}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Menú</button></a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url_for('catalog.productos') }}"><button class="btn btn-primary btn-sm fs-6 ms-3" type="button">Productos</button></a>
+                        <a href="{{ url_for('catalog.productos') }}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Productos</button></a>
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="nav-item">
-                        <a href="{{ url_for('catalog.carrito', user=current_user.nombre )}}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Carrito</button></a>
+                        <a href="{{ url_for('catalog.carrito', user=current_user.nombre )}}"><button class="btn btn-primary btn-sm fs-6 ms-3" type="button">Carrito</button></a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ url_for('catalog.favs', user=current_user.nombre  )}}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Favoritos</button></a>
@@ -76,47 +61,14 @@
             </div>
         </div>
     </nav>
-    <!-- Contenedor principal con fila para juegos y sidebar -->
-    <div class="container mt-5 pt-5">
-        <div class="row">
-            <!-- Columna para los juegos -->
-            <div class="col-md-9">
-                <div class="row mb-4">
-                    {% for prod in productos.items %}
-                    <div class="col-md-4">
-                        <div class="card" height="600px">
-                            <img src="{{ url_for('static', filename=prod['imagen']) }}" class="card-img-top"
-                                alt="{{prod['nombre']}}">
-                            <div class="card-body">
-                                <a href="{{ url_for('catalog.producto', id=prod['idProducto']) }}"><h5 class="card-title">{{prod["nombre"]}}</h5></a>
-                                <p class="card-text"><b>{{"%.2f" % prod["precio"]}}€</b></p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        {% if productos.has_prev %}
-            <a href="{{ url_for(request.endpoint, page=productos.prev_num) }}">
-            << Previous Page </a>
-        {% else %}
-            {{"<< Previous Page"}}
-        {% endif %} |
-        {% if productos.has_next %}
-            <a href="{{ url_for(request.endpoint, page=productos.next_num) }}">
-            Next page >>
-            </a>
-        {% else %}
-            {{"Next page >>"}}
-        {% endif %}
-
-
-
-        <!-- Agregar iconos a los botones de categorías -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
+    <script>
+        window.flaskUrls = {
+          productDetail: "{{ url_for('catalog.deletecarrito', idUser=0, idProd=1) }}"
+            .replace('0', '')
+            .replace('1', '')
+        };
+      </script>
+    <div id="app"></div>
 </body>
-
 </html>
 {% endblock %}

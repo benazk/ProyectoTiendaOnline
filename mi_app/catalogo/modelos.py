@@ -4,8 +4,8 @@ from flask_login import UserMixin
 
 #Tabla (N:M) para la relación de Carrito
 cart = db.Table('cart',
-db.Column('usuario_id', db.Integer, db.ForeignKey('user.idUsuario')),
-db.Column('producto_id', db.Integer, db.ForeignKey('product.idProducto')),
+db.Column('idUsuario', db.Integer, db.ForeignKey('user.idUsuario')),
+db.Column('idProducto', db.Integer, db.ForeignKey('product.idProducto')),
 db.Column('fechaAgregado', db.DateTime),
 db.Column('idCarrito', db.Integer, primary_key=True)
 )

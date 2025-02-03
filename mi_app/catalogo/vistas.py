@@ -7,6 +7,8 @@ from flask import redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
 import json
 from datetime import datetime
+from sqlalchemy import select, column, text, insert, delete
+
 
 
 @login_manager.user_loader
@@ -34,7 +36,11 @@ def productos(page=1):
 def producto(id):
     producto = Product.query.get_or_404(id)
     categoria = Category.query.get_or_404(producto.category_id)
-    return render_template('pagina-producto-especifico.html', producto=producto, categoria=categoria)
+    existing_prod = False
+    if current_user.is_authenticated:
+        stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idCarrito")).select_from(cart).where(column("idUsuario") == current_user.idUsuario).where(column("idProducto") == id)
+        existing_prod = db.session.execute(stmt).fetchone()
+    return render_template('pagina-producto-especifico.html', producto=producto, categoria=categoria, existing_prod=existing_prod)
 
 @catalog.route('/categoria/<int:categ>')
 def categoria(categ):
@@ -49,10 +55,51 @@ def categoria(categ):
         })
     return render_template('prods-por-categ.html', res=res, nombreCateg=categoria.nombre)
 
+@catalog.route('/addcart/<int:idUser>/<int:idProd>')
+def add_carrito(idUser, idProd):
+    horaAnadido = datetime.today().strftime('%Y-%m-%d %H:%M')
+    print(cart.columns.keys())
+    stmt = insert(cart).values(
+        idUsuario=idUser,
+        idProducto=idProd,
+        fechaAgregado=horaAnadido
+    )
+    db.session.execute(stmt)
+    db.session.commit()
+    return redirect(url_for('catalog.producto', id=idProd))
+
+
+@catalog.route('/getcarrito/<string:user>')
+def getcarrito(user):
+    stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idCarrito")).select_from(cart).where(column("idUsuario") == current_user.idUsuario)
+    results = db.session.execute(stmt).fetchall()
+    prods_carrito = [tuple(row) for row in results]
+    prod = []
+    for p in prods_carrito:
+        print(p[1])
+        prods = Product.query.get_or_404(p[1])
+        prod.append({
+            'id': prods.idProducto,
+            'nombre': prods.nombre,
+            'precio': prods.precio,
+            'imagen': prods.imagen,
+            'idUsuario': p[0],
+            'hora': p[2],
+            'nombreUsuario': current_user.nombre
+        })
+    return jsonify(prod)
 
 @catalog.route('/carrito/<string:user>')
 def carrito(user):
-    return "Carrito de " + user
+    return render_template("carrito.html")
+
+@catalog.route('/deletecarrito/<int:idUser>/<int:idProd>')
+@login_required
+def deletecarrito(idUser, idProd):
+    stmt = delete(cart).where(column("idUsuario") == current_user.idUsuario, column("idProducto") == idProd)
+    db.session.execute(stmt)
+    db.session.commit()
+    return redirect(url_for('catalog.carrito', user="benat"))
 
 
 @catalog.route('/lista-deseados/<string:user>')

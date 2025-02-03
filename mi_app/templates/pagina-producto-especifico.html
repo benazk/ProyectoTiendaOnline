@@ -140,7 +140,11 @@
                             <p>Desarrolladora: {{producto["desarrolladora"]}} </p>
                             <p>{{producto["precio"]}}€</p>
                             {% if current_user.is_authenticated %}
-                            <a href="{{url_for('catalog.addCarrito', idUsuario=current_user.idUsuario, idProducto=producto['idProducto'])}}"><button type="button" class="btn btn-primary btn-sm">Añadir al carrito</button></a>
+                                {% if existing_prod == none %}
+                                    <a href="{{ url_for('catalog.add_carrito', idUser=current_user.idUsuario, idProd=producto['idProducto']) }}"><button type="button" class="btn btn-primary btn-sm">Añadir al carrito</button></a>
+                                {% else %}
+                                    <button type="button" class="btn btn-gray btn-sm">Producto ya en el carrito</button>
+                                {% endif %}
                             {% else %}
                             <a href="{{url_for('catalog.login')}}"><button type="button" class="btn btn-primary btn-sm">Añadir al carrito</button></a>
                             {% endif %}

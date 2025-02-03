@@ -144,7 +144,7 @@
                                                 necesita llevar un tracking de que imagen se muestra-->
                         {% for destacado in destacados %}
                         {% if destacado["destacados"] == true %}
-                        <button type="button" class="bg-dark" data-bs-target="#carouselExampleIndicators"
+                        <button type="button" id="carruselSlide" data-bs-target="#carouselExampleIndicators"
                             data-bs-slide-to="{{ num.count }}" class="{% if num.count == 0 %}active{% endif %}"
                             aria-label="Slide {{ num.count + 1 }}"></button>
                         {% set _ = num.update({'count': num.count + 1}) %}
