@@ -20,62 +20,7 @@
     </style>
 </head>
 
-<body>
-    <!-- Navbar (barra de navegación) -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <!-- Logo en el navbar -->
-            <a class="navbar-brand fs-3" href="{{ url_for('catalog.home') }}">Logo</a>
-            <!-- Botón "hamburguesa" para pantallas pequeñas -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Menú del navbar que se colapsa en pantallas pequeñas -->
-            <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a href="{{ url_for('catalog.home', page=1) }}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Menú</button></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url_for('catalog.productos') }}"><button class="btn btn-primary btn-sm fs-6 ms-3" type="button">Productos</button></a>
-                    </li>
-                    {% if current_user.is_authenticated %}
-                    <li class="nav-item">
-                        <a href="{{ url_for('catalog.carrito', user=current_user.nombre )}}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Carrito</button></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url_for('catalog.favs', user=current_user.nombre  )}}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Favoritos</button></a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        
-                    </li>
-                </ul>
-                <!-- Barra de búsqueda -->
-                <form class="d-flex ms-auto barraBusqueda">
-                    <input class="form-control form-control-sm me-2" type="search" placeholder="Buscar"
-                        aria-label="Search">
-                    <button class="btn btn-primary btn-sm" type="submit">Buscar</button>
-                </form>
-                <!-- Usuario y moneda en pantallas grandes -->
-                {% if current_user.is_authenticated %}
-                    <div class="text-light fs-5 ms-3 d-none d-md-block">{{ current_user.nombre }}<span id="username"></span></div>
-                    <a href="{{ url_for('catalog.logout') }}">Click here to logout</a>
-                {% else %}
-                    <a href="{{ url_for('catalog.login') }}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Iniciar Sesión</button></a> 
-                    <a href="{{ url_for('catalog.register') }}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Registrarse</button></a>
-                {% endif %}
-                
-                <div class="ms-3 d-none d-md-block">
-                    <select class="form-select form-select-sm" id="currencySelector">
-                        <option value="eur">EUR (€)</option>
-                        <option value="usd">USD ($)</option>
-                        <option value="gbp">GBP (£)</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body style="background-color: rgb(136, 115, 136);">
     <!-- Contenedor principal con fila para juegos y sidebar -->
     <div class="container mt-5 pt-5">
         <div class="row">
@@ -84,7 +29,7 @@
                 <div class="row mb-4">
                     {% for prod in productos.items %}
                     <div class="col-md-4">
-                        <div class="card" height="600px">
+                        <div class="card bg-dark" height="600px">
                             <img src="{{ url_for('static', filename=prod['imagen']) }}" class="card-img-top"
                                 alt="{{prod['nombre']}}">
                             <div class="card-body">

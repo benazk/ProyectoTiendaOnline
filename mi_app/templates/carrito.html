@@ -2,73 +2,60 @@
 {% block container %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Document</title>
+    <title>Carrito</title>
+    <style>
+        body {
+            background: rgb(6, 11, 41);
+            background: linear-gradient(180deg, rgba(6, 11, 41, 0.9) 23%, rgba(1, 6, 25, 1) 58%);
+            color: #ffffff;
+        }
+
+        .darkFond {
+            background-color: rgba(27, 28, 29, 0.9);
+        }
+
+        .azul {
+            background-color: rgba(27, 28, 29, 0.4);
+            border-radius: 15px;
+            /* Rounds the corners */
+        }
+
+        /* En pantallas pequeñas, los botones de la navbar ocuparán toda la anchura */
+        @media (max-width: 991px) {
+            .nav-item button {
+                width: 90%;
+                margin: 5px 0;
+            }
+
+            .barraBusqueda {
+                width: 90%;
+                margin-right: 6%;
+            }
+        }
+
+        .sidebar {
+            background-color: #16202d;
+            padding: 15px;
+        }
+
+    </style>
 </head>
+
 <body>
-    <!-- Navbar (barra de navegación) -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <!-- Logo en el navbar -->
-            <a class="navbar-brand fs-3" href="{{ url_for('catalog.home') }}">Logo</a>
-            <!-- Botón "hamburguesa" para pantallas pequeñas -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Menú del navbar que se colapsa en pantallas pequeñas -->
-            <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a href="{{ url_for('catalog.home', page=1) }}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Menú</button></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url_for('catalog.productos') }}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Productos</button></a>
-                    </li>
-                    {% if current_user.is_authenticated %}
-                    <li class="nav-item">
-                        <a href="{{ url_for('catalog.carrito', user=current_user.nombre )}}"><button class="btn btn-primary btn-sm fs-6 ms-3" type="button">Carrito</button></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url_for('catalog.favs', user=current_user.nombre  )}}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Favoritos</button></a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        
-                    </li>
-                </ul>
-                <!-- Barra de búsqueda -->
-                <form class="d-flex ms-auto barraBusqueda">
-                    <input class="form-control form-control-sm me-2" type="search" placeholder="Buscar"
-                        aria-label="Search">
-                    <button class="btn btn-primary btn-sm" type="submit">Buscar</button>
-                </form>
-                <!-- Usuario y moneda en pantallas grandes -->
-                {% if current_user.is_authenticated %}
-                    <div class="text-light fs-5 ms-3 d-none d-md-block">{{ current_user.nombre }}<span id="username"></span></div>
-                    <a href="{{ url_for('catalog.logout') }}">Click here to logout</a>
-                {% else %}
-                    <a href="{{ url_for('catalog.login') }}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Iniciar Sesión</button></a> 
-                    <a href="{{ url_for('catalog.register') }}"><button class="btn btn-light btn-sm fs-6 ms-3" type="button">Registrarse</button></a>
-                {% endif %}
-                
-                <div class="ms-3 d-none d-md-block">
-                    <select class="form-select form-select-sm" id="currencySelector">
-                        <option value="eur">EUR (€)</option>
-                        <option value="usd">USD ($)</option>
-                        <option value="gbp">GBP (£)</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </nav>
     <script>
         window.flaskUrls = {
-          productDetail: "{{ url_for('catalog.deletecarrito', idUser=0, idProd=1) }}"
+            productDetail: "{{ url_for('catalog.deletecarrito', idUser=0, idProd=1) }}"
             .replace('0', '')
-            .replace('1', '')
+            .replace('1', ''),
+            image: "{{url_for('static', filename=2)}}"
+            .replace('2', ''),
         };
       </script>
     <div id="app"></div>
+    
 </body>
+
 </html>
 {% endblock %}

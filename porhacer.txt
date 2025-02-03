@@ -1,9 +1,6 @@
 - Poner descripción a las categorías
-- hacer carrito
 - barra de búsqueda
 - (Opcional) divisas
 - Lista de deseados
-- productos destacados en el home
-- categorías en el home
 - pago con PayPal
-- Diseño
+- Diseño (Parcialmente terminado)

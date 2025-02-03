@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block container %}
+<!DOCTYPE html>
+<head>
+    <title>Lista de deseados</title>
+    <style>
+        body {
+            background: rgb(6, 11, 41);
+            background: linear-gradient(180deg, rgba(6, 11, 41, 0.9) 23%, rgba(1, 6, 25, 1) 58%);
+            color: #ffffff;
+        }
+
+        .darkFond {
+            background-color: rgba(27, 28, 29, 0.9);
+        }
+
+        .azul {
+            background-color: rgba(27, 28, 29, 0.4);
+            border-radius: 15px;
+            /* Rounds the corners */
+        }
+
+        .navbar {
+            background-color: #171a21;
+        }
+
+        .navbar-brand {
+            color: #66c0f4 !important;
+        }
+
+        .nav-item button {
+            background: none;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+        }
+
+        .nav-item button:hover {
+            background-color: #4c6b90;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #66c0f4;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #417a9b;
+        }
+
+        /* En pantallas pequeñas, los botones de la navbar ocuparán toda la anchura */
+        @media (max-width: 991px) {
+            .nav-item button {
+                width: 90%;
+                margin: 5px 0;
+            }
+
+            .barraBusqueda {
+                width: 90%;
+                margin-right: 6%;
+            }
+        }
+
+        .sidebar {
+            background-color: #16202d;
+            padding: 15px;
+        }
+
+        .footer {
+            background-color: #171a21;
+            color: #ffffff;
+        }
+
+        .footer a {
+            color: #66c0f4;
+        }
+
+        .footer a:hover {
+            color: #417a9b;
+        }
+
+        .list-unstyled li a {
+            color: #66c0f4;
+        }
+
+        .list-unstyled li a:hover {
+            color: #417a9b;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Contenedor principal 2 columnas-->
+    <div class="container">
+        <h1>Lista de deseados</h1>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 me-2 azul ">
+                <!-- Contenedor producto del carrito-->
+                <div class="container" style="padding: 20px;">
+                    {% for fav in favs %}
+                    <div class="row">
+                        <!-- Contenedor imagen-->
+                        <div class="col-sm-4 col-md-4 col-lg-4 ">
+                            <div class="container" id="imagen">
+                                <img src="{{url_for('static', filename=fav.imagen)}}"
+                                    class="img-fluid mx-auto d-block" alt="Ejemplo de imagen responsiva">
+                            </div>
+                        </div>
+                        <!-- Contenedor detalles de producto-->
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="container">
+                                <div class="row">
+                                    <p>{{fav.nombre}}</p>
+                                    <p>{{fav.precio}} €</p>
+                                </div>
+                                <a href=" {{ url_for('catalog.deletefavs', idUser=current_user.idUsuario, idProd=fav.id) }} "><button type="button" class="btn btn-secondary btn-sm" @click="calcularTotal">Eliminar producto</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+{% endblock %}

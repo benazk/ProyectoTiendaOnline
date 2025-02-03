@@ -37,10 +37,13 @@ def producto(id):
     producto = Product.query.get_or_404(id)
     categoria = Category.query.get_or_404(producto.category_id)
     existing_prod = False
+    existing_fav = False
     if current_user.is_authenticated:
         stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idCarrito")).select_from(cart).where(column("idUsuario") == current_user.idUsuario).where(column("idProducto") == id)
+        stmt2 = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idFavorito")).select_from(favorite).where(column("idUsuario") == current_user.idUsuario).where(column("idProducto") == id)
         existing_prod = db.session.execute(stmt).fetchone()
-    return render_template('pagina-producto-especifico.html', producto=producto, categoria=categoria, existing_prod=existing_prod)
+        existing_fav = db.session.execute(stmt2).fetchone()
+    return render_template('pagina-producto-especifico.html', producto=producto, categoria=categoria, existing_prod=existing_prod, existing_fav=existing_fav)
 
 @catalog.route('/categoria/<int:categ>')
 def categoria(categ):
@@ -56,6 +59,7 @@ def categoria(categ):
     return render_template('prods-por-categ.html', res=res, nombreCateg=categoria.nombre)
 
 @catalog.route('/addcart/<int:idUser>/<int:idProd>')
+@login_required
 def add_carrito(idUser, idProd):
     horaAnadido = datetime.today().strftime('%Y-%m-%d %H:%M')
     print(cart.columns.keys())
@@ -68,8 +72,8 @@ def add_carrito(idUser, idProd):
     db.session.commit()
     return redirect(url_for('catalog.producto', id=idProd))
 
-
-@catalog.route('/getcarrito/<string:user>')
+@catalog.route('/getcarrito/<string:user>') # Esta función de ruta getcarrito con el nombre de usuario hace una query, la convierte en diccionario y se la pasa a VUE a través del return 
+@login_required
 def getcarrito(user):
     stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idCarrito")).select_from(cart).where(column("idUsuario") == current_user.idUsuario)
     results = db.session.execute(stmt).fetchall()
@@ -87,9 +91,11 @@ def getcarrito(user):
             'hora': p[2],
             'nombreUsuario': current_user.nombre
         })
-    return jsonify(prod)
+    return jsonify(prod) # Lo que devuelve es un diccionario con los productos en el carrito
+
 
 @catalog.route('/carrito/<string:user>')
+@login_required
 def carrito(user):
     return render_template("carrito.html")
 
@@ -101,10 +107,67 @@ def deletecarrito(idUser, idProd):
     db.session.commit()
     return redirect(url_for('catalog.carrito', user="benat"))
 
+@catalog.route('/addfavs/<int:idUser>/<int:idProd>')
+@login_required
+def add_favs(idUser, idProd):
+    horaAnadido = datetime.today().strftime('%Y-%m-%d %H:%M')
+    print(favorite.columns.keys())
+    stmt = insert(favorite).values(
+        idUsuario=idUser,
+        idProducto=idProd,
+        fechaAgregado=horaAnadido
+    )
+    db.session.execute(stmt)
+    db.session.commit()
+    return redirect(url_for('catalog.producto', id=idProd))
+
+@catalog.route('/favs/<string:user>')
+@login_required
+def getfavs(user):
+    stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idFavorito")).select_from(favorite).where(column("idUsuario") == current_user.idUsuario)
+    results = db.session.execute(stmt).fetchall()
+    prods_favs = [tuple(row) for row in results]
+    prod = []
+    for f in prods_favs:
+        print(p[1])
+        favs = Product.query.get_or_404(p[1])
+        prod.append({
+            'id': favs.idProducto,
+            'nombre': favs.nombre,
+            'precio': favs.precio,
+            'imagen': favs.imagen,
+            'hora': p[2],
+            'nombreUsuario': current_user.nombre
+        })
+    return render_template("favoritos.html", )
+
 
 @catalog.route('/lista-deseados/<string:user>')
+@login_required
 def favs(user):
-    return "Lista de deseados de " + user
+    stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idFavorito")).select_from(favorite).where(column("idUsuario") == current_user.idUsuario)
+    results = db.session.execute(stmt).fetchall()
+    prods_favs = [tuple(row) for row in results]
+    fav = []
+    for f in prods_favs:
+        favs = Product.query.get_or_404(f[1])
+        fav.append({
+            'id': favs.idProducto,
+            'nombre': favs.nombre,
+            'precio': favs.precio,
+            'imagen': favs.imagen,
+            'hora': f[2],
+            'nombreUsuario': current_user.nombre
+        })
+    return render_template("favoritos.html", idUser=current_user.idUsuario, favs=fav)
+
+@catalog.route('/deletefavs/<int:idUser>/<int:idProd>')
+@login_required
+def deletefavs(idUser, idProd):
+    stmt = delete(favorite).where(column("idUsuario") == current_user.idUsuario, column("idProducto") == idProd)
+    db.session.execute(stmt)
+    db.session.commit()
+    return redirect(url_for('catalog.favs', user=current_user.nombre))
 
 
 @catalog.route('/login', methods=['GET', 'POST'])
@@ -118,11 +181,13 @@ def login():
 
     if not (existing_user and existing_user.check_password(contrasena)):
         return render_template('login.html')
-    print("luna", existing_user.idUsuario)
     login_user(existing_user, remember=True) #recuerda usuario al cerrar la ventana
     return redirect(url_for('catalog.home'))
     
 
+@catalog.route('/registerform')
+def registerform():
+    return render_template('register.html')
 
 @catalog.route('/register', methods=['GET', 'POST'])
 def register():
@@ -132,6 +197,7 @@ def register():
     nombre = request.args.get('nombre')
     correo = request.args.get('email')
     contrasena = request.args.get('contrasena')
+    print(f"nombre de usuario: {nombre}")
     if (nombre and contrasena and correo):
         existing_user = User.query.filter_by(nombre=nombre).first()
         if existing_user:            
@@ -139,8 +205,9 @@ def register():
         user = User(nombre, contrasena, correo)
         db.session.add(user)
         db.session.commit()
+        
         return redirect(url_for('catalog.login'))
-    return render_template('register.html')
+    return render_template('index.html')
 
     
 

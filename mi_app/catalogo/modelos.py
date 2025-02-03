@@ -12,8 +12,8 @@ db.Column('idCarrito', db.Integer, primary_key=True)
 
 #Tabla (N:M) para la relación de Favoritos
 favorite = db.Table('favorite',
-db.Column('usuario_id', db.Integer, db.ForeignKey('user.idUsuario')),
-db.Column('producto_id', db.Integer, db.ForeignKey('product.idProducto')),
+db.Column('idUsuario', db.Integer, db.ForeignKey('user.idUsuario')),
+db.Column('idProducto', db.Integer, db.ForeignKey('product.idProducto')),
 db.Column('fechaAgregado', db.DateTime),
 db.Column('idFavorito', db.Integer, primary_key=True)
 )
