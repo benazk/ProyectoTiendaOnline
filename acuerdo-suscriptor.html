@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: rgb(6, 11, 41);
+            background: linear-gradient(180deg, rgba(6, 11, 41, 0.9) 23%, rgba(1, 6, 25, 1) 58%);
+            color: #ffffff;
+        }
+
+        .darkFond {
+            background-color: rgba(27, 28, 29, 0.9);
+        }
+
+        .azul {
+            background-color: rgba(27, 28, 29, 0.4);
+            border-radius: 15px;
+            /* Rounds the corners */
+        }
+
+        .navbar {
+            background-color: #171a21;
+        }
+
+        .navbar-brand {
+            color: #66c0f4 !important;
+        }
+
+        .nav-item button {
+            background: none;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+        }
+
+        .nav-item button:hover {
+            background-color: #4c6b90;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #66c0f4;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #417a9b;
+        }
+
+        /* En pantallas pequeñas, los botones de la navbar ocuparán toda la anchura */
+        @media (max-width: 991px) {
+            .nav-item button {
+                width: 90%;
+                margin: 5px 0;
+            }
+
+            .barraBusqueda {
+                width: 90%;
+                margin-right: 6%;
+            }
+        }
+
+        .sidebar {
+            background-color: #16202d;
+            padding: 15px;
+        }
+
+        .footer {
+            background-color: #171a21;
+            color: #ffffff;
+        }
+
+        .footer a {
+            color: #66c0f4;
+        }
+
+        .footer a:hover {
+            color: #417a9b;
+        }
+
+        .list-unstyled li a {
+            color: #66c0f4;
+        }
+
+        .list-unstyled li a:hover {
+            color: #417a9b;
+        }
+
+        .botonArriba {
+    background-image: url('img/flecha.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    color: rgb(255, 2, 2);
+    cursor: pointer;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+    opacity: 0.4; /* Hace todo el botón (incluido fondo y texto) más transparente */
+    border-radius: 40px;
+}
+    </style>
+</head>
+
+<body>
+    <!-- Navbar (barra de navegación) -->
+    <nav class="navbar navbar-expand-lg navbar bg-dark ">
+        <div class="container-fluid ">
+            <!-- Logo en el navbar -->
+            <a class="navbar-brand fs-3 " href="#">Logo</a>
+            <!-- Botón "hamburguesa" para pantallas pequeñas -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Menú del navbar que se colapsa en pantallas pequeñas -->
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <button class="btn btn-light btn-sm fs-6 ms-3" type="button">Tienda</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-light btn-sm fs-6 ms-3" type="button">Producto</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-light btn-sm fs-6 ms-3" type="button">Carrito</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-light btn-sm fs-6 ms-3" type="button">Favoritos</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-light btn-sm fs-6 ms-3" type="button">Historial</button>
+                    </li>
+                </ul>
+                <!-- Barra de búsqueda -->
+                <form class="d-flex ms-auto barraBusqueda ">
+                    <input class="form-control form-control-sm me-2" type="search" placeholder="Buscar"
+                        aria-label="Search">
+                    <button class="btn btn-primary btn-sm " type="submit">Buscar</button>
+                </form>
+                <!-- Usuario y moneda en pantallas grandes -->
+                <div class="text-light fs-5 ms-3 d-none d-md-block">{{Usuario}}<span id="username"></span></div>
+                <div class="ms-3 d-none d-md-block">
+                    <select class="form-select form-select-sm" id="currencySelector">
+                        <option value="eur">EUR (€)</option>
+                        <option value="usd">USD ($)</option>
+                        <option value="gbp">GBP (£)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <a href="#principio"><button class="botonArriba"> </button></a>
+
+    <!-- Contenedor principal 2 columnas-->
+    <div class="container">
+        <h1 id="principio">Acuerdo de suscriptor a "..."</h1>
+        <div class="container" id="acuerdo-suscriptor">
+            <p>Índice</p>
+            <ol>
+                <li>
+                    <a href="#1">Registro como suscriptor, términos aplicables, su cuenta, aceptación de
+                        los acuerdos</a>
+                </li>
+                <li>
+                    <a href="#2">Licencias</a>
+                </li>
+                <li>
+                    <a href="#3">Facturación, pagos y otras suscripciones</a>
+                </li>
+                <li>
+                    <a href="#4">Trampas, acciones ilegales y conducta en línea</a>
+                </li>
+                <li>
+                    <a href="#5">Contenido de terceros</a>
+                </li>
+                <li>
+                    <a href="#6">Contenido generado por el usuario</a>
+                </li>
+                <li>
+                    <a href="#7">Renuncias; limitación de responsabilidad; sin garantías; garantía limitada
+                        y acuerdo</a>
+                </li>
+                <li>
+                    <a href="#8">Modificaciones al presente acuerdo</a>
+                </li>
+                <li>
+                    <a href="#9">Vigencia y finalización</a>
+                </li>
+                <li>
+                    <a href="#10">Ley aplicable / jurisdicción</a>
+                </li>
+                <li>
+                    <a href="#11">Varios</a>
+                </li>
+            </ol>
+        </div>
+        <p>Este Acuerdo de Suscripción a “Empresa” es un documento legal que describe
+            los derechos y responsabilidades que asume como usuario de “Empresa”
+            compañía registrada bajo las leyes del estado de Donostia-San Sebastián,
+            España Aldakonea, 36, 20012 Donostia-San Sebastián, Gipuzkoa. Le
+            recomendamos leer este Acuerdo cuidadosamente.</p>
+        <h3 id="1">1.REGISTRO COMO SUSCRIPTOR, TÉRMINOS APLICABLES, SU
+            CUENTA, ACEPTACIÓN DE LOS ACUERDOS</h3>
+        <p>&quot;Empresa&quot; es un servicio en línea proporcionado por “Empresa”
+            Al completar el registro de una cuenta de usuario en &quot;Empresa&quot;, usted se
+            convierte en suscriptor de &quot;Empresa&quot;. Este acuerdo entra en vigor en el
+            momento en que usted acepte estos términos. No se permite registrar una
+            cuenta si tiene menos de 13 años de edad. &quot;Empresa&quot; no está diseñada para
+            usuarios menores de 13 años, y “Empresa” no recopilará intencionadamente
+            información personal de menores de 13 años. Pueden existir restricciones de
+            edad adicionales aplicables según las leyes locales de su país.</p>
+        <strong>A. Partes contratantes</strong>
+        <p>Para cualquier interacción con &quot;Empresa&quot;, la relación contractual será con
+            “Empresa” A menos que se indique expresamente en este acuerdo o en el
+            momento de realizar una transacción (por ejemplo, compras de otros
+            suscriptores en el bazar de suscripciones de &quot;Empresa&quot;), cualquier transacción
+            relacionada con suscripciones (como se define a continuación) será con
+            “Empresa”</p>
+        <strong>B. Hardware, suscripciones, contenido y servicios</strong>
+        <p>Como suscriptor, podrá acceder a determinados servicios, software y
+            contenidos disponibles para los suscriptores o comprar hardware (según se
+            defina más adelante) a través de &quot;Empresa&quot;.
+            Para efectos de este acuerdo, el software del cliente de &quot;Empresa&quot; y cualquier
+            otro software, contenido o actualización que descargue o al que acceda a
+            través de &quot;Empresa&quot;, incluidos videojuegos de “Empresa” o de terceros,
+            artículos virtuales, hardware comercializado en el bazar de suscripciones de
+            &quot;Empresa&quot;, se denominarán de forma conjunta &quot;contenidos y servicios&quot;. Los
+            derechos de acceso o uso de dichos contenidos y servicios serán denominados
+            &quot;suscripciones&quot;.
+            Cada suscripción le permite acceder a ciertos contenidos y servicios. El uso de
+            determinadas suscripciones puede estar sujeto a términos adicionales
+            especificados para cada una de ellas (los &quot;términos de suscripción&quot;), como un
+            acuerdo de licencia de usuario final para un juego específico, o los términos de
+            uso de productos o características de &quot;Empresa&quot;. Además, pueden existir
+            normas adicionales de uso.</p>
+        <strong>C. Su cuenta</strong>
+        <p>Al completar el proceso de registro en &quot;Empresa&quot;, se creará una cuenta de
+            usuario En esta cuenta se podrá incluir información de facturación para
+            transacciones relacionadas con suscripciones, contenidos y servicios, así como
+            la compra de hardware.
+            No debe revelar, compartir ni permitir que otros utilicen su contraseña o cuenta,
+            excepto si “Empresa” lo autoriza expresamente. Usted es responsable de
+            mantener la confidencialidad de su información de inicio de sesión y
+            contraseña, así como de la seguridad de su equipo informático. “Empresa” no
+            es responsable del uso que se haga de su contraseña o cuenta, ni de las
+            actividades que se realicen en &quot;Empresa&quot; debido al uso de su información de
+            inicio de sesión o contraseña, ya sea por usted o por otros que tengan acceso
+            a la misma de manera deliberada o por negligencia.
+            En caso de que considere que la seguridad de su información de inicio de
+            sesión esté en riesgo, debe notificarlo inmediatamente a “Empresa” a través del
+            formulario de asistencia disponible en [URL de soporte].
+            Su cuenta es estrictamente personal y no puede venderla, alquilarla, transferirla
+            ni cederla de ninguna otra forma sin la autorización expresa de “Empresa” Esto
+            incluye las suscripciones asociadas a su cuenta, que no pueden ser
+            transferidas, vendidas ni cedidas sin el consentimiento explícito, salvo que se
+            permita específicamente en los términos de suscripción o normas de uso
+            aplicables.</p>
+        <strong>D. Aceptación de los acuerdos</strong>
+        <p>Sus pedidos realizados a través de &quot;Empresa&quot; constituyen una oferta para que
+            “Empresa” acepte la entrega de suscripciones, contenidos, servicios o
+            hardware solicitados a cambio de los precios establecidos.
+            Una vez que complete un pedido en &quot;Empresa&quot;, le enviaremos un mensaje
+            confirmando la recepción de su pedido, incluyendo los detalles de este. La
+            confirmación de pedido simplemente confirma que hemos recibido su pedido,
+            pero no implica la aceptación de la oferta para formalizar el acuerdo.
+            En el caso de contenidos y servicios, aceptamos su oferta y suscribimos el
+            acuerdo con usted al confirmar la transacción y poner a su disposición los
+            contenidos y servicios, o al confirmar la transacción y cobrar el precio aplicable,
+            en el caso de las reservas.
+            En el caso del hardware, aceptamos su oferta y completamos la transacción
+            cuando le enviemos el hardware y le enviemos un correo electrónico
+            confirmando el envío, cada confirmación de envío constituirá un contrato de
+            venta independiente con respecto al artículo específico indicado en la
+            confirmación. El hardware permanecerá en propiedad de “Empresa” hasta que
+            se haya pagado en su totalidad.
+            Usted da su consentimiento para recibir facturas electrónicas de ventas.</p>
+        <strong>E. Procesamiento de los pagos</strong>
+        <p>El procesamiento de los pagos relacionados con contenidos, servicios y/o
+            hardware adquiridos en &quot;Empresa&quot; se realiza directamente por “Empresa” o, si
+            corresponde, por su subsidiaria, a través de un tercero en nombre de
+            “Empresa”, según el método de pago utilizado.</p>
+        <h3 id="2">2. LICENCIAS</h3>
+        <strong>A. Licencia general de contenidos y servicios</strong>
+        <p>&quot;Empresa&quot; y sus suscripciones requieren la descarga y la instalación de
+            contenidos y servicios en su dispositivo. Por medio de este acuerdo, “Empresa”
+            le concede una licencia no exclusiva para utilizar los contenidos y servicios
+            para su uso personal y no comercial (salvo que el uso comercial esté
+            explícitamente permitido en este acuerdo o en los términos de suscripción
+            aplicables). Esta licencia finalizará en el momento de la rescisión de (a) este
+            acuerdo o (b) una suscripción que incluya la licencia.
+            Los contenidos y servicios son otorgados bajo licencia y no están sujetos a
+            venta. La licencia no le concede la titularidad ni la propiedad de los contenidos
+            y servicios. Para utilizar los contenidos y servicios, es necesario tener una
+            cuenta en &quot;Empresa&quot;, y es posible que se le solicite que tenga instalado el
+            cliente de &quot;Empresa&quot; y esté conectado a Internet.
+            Por motivos como la seguridad del sistema, la estabilidad y la interoperabilidad
+            multijugador, “Empresa” podrá realizar actualizaciones automáticas, precargar
+            o crear nuevas versiones o mejorar los contenidos y servicios de cualquier
+            manera, lo que puede implicar que los requisitos del sistema para utilizarlos
+            varíen con el tiempo.
+            Usted autoriza dichas actualizaciones automáticas y entiende que el presente
+            acuerdo (incluyendo los términos de suscripción) no le da derecho a recibir
+            actualizaciones, nuevas versiones u otras mejoras de los contenidos y
+            servicios, salvo en los casos exigidos por la legislación aplicable. Sin embargo,
+            “Empresa” podrá, a su entera discreción, proporcionar tales actualizaciones u
+            otras mejoras.</p>
+        <strong>B. Licencia de software beta</strong>
+        <ul>
+            <li>Además de las renuncias y limitaciones de responsabilidad aplicables al
+                software beta, reconoce que este software se publica con fines de
+                prueba y mejora, por lo que puede contener errores y no estar finalizado.
+                Si decide utilizar el software beta, se compromete a usarlo solo para
+                estos fines, y conforme a los requisitos del sistema especificados para
+                cada software beta. Se recomienda realizar copias de seguridad
+                completas de cualquier sistema en el que se instale el software beta.</li>
+            <li>Además de las renuncias y limitaciones de responsabilidad aplicables al
+                software beta, reconoce que este software se publica con fines de
+                prueba y mejora, por lo que puede contener errores y no estar finalizado.
+                Si decide utilizar el software beta, se compromete a usarlo solo para
+                estos fines, y conforme a los requisitos del sistema especificados para
+                cada software beta. Se recomienda realizar copias de seguridad
+                completas de cualquier sistema en el que se instale el software beta.</li>
+            <li>Además de las renuncias y limitaciones de responsabilidad aplicables al
+                software beta, reconoce que este software se publica con fines de
+                prueba y mejora, por lo que puede contener errores y no estar finalizado.
+                Si decide utilizar el software beta, se compromete a usarlo solo para
+                estos fines, y conforme a los requisitos del sistema especificados para
+                cada software beta. Se recomienda realizar copias de seguridad
+                completas de cualquier sistema en el que se instale el software beta.</li>
+        </ul>
+        <strong>C. Licencia de uso de las herramientas de desarrollo</strong>
+        <p>Sus suscripciones pueden incluir acceso a herramientas de desarrollo
+            proporcionadas por “Empresa” para crear contenido (&quot;herramientas de
+            desarrollo&quot;). Esto puede incluir kits de desarrollo de software (SDK), editores de
+            videojuegos o herramientas integradas en los juegos de “Empresa” que
+            permitan modificar o crear obras derivadas.
+            Algunas herramientas de desarrollo pueden tener términos de suscripción
+            específicos. A excepción de lo indicado en estos términos de suscripción,
+            puede usar las herramientas de desarrollo y crear, reproducir, publicar, ejecutar,
+            mostrar y distribuir cualquier contenido generado con ellas siempre que no sea
+            para fines comerciales.
+            Si desea usar el SDK o cualquier otra herramienta de desarrollo para fines
+            comerciales, debe ponerse en contacto con “Empresa” a través del correo
+            electrónico [correo de contacto de tu empresa].</p>
+        <strong>D. Licencia de uso de contenido de juegos en obras derivadas</strong>
+        <p>“Empresa” agradece a los suscriptores que crean diseños, relatos y trabajos
+            audiovisuales basados en los juegos de la empresa (&quot;obras derivadas&quot;). Puede
+            incorporar contenido de los juegos de “Empresa” en dichas obras derivadas.
+            Salvo que se indique lo contrario, puede utilizar, reproducir, publicar, ejecutar,
+            mostrar y distribuir obras derivadas que incluyan contenido de los juegos de
+            “Empresa” siempre que no sea con fines comerciales.
+            Si incorpora contenido de terceros en sus obras derivadas, debe asegurarse de
+            contar con los derechos necesarios.
+            El uso comercial de contenido de los juegos de “Empresa” es permitido en
+            plataformas como [nombre de la plataforma de tu empresa, como por ejemplo
+            &quot;Workshop&quot;] o en el bazar de suscripciones de &quot;Empresa&quot;, según los términos
+            de uso especificados en los apartados correspondientes de este acuerdo y en
+            los términos aplicables a esas características.</p>
+        <strong>E. Licencia de uso del software del servidor dedicado</strong>
+        <p>Sus suscripciones pueden incluir acceso al software de servidor dedicado de
+            “Empresa” En este caso, podrá usar este software en un número ilimitado de
+            ordenadores para alojar partidas multijugador en línea de los productos de
+            “Empresa” Usted será responsable de obtener el acceso a Internet, el ancho de
+            banda y el hardware necesario para dicha actividad, y de cubrir todos los
+            gastos asociados con este uso.</p>
+        <strong>F. Propiedad de los contenidos y servicios</strong>
+        <p>La titularidad, los derechos de propiedad y los derechos de propiedad
+            intelectual sobre los contenidos y servicios, y todas sus copias, son propiedad
+            de “Empresa” o de los otorgantes de licencias de sus socios. Todos los
+            derechos están reservados, salvo que se disponga lo contrario en este
+            acuerdo. Los contenidos y servicios están protegidos por las leyes de derechos
+            de autor y otros derechos de propiedad intelectual nacionales e internacionales.
+            Los otorgantes de licencias pueden proteger sus derechos en caso de
+            incumplimiento de este acuerdo.</p>
+        <strong>G. Restricciones en el uso de los contenidos y servicios</strong>
+        <p>Se prohíbe el uso de los contenidos y servicios para cualquier fin distinto al
+            acceso autorizado a &quot;Empresa&quot; y sus suscripciones o al uso personal sin fines
+            comerciales, salvo que esté expresamente permitido en este acuerdo o en los
+            términos de suscripción aplicables.
+            Excepto en los casos permitidos por este acuerdo o según lo exija la ley, no
+            puede, ni total ni parcialmente, copiar, reproducir, distribuir, modificar,
+            desensamblar, descompilar, realizar ingeniería inversa, ni crear obras derivadas
+            de los contenidos y servicios sin el consentimiento previo y por escrito de
+            “Empresa”
+            El usuario tiene derecho a usar los contenidos y servicios para su propio uso
+            personal, pero no puede:
+            (i) vender, alquilar, transferir ni otorgar licencias a terceros sobre los contenidos
+            y servicios sin el consentimiento expreso de “Empresa” ;
+            (ii) ofrecer servicios de búsqueda de jugadores o emular los protocolos de
+            comunicación utilizados por “Empresa” sin la debida autorización;
+            (iii) explotar los contenidos y servicios con fines comerciales salvo que se
+            permita expresamente en este acuerdo o en los términos aplicables.</p>
+        <h3 id="3">3. FACTURACIÓN, PAGOS Y OTRAS SUSCRIPCIONES</h3>
+        <p>Todos los cargos incurridos en “Empresa” y todas las compras realizadas con la
+            cartera de “Empresa” se pagan por adelantado y son definitivos, a excepción
+            de lo descrito en los apartados 3.I y 7 más abajo.</p>
+        <strong>A. Autorización del pago</strong>
+        <p>Al proporcionar a “Empresa” o a uno de sus procesadores de pagos la
+            información necesaria para realizar el pago, está declarando ante “Empresa”
+            que usted es el usuario autorizado de la tarjeta, el PIN, la clave o la cuenta
+            asociados a ese pago, y autoriza a “Empresa” a realizar el cargo en su tarjeta
+            de crédito o a procesar mediante el procesador de pagos externo elegido el
+            pago de cualquier suscripción, la carga de fondos en la cartera de “Empresa”,
+            la compra de hardware y otros gastos en los que haya incurrido.En el caso de los pedidos de suscripciones
+            que se basen en un periodo de uso
+            acordado y en las que se realicen pagos periódicos a cambio de que el uso sea
+            ininterrumpido («suscripciones de pago periódico»), al seguir utilizándolas,
+            acuerda y confirma que “Empresa” está autorizada a realizar el cargo en su
+            tarjeta de crédito (o en su cartera de “Empresa” si tiene fondos) o a procesar el
+            pago con cualquier otro procesador de pagos externo por cualquier importe
+            correspondiente al pago periódico. Si ha adquirido alguna suscripción de pago
+            periódico, acepta informar de inmediato a “Empresa” de cualquier cambio en su
+            dirección de facturación, su número de tarjeta de crédito o la fecha de
+            vencimiento de esta o en el número de su cuenta de PayPal o de otro medio de
+            pago, y acepta notificar a “Empresa” de inmediato si su tarjeta de crédito o su
+            cuenta de PayPal o de otro medio de pago caduca o se cancela por cualquier
+            motivo.
+            Si su uso de “Empresa” o su compra de hardware en “Empresa” están sujetos a
+            algún tipo de impuesto (por el uso o por la venta), “Empresa” también puede
+            cobrarle esos impuestos, además de la suscripción y de otros cargos indicados
+            en las normas de uso. Todos los cargos de “Empresa” en la Unión Europea y el
+            Reino Unido incluyen el impuesto sobre el valor añadido de la UE o del Reino
+            Unido («IVA»). Los importes de IVA que carga “Empresa” reflejan el IVA
+            aplicable al valor de cualquier contenido y servicio, hardware o suscripción.
+            Usted accede a no utilizar un servidor proxy ni otros métodos para enmascarar
+            su IP y ocultar su lugar de residencia, ya sea para evitar las restricciones
+            geográficas sobre el contenido del juego, para pedir o comprar a precios no
+            aplicables a su área geográfica o para cualquier otra finalidad. Si infringe esta
+            condición, “Empresa” podría cancelar el acceso a su cuenta.</p>
+        <strong>B. Responsabilidad respecto a los cargos asociados con la cuenta</strong>
+        <p>Como propietario de la cuenta, usted es responsable de todos los cargos que
+            se produzcan en ella, incluidos los impuestos correspondientes, y de todos los
+            pedidos o compras realizados por usted o cualquiera que utilice su cuenta,
+            incluidos familiares y amigos. Si cancela su cuenta, “Empresa” se reserva el
+            derecho a cobrar los cargos, recargos o costes que se hayan generado antes
+            de la cancelación de su cuenta. Para que “Empresa” lo autorice a volverse a
+            registrar, deberá saldar las cuentas impagadas.</p>
+        <strong>C. Cartera de “Empresa”</strong>
+        <p>“Empresa” puede poner a su disposición un sistema de control de ingresos y
+            gastos asociado con su cuenta («cartera de “Empresa”»). La cartera de
+            “Empresa” no es una cuenta bancaria ni ningún tipo de instrumento de pago.
+            Funciona como saldo prepagado para pedir contenido y servicios. Puede
+            ingresar fondos en su cartera de “Empresa” mediante una tarjeta de crédito,
+            una tarjeta prepaga, un código de promoción o cualquier otro método de pago aceptado por “Empresa”, hasta un
+            importe máximo que determinará “Empresa”.
+            En un periodo de veinticuatro (24) horas, el importe total almacenado en su
+            cartera de “Empresa”, más el importe total gastado de su cartera de “Empresa”,
+            en total, no puede superar los 2 000 USD o el equivalente en su moneda local;
+            cualquier intento de depositar fondos en la cartera de “Empresa” que supere
+            dicho umbral podría no constar como abonado hasta que la actividad
+            descienda por debajo de ese límite. Es posible que “Empresa” modifique los
+            límites de uso o el sistema de control de cuentas de la cartera de “Empresa” o
+            que imponga otros distintos.
+            Se le notificará por correo electrónico de cualquier cambio en el control de
+            cuentas de la cartera de “Empresa” en un plazo máximo de sesenta (60) días
+            naturales antes de la entrada en vigor de dicho cambio. El uso continuado de
+            su cuenta de “Empresa” al cabo de más de treinta (30) días naturales a partir
+            de la entrada en vigor de las modificaciones constituirá su aceptación de los
+            cambios. Si no está de acuerdo con los cambios, la única solución es cancelar
+            su cuenta de “Empresa” o dejar de utilizar la cartera de “Empresa”. En este
+            caso, “Empresa” no tendrá obligación alguna de reembolsar los créditos
+            restantes en la cartera de “Empresa”.
+            Usted puede utilizar los fondos de su cartera de “Empresa” para adquirir
+            hardware y suscripciones, así como para hacer compras dentro del juego allá
+            donde estén habilitadas las transacciones con la cartera de “Empresa”. Según
+            lo estipulado en el apartado 3.I, los fondos ingresados en la cartera de
+            “Empresa” no son reembolsables ni transferibles. Los fondos ingresados en la
+            cartera de “Empresa” no constituyen un derecho de propiedad personal, no
+            tienen valor fuera de “Empresa” y solo se pueden utilizar para comprar
+            hardware, suscripciones y contenido relacionado a través de “Empresa”
+            (incluidos, de manera enunciativa pero no limitativa, juegos y otras aplicaciones
+            ofrecidas a través de la tienda de “Empresa” o en un bazar de suscripciones de
+            “Empresa”). Los fondos de la cartera de “Empresa” no tienen valor en efectivo y
+            no se pueden cambiar por dinero en efectivo. Los fondos de la cartera de
+            “Empresa” que se consideren propiedad no reclamada pueden cederse a la
+            autoridad competente.</p>
+        <strong>D. Intercambio y transacciones de suscripciones entre suscriptores</strong>
+        <p>“Empresa” puede incluir una o más funciones o sitios que permitan a los
+            suscriptores intercambiar, ofrecer o comprar determinados tipos de
+            suscripciones (por ejemplo, los derechos de licencia sobre artículos virtuales)
+            entre suscriptores («bazares de suscripciones»). Un ejemplo de bazar de
+            suscripciones es el Mercado de la comunidad “Empresa”. Al utilizar los bazares
+            de suscripciones, autoriza a “Empresa”, en su propio nombre o como agente o
+            concesionario de la licencia de cualquier otro creador o editor de las
+            suscripciones correspondientes en su cuenta, a transferir esas suscripciones desde su cuenta, con el fin de
+            hacer efectiva cualquier operación de
+            intercambio o venta realizada.
+            “Empresa” puede cobrar una tarifa por los intercambios o las ventas realizados
+            en un bazar de suscripciones. Se le avisará de cualquier tarifa antes de finalizar
+            el intercambio o la venta.
+            Al realizar un intercambio, una venta o una compra en un bazar de
+            suscripciones, reconoce y acuerda que usted es responsable de pagar los
+            impuestos, si los hubiera, que pudieran corresponder a las transacciones que
+            realice, incluyendo los impuestos por el uso o el IVA, y que cumplirá las leyes
+            tributarias que sean aplicables. El dinero procedente de las ventas que realice
+            en un bazar de suscripciones puede considerarse un ingreso a efectos fiscales.
+            Debería consultar con un asesor fiscal para determinar su responsabilidad
+            fiscal en relación con sus actividades en el bazar de suscripciones.
+            Usted comprende y reconoce que “Empresa” no está obligado a proporcionar ni
+            mantener ningún bazar de suscripciones. “Empresa” puede decidir cesar el
+            funcionamiento de cualquier bazar de suscripciones, modificar las tarifas que
+            cobra por las transacciones o modificar los términos o las características del
+            bazar de suscripciones de “Empresa”. Se le notificará de cualquier cambio
+            considerable en los términos o en la disponibilidad del bazar de suscripciones
+            de manera oportuna antes de que el cambio surta efecto, excepto en casos de
+            fuerza mayor, negligencia por parte del suscriptor o acontecimiento de terceros
+            que estén fuera del alcance de “Empresa”.
+            Usted también comprende y reconoce que las suscripciones intercambiadas,
+            vendidas o compradas a través del bazar de suscripciones son derechos de
+            licencia, que usted no tiene intereses de propiedad en tales suscripciones y que
+            “Empresa” no reconoce ninguna transferencia de suscripciones (incluidas las
+            transferencias por mandato judicial) realizada fuera del entorno de “Empresa”.</p>
+        <strong>E. Compras minoristas</strong>
+        <p>Es posible que “Empresa” ofrezca o requiera una suscripción para los
+            compradores de paquetes de versiones de productos de venta al por menor o
+            versiones OEM de productos de “Empresa”. La &quot;clave del CD&quot; o &quot;clave de
+            producto&quot; que acompaña a tales versiones se utiliza para activar la suscripción.
+            Se proporcionarán más instrucciones junto con el producto en concreto.</p>
+        <strong>F. Distribuidores autorizados de “Empresa”</strong>
+        <p>Usted puede pedir una suscripción a través de un distribuidor autorizado de
+            “Empresa”. La «clave de producto» que se suministra al realizar esta solicitud
+            debe utilizarse para activar la suscripción. Se proporcionarán más instrucciones
+            junto con el producto en concreto. Si usted adquiere una suscripción de un distribuidor autorizado de
+            “Empresa”, acepta dirigir todas las preguntas
+            relativas a la clave de producto a dicho distribuidor.</p>
+        <strong>G. Suscripciones gratuitas</strong>
+        <p>En algunos casos, “Empresa” puede ofrecer una suscripción gratuita a ciertos
+            servicios o contenidos. Al igual que con cualquier otra suscripción, usted es
+            siempre responsable de cualquier cargo de su proveedor de servicios de
+            Internet, teléfono u otras conexiones en el que incurra al utilizar “Empresa”,
+            incluso cuando “Empresa” ofrece una suscripción de forma gratuita.</p>
+        <strong>H. Sitios de terceros</strong>
+        <p>Es posible que “Empresa” proporcione vínculos a sitios de terceros. Algunos de
+            esos sitios pueden cobrar cargos por separado que son adicionales y no están
+            incluidos en los cargos por suscripción u otros cargos que usted debe abonar a
+            “Empresa”. Asimismo, “Empresa” puede dar acceso a otros distribuidores que
+            proporcionan contenidos, bienes o servicios a través de “Empresa” o por
+            Internet. Usted es responsable de cualquier cargo u obligación adicionales
+            derivados de su relación con esos otros distribuidores. “Empresa” no hace
+            promesas ni da garantías, ya sean expresas o implícitas, con respecto a
+            cualquiera de los sitios de terceras partes. En concreto, “Empresa” no hace
+            promesas ni da garantías respecto a que un determinado servicio o suscripción
+            ofrecido a través de terceros no cambiará, no se interrumpirá o no se
+            cancelará.</p>
+        <strong>I. Reembolsos y derecho de desistimiento</strong>
+        <p>Sin perjuicio de cualquier derecho legal que pueda tener, puede solicitar un
+            reembolso de sus pedidos o compras en “Empresa” según los términos de la
+            Política de reembolsos de “Empresa” ([enlace de reembolsos] (http://store.”
+            Empresa” powered.com/” Empresa” _refunds/)).
+            Para los clientes de la Unión Europea y el Reino Unido: La normativa de la UE
+            y el Reino Unido proporciona un derecho legal a desistir de determinados
+            contratos por mercancías físicas y por la compra de contenido digital.
+            Encontrará más información sobre el alcance de este derecho legal de
+            desistimiento y cómo ejercerlo en la siguiente página: [enlace de derecho de
+            desistimiento] (https://support.” ¿Empresa”
+            powered.com/kb_article.php?ref=8620-QYAL-4516).</p>
+        <h3 id="4">4. CONDUCTA EN LÍNEA, TRAMPAS Y MANIPULACIÓN DE PROCESOS</h3>
+        <p>Su conducta en línea y su interacción con otros suscriptores deben cumplir con
+            las normas de conducta en línea de “Empresa”, que se pueden encontrar en
+            [enlace a normas de conducta] (http://” Empresa”
+            powered.com/index.php?area=online_conduct). En función de los términos de
+            uso impuestos por terceros cuando sean estos quienes alojen determinados
+
+            juegos y otros servicios, también podrían indicarse requisitos adicionales en los
+            términos de suscripción aplicables a una determinada suscripción.
+            Es posible que “Empresa” y los contenidos y servicios incluyan funciones
+            diseñadas para identificar procesos o funciones de software o hardware que
+            puedan dar al jugador una ventaja competitiva injusta al jugar con versiones
+            multijugador de cualquier contenido o servicio, o modificaciones de estos
+            («trampas»). Usted acepta que no creará trampas ni ayudará a terceros a
+            crearlas o usarlas en modo alguno. Asimismo, acepta que no desactivará,
+            burlará ni interferirá de ningún otro modo, ya sea de manera directa o indirecta,
+            el funcionamiento de cualquier software diseñado para evitar o informar sobre
+            el uso de trampas.
+            Usted acepta no manipular la ejecución de “Empresa” o los Contenidos y
+            Servicios a menos que “Empresa” lo autorice de otro modo. Reconoce y acepta
+            que “Empresa” o cualquier anfitrión de un juego multijugador en línea
+            distribuido a través de “Empresa” (&quot;Host externo&quot;) puede optar por no permitirle
+            participar en ciertas partidas multijugador en línea si utiliza trampas o manipula
+            la ejecución de “Empresa” o los Contenidos o Servicios.
+            Además, usted reconoce y acepta que los Hosts externos pueden informar de
+            su uso de trampas o manipulación de procesos no autorizada en “Empresa”, y
+            “Empresa” puede comunicar su historial de uso de estos a los Hosts externos
+            dentro de los límites de la Política de privacidad de “Empresa”.
+            “Empresa” puede restringir o suspender su cuenta o cualquier suscripción si
+            observa una conducta o actividad ilegal, que constituya una trampa o que
+            incumpla las normas de conducta en línea de “Empresa”. Usted reconoce que
+            “Empresa” no tiene la obligación de avisarle antes de suspender sus
+            suscripciones o su cuenta.
+            No está permitido hacer uso de trampas, software automatizado (bots), mods,
+            aplicaciones de trampas (hacks) ni cualquier otro software de terceros no
+            autorizado para modificar o automatizar cualquier proceso del bazar de
+            suscripciones o el proceso de creación de cuentas de “Empresa”, ni tampoco
+            para interactuar o controlar los procesos o la interfaz de usuario de “Empresa”,
+            excepto en la medida expresamente permitida.</p>
+        <h3 id="5">5. CONTENIDO DE TERCEROS</h3>
+        <p>En cuanto al conjunto de suscripciones, contenidos y servicios ajenos a
+            “Empresa”, “Empresa” no filtra ese contenido de terceros disponible en
+            “Empresa” o a través de otras fuentes. “Empresa” no acepta responsabilidad ni
+            obligación alguna por el contenido de terceros, excepto en el grado indicado
+            por la legislación de obligado cumplimiento. Algunas aplicaciones de software
+            de terceros pueden ser utilizadas por empresas con fines comerciales; no
+
+            obstante, si usted adquiere ese software a través de “Empresa”, solo puede
+            utilizarlo con fines privados.</p>
+        <h3 id="6">6. CONTENIDO GENERADO POR EL USUARIO</h3>
+        <strong>A. Disposiciones generales</strong>
+        <p>“Empresa” proporciona interfaces y herramientas para que el usuario pueda
+            generar contenido y ponerlo a disposición de otros usuarios o “Empresa” a su
+            entera discreción. Con «contenido generado por el usuario» nos referimos a
+            cualquier contenido que el usuario ponga a disposición de otros usuarios como
+            resultado de su uso de las características para varios usuarios de “Empresa” o
+            bien a disposición de “Empresa” o sus empresas asociadas al utilizar los
+            contenidos o servicios, o por cualquier otro motivo.
+            Al cargar su contenido en “Empresa” para ponerlo a disposición de otros
+            usuarios o “Empresa” , concede a “Empresa” y sus empresas asociadas el
+            derecho no exclusivo y mundial de utilizar, reproducir, modificar, distribuir,
+            transmitir, transcodificar, traducir, divulgar o comunicar de cualquier otro modo
+            contenido generado por el usuario y crear obras derivadas del mismo, así como
+            de mostrar y ejecutar públicamente el contenido generado por el usuario y las
+            obras derivadas del mismo para efectos del funcionamiento, la distribución, la
+            incorporación como parte del servicio de “Empresa” y la promoción de este, los
+            juegos de “Empresa” y otros contenidos ofrecidos por “Empresa”, incluidas las
+            suscripciones. Esta licencia se concede a “Empresa” cuando el contenido se
+            carga en “Empresa” por la misma duración que la de sus derechos de
+            propiedad intelectual. Puede cesar si “Empresa” infringe la licencia y no
+            resuelve dicha infracción en un plazo de catorce (14) días a partir de recibir la
+            notificación por parte del usuario a la atención del departamento jurídico de
+            “Empresa” (“Empresa” Legal Department) en la dirección de “Empresa” que se
+            indica en esta página de la Política de privacidad. La anulación de dicha
+            licencia no afectará a los derechos de cualquier titular de sublicencia de
+            conformidad con cualquier sublicencia concedida por “Empresa” antes del cese
+            de la licencia. “Empresa” es el único propietario de las obras derivadas creadas
+            por “Empresa” a partir del contenido generado por el usuario y, por tanto, tiene
+            derecho a conceder licencias relativas a estas obras derivadas. Si utiliza el
+            almacenamiento «en nube» de “Empresa”, nos concede una licencia para
+            almacenar su información como parte de dicho servicio. “Empresa” se reserva
+            el derecho de poner límites a la cantidad de espacio para almacenamiento que
+            se le permite utilizar.
+            Si proporciona a “Empresa” comentarios o sugerencias sobre “Empresa”, los
+            contenidos o servicios, o cualquier producto, hardware o servicio de “Empresa”,
+
+            “Empresa” tiene total libertad para darles el uso que desee sin tener que
+            responder de ninguna forma ante usted.
+            Usted acepta que la comunidad puede ver el contenido generado por el usuario
+            que carga en “Empresa” a través de las interfaces y herramientas
+            proporcionadas por “Empresa” y que lo comparte para disfrutar de él y para que
+            otros suscriptores puedan expresar su reconocimiento. En consecuencia,
+            concede de forma gratuita la presente licencia a “Empresa” y a sus empresas
+            asociadas, salvo especificación en contrario en los términos específicos de las
+            aplicaciones, tal y como se define en el Apartado 6.B a continuación.</p>
+        <strong>B. Contenido cargado en “Empresa” Workshop</strong>
+        <p>Algunos juegos y algunas aplicaciones disponibles en “Empresa”
+            («aplicaciones compatibles con Workshop») permiten crear contenido generado
+            por el usuario basado en dichas aplicaciones o que las utiliza y enviar ese
+            contenido («aportación a Workshop») a una página web o varias de “Empresa”
+            Workshop. Las aportaciones a Workshop son visibles para la comunidad
+            “Empresa” y, en el caso de ciertas categorías de aportaciones, los usuarios
+            pueden interactuar con ellas, descargarlas o adquiridas. En algunos casos,
+            “Empresa” u otros desarrolladores pueden incorporar las aportaciones a
+            Workshop a juegos o a un bazar de suscripciones.
+            Comprende y acepta que “Empresa” no tiene ninguna obligación de usar,
+            distribuir ni seguir distribuyendo copias de ninguna aportación a Workshop y
+            que se reserva el derecho, no la obligación, de restringir o eliminar
+            aportaciones a Workshop por cualquier motivo.
+            Algunas aplicaciones compatibles con Workshop o páginas web de Workshop
+            pueden incluir términos especiales («términos específicos de las aplicaciones»)
+            que complementan o alteran los términos dispuestos en este apartado para
+            reflejar los requisitos individuales de la aplicación compatible con Workshop en
+            cuestión.
+            En virtud del Apartado 6.A, las aportaciones a Workshop, en un principio, se
+            ponen a disposición de los suscriptores de manera gratuita. Excepcionalmente,
+            dichas aportaciones se pueden poner a disposición de los suscriptores
+            mediante pago de una tarifa. En ese caso, la forma en que se pueden compartir
+            los ingresos generados y, en particular, la indemnización que puede recibir
+            como resultado de poner a disposición estas aportaciones, se definen en los
+            términos específicos de las aplicaciones y no en el presente Acuerdo. Salvo
+            que se especifique lo contrario en los términos específicos de las aplicaciones
+            (si corresponde), se aplicarán las siguientes normas generales a las
+            aportaciones a Workshop.</p>
+        <ul>
+            <li>Las aportaciones a Workshop son suscripciones y, por lo tanto, acepta
+                que los suscriptores que reciban distribuciones de ellas disfrutan de los
+                mismos derechos de uso (y están sujetos a las mismas restricciones)
+                que se estipulan en este acuerdo para el resto de las suscripciones.</li>
+            <li>Independientemente de la licencia descrita en el apartado 6.A,
+                “Empresa” solo tendrá derecho a modificar y crear obras derivadas de
+                sus aportaciones a Workshop en los siguientes casos: (a) “Empresa”
+                podría realizar las modificaciones necesarias para hacer que la
+                aportación sea compatible con la funcionalidad o la interfaz de usuario
+                de Workshop y “Empresa” y (b) “Empresa” o el desarrollador que
+                corresponda podría realizar modificaciones a las aportaciones a
+                Workshop aceptadas para su distribución desde dentro de la aplicación
+                que considerase necesarias o recomendables para mejorar la
+                experiencia de juego o hacerla compatible con la aplicación compatible
+                con Workshop. En virtud del apartado 6.A, usted otorga de manera
+                gratuita a “Empresa” y a sus empresas asociadas el derecho a modificar
+                y crear obras derivadas de sus aportaciones a Workshop. Por lo tanto,
+                no tiene derecho a percibir ningún tipo de compensación de “Empresa”
+                como resultado de las modificaciones de “Empresa”.</li>
+            <li>Tiene derecho a eliminar, a su sola discreción, aportaciones a Workshop
+                de las páginas de Workshop correspondientes. Si lo hace, “Empresa”
+                deja de tener el derecho de usar, distribuir, transmitir, comunicar y
+                mostrar o ejecutar públicamente la aportación a Workshop con estas
+                salvedades: (a) “Empresa” puede seguir ejerciendo estos derechos con
+                las aportaciones a Workshop aceptadas para su distribución dentro de
+                los juegos o distribuidas de modo que se puedan usar dentro de ellos y
+                (b) la eliminación no afecta a los derechos de los suscriptores que ya
+                hayan tenido acceso a una copia de la aportación a Workshop.</li>
+        </ul>
+        <strong>C. Promociones y respaldos</strong>
+        <p>Si utiliza los servicios de “Empresa” (por ejemplo, las listas de mentores de
+            “Empresa” o el servicio de retransmisión de “Empresa”) para promocionar o
+            respaldar un producto, servicio o evento a cambio de cualquier tipo de
+            retribución de un tercero (incluyendo las de carácter no monetario, como juegos
+            gratis), debe indicar claramente a la audiencia la fuente de dicha retribución.</p>
+        <strong>D. Declaraciones y garantías</strong>
+        <p>El usuario declara y garantiza a “Empresa” que dispone de los derechos
+            suficientes sobre el contenido generado por el usuario como para conceder a
+            “Empresa” y otras partes implicadas las licencias descritas anteriormente bajo
+            los epígrafes A. y B. o en los términos de licencia específicos que pudiera tener
+            la aplicación compatible con Workshop o la página de Workshop. Eso incluye,
+            sin limitación, todo tipo de derechos de propiedad intelectual o derechos
+            personales o de patente relacionados con el contenido generado por el usuario
+
+            o incluidos en él. En particular, con respecto a las aportaciones a Workshop,
+            declara y garantiza que es su autor original (o usted y otros colaboradores si se
+            trata de aportaciones conjuntas y, en ese caso, también que tiene derecho a
+            enviar tales aportaciones a Workshop en nombre de dichos colaboradores).
+            Asimismo, declara y garantiza que ni el contenido generado por el usuario en sí
+            ni su envío ni la concesión de derechos sobre él infringen ningún contrato ni
+            ninguna ley ni normativa aplicables.</p>
+        <h3 id="7">7. RENUNCIAS; LIMITACIÓN DE RESPONSABILIDAD; SIN GARANTÍAS;
+            GARANTÍA LIMITADA Y ACUERDO <br><br>
+            EL APARTADO 7 NO SE APLICA A LOS SUSCRIPTORES DE LA UE O EL
+            REINO UNIDO.</h3><br>
+        <ul>
+            <li><strong>Para los suscriptores de la UE o Reino Unido:</strong>La legislación de la UE
+                y del Reino Unido ofrece ciertos derechos que no pueden ser limitados
+                ni excluidos. Estos derechos incluyen, entre otros, la garantía legal de
+                conformidad y los derechos de los consumidores en relación con los
+                productos y servicios adquiridos. Cualquier disposición de este apartado
+                que contravenga estos derechos no será aplicable.</li>
+            <li><strong>Para los suscriptores de Australia:</strong>Este apartado 7 no excluye, limita
+                ni modifica la aplicación de cualquier garantía, derecho o recurso que no
+                se pueda excluir, limitar o modificar, incluidos los otorgados por la Ley
+                del Consumidor de Australia (ACL). Bajo la ACL, las mercancías
+                conllevan garantías, incluida una garantía de calidad aceptable. Si no se
+                satisface esta garantía, el consumidor tiene derecho a un recurso (que
+                podría incluir la reparación, sustitución o reembolso de las mercancías).
+                Si no se puede reparar ni sustituir, o si el producto presenta un defecto
+                mayor, el consumidor tiene derecho a un reembolso.</li>
+            <li><strong>Para los suscriptores de Nueva Zelanda:</strong>Este apartado 7 no excluye,
+                limita ni modifica la aplicación de cualquier derecho o recurso que no se
+                pueda excluir, limitar o modificar, incluidos los otorgados por la Ley de
+                Garantías del Consumidor de Nueva Zelanda de 1993. Esta ley ofrece
+                garantías, incluyendo que los bienes y servicios sean de calidad
+                aceptable. En caso de incumplimiento de esta garantía, el consumidor
+                dispone de derechos de recurso sobre el software (lo que puede incluir
+                reparación, sustitución o reembolso). Si no es posible prestar un recurso
+                o el fallo es grave, la ley establece el reembolso del importe abonado.</li>
+        </ul>
+        <p>Antes de adquirir una suscripción, debe consultar la información del producto
+            suministrada en “Empresa”, incluidos la descripción de la suscripción, los
+            requisitos técnicos mínimos y las críticas de los usuarios.</p>
+        <strong>A. RENUNCIAS</strong>
+        <p>En la medida permitida por la legislación aplicable, “Empresa”, sus empresas
+            asociadas y sus proveedores de servicios renuncian expresamente a:</p>
+        <ol>
+            <li><strong>Cualquier garantía sobre “Empresa”, los contenidos y servicios de
+                    “Empresa” y los artículos comerciales</strong></li>
+            <li><strong>Cualquier obligación derivada de derecho consuetudinario en
+                    relación con “Empresa”, los contenidos y servicios, y las
+                    suscripciones,</strong>incluidas las obligaciones por falta de negligencia o falta
+                de esfuerzo razonable y diligencia.</li>
+        </ol>
+        <p>“Empresa”, los contenidos y servicios, las suscripciones y cualquier información
+            disponible relacionada con ellos se proporcionan “tal cual”, “según
+            disponibilidad”, “con todos los defectos” y sin ningún tipo de garantía, ya
+            sea expresa o implícita, incluidas, pero no limitadas a, las garantías implícitas
+            de comercialización, adecuación para un fin determinado o de no violación de
+            derechos. Queda expresamente excluida cualquier garantía contra la infracción
+            de derechos que pudiera quedar recogida en el apartado 2-312 del «Uniform
+            Commercial Code» de Estados Unidos o en cualquier otro código estatal
+            comparable. Asimismo, no existe ninguna garantía de titularidad, no
+            interferencia en su disfrute ni autoridad en relación con “Empresa”, los
+            contenidos y servicios, las suscripciones o la información disponible
+            relacionada con ellos.</p>
+        <strong>B. LIMITACIÓN DE RESPONSABILIDAD</strong>
+        <p>En la medida permitida por la legislación aplicable, ni “Empresa” ni sus
+            licenciantes ni sus empresas asociadas ni ninguno de los proveedores de
+            servicios de “Empresa” serán responsables en ningún caso por las pérdidas o
+            daños de cualquier naturaleza derivados del uso o la imposibilidad de usar
+            “Empresa”, la cuenta y los contenidos y servicios, incluidos, pero no limitados a,
+            la pérdida de fondo de comercio, la interrupción de trabajos, los fallos o errores
+            informáticos o cualquier otro daño o pérdida comercial. “Empresa” no será
+            responsable en ningún caso de daños indirectos, incidentales,
+            consecuenciales, especiales, punitivos, ejemplares ni de cualquier otro tipo que
+            pudieran depender o derivarse de cualquier modo de “Empresa”, los contenidos
+            y servicios, las suscripciones y cualquier información disponible relacionada
+            con ellos ni del retraso o la imposibilidad de uso de los contenidos y servicios,
+            las suscripciones o cualquier información, incluso en caso de error, agravio
+            (incluida negligencia), responsabilidad estricta y ruptura de contrato o de la
+            garantía de “Empresa” , ni siquiera en el caso de que se hubiera informado a
+            “Empresa” de la posibilidad de dichos daños. Estas limitaciones y exclusiones
+            de responsabilidad son aplicables incluso en el supuesto de que algún recurso
+            legal no proporcione un resarcimiento adecuado.</p>
+        <strong>Debido a que algunos países o jurisdicciones no permiten la exclusión o
+            la limitación de la responsabilidad por daños incidentales o derivados, en
+            dichos países o jurisdicciones, la responsabilidad de “Empresa”, sus
+            otorgantes de licencias y sus empresas asociadas se limitará hasta donde
+            lo permitan las leyes locales vigentes.</strong><br>
+        <strong>C. SIN GARANTÍAS</strong>
+        <p>En la medida permitida por la legislación aplicable, ni “Empresa” ni sus
+            empresas asociadas garantizan la continuidad, la ausencia de errores, la
+            ausencia de virus ni la seguridad del funcionamiento y el acceso a “Empresa”,
+            los contenidos y servicios, la cuenta del usuario y sus suscripciones o cualquier
+            información disponible y relacionada con ellos.</p>
+        <strong>D. GARANTÍA LIMITADA Y ACUERDO</strong>
+        <p>El hardware adquirido a través de “Empresa” está sujeto a una garantía
+            limitada y un acuerdo [o, según su ubicación, una garantía legal], descrita en
+            detalle en la documentación proporcionada.</p>
+        <h3 id="8">8. MODIFICACIONES AL PRESENTE ACUERDO</h3>
+        <strong>NOTA: Si es un consumidor con lugar de residencia en Alemania, se le
+            aplica una versión diferente del apartado 8, que está disponible aquí.</strong>
+        <strong>A. Modificación mutua</strong>
+        <p>Este Acuerdo podrá modificarse en cualquier momento mediante el
+            consentimiento expreso de ambas partes, siempre que ambas partes lleguen a
+            un acuerdo sobre los cambios propuestos por “Empresa”.</p>
+        <strong>B. Modificación unilateral</strong>
+        <p>“Empresa” se reserva el derecho a modificar unilateralmente el presente
+            acuerdo (incluidos los términos de suscripción y las normas de uso) en
+            cualquier momento y a su exclusiva discreción. En este caso, “Empresa”
+            notificará las modificaciones a los usuarios afectados con al menos treinta (30)
+            días de antelación a la entrada en vigor de la modificación. La notificación se
+            enviará por correo electrónico a la dirección proporcionada en su cuenta.
+            Asimismo, los usuarios podrán consultar el acuerdo actualizado en cualquier
+            momento en el sitio web oficial de la empresa, en http://www.empresa.com/.
+            La no cancelación de su cuenta antes de la entrada en vigor de la modificación
+            constituirá su aceptación de los nuevos términos. Si no acepta las
+            modificaciones o alguno de los términos del presente acuerdo, su único recurso
+            será cancelar su cuenta o dejar de utilizar las suscripciones afectadas. En este
+            caso, “Empresa” no tendrá la obligación de devolver cantidades cobradas antes
+            de la cancelación de la cuenta o de la cancelación de la suscripción, ni la parte
+            proporcional de cualquier gasto que se haya podido generar.</p>
+        <strong>C. Modificaciones en relación con consumidores de la UE y Reino Unido</strong>
+        <p>Si usted reside en la Unión Europea o en el Reino Unido, tiene derecho a ser
+            informado de cualquier modificación sustancial de este acuerdo. En tales
+            casos, tendrá un período de al menos 30 días para manifestar su desacuerdo
+            con las modificaciones propuestas y podrá rescindir el contrato sin ningún coste
+            adicional.</p>
+        <h3 id="9">9. VIGENCIA Y FINALIZACIÓN</h3>
+        <strong>A. Vigencia</strong>
+        <p>La vigencia del presente acuerdo («vigencia») comienza en la fecha en que
+            usted aceptó por primera vez estos términos, y continuará hasta que se
+            rescinda conforme a lo estipulado en este acuerdo.</p>
+        <strong>B. Finalización por parte de usted</strong>
+        <p>Usted puede cancelar su cuenta en cualquier momento. Asimismo, puede dejar
+            de utilizar una suscripción en cualquier momento o solicitar a “Empresa” la
+            cancelación del acceso a una suscripción. No obstante, las suscripciones no
+            son transferibles y, aunque su acceso a una suscripción para un juego o una
+            aplicación específica haya finalizado, la clave de activación original no podrá
+            ser registrada en otra cuenta, incluso si la suscripción fue adquirida a través de
+            un comercio minorista.
+            El acceso a las suscripciones adquiridas como parte de un paquete o conjunto
+            no se puede cancelar de forma individual; si se cancela el acceso a uno de los
+            juegos dentro de un conjunto, se cancelará el acceso a todos los juegos
+            adquiridos en ese paquete.
+            Si decide cancelar su cuenta o dejar de utilizar cualquier suscripción o solicita
+            la cancelación de una suscripción, no tendrá derecho a recibir ningún
+            reembolso ni a que se le reembolse el pago realizado por dicha suscripción.
+            “Empresa” se reserva el derecho a cobrar los cargos, recargos o costes
+            generados antes de la cancelación de la cuenta o de que deje de tener acceso
+            a una suscripción en particular. Además, usted será responsable de cualquier
+            cargo o compromiso asumido con distribuidores o proveedores de contenido
+            externos antes de la cancelación.</p>
+        <strong>C. Finalización por parte de “Empresa”</strong>
+        <p>“Empresa” podrá restringir o cancelar su cuenta o cualquier suscripción en
+            cualquier momento en caso de que (a) “Empresa” deje de ofrecer ese tipo de
+            suscripción en general a suscriptores en situaciones similares, o (b) usted
+            incumpla cualquiera de los términos de este acuerdo (incluidos los términos de
+            suscripción y las normas de uso). Si “Empresa” cancela o rescinde su cuenta o
+
+            suscripción debido al incumplimiento de este acuerdo o por actividades
+            inadecuadas o delictivas, usted no recibirá ningún reembolso ni se devolverán
+            los cargos por suscripción ni los fondos no utilizados de su cartera de
+            “Empresa”.</p>
+        <strong>D. Vigencia de los términos</strong>
+        <p>Los apartados 2.C., 2.D., 2.F., 2.G., 3.A., 3.B., 3.D., 3.H. y los apartados del 5
+            al 11 seguirán vigentes tras la terminación o finalización del presente acuerdo.</p>
+        <h3 id="10">10. LEY APLICABLE / JURISDICCIÓN</h3>
+        <strong>La mayoría de los problemas de los usuarios se pueden resolver
+            mediante nuestro sitio web de atención al cliente de “Empresa”, en
+            https://support.” Empresa” powered.com/. Si “Empresa” no logra resolver
+            su problema y sigue existiendo un motivo de conflicto entre usted y
+            “Empresa”, en este apartado se explica cómo nos comprometemos a
+            resolverlo.
+            Para todos los suscriptores fuera de la Unión Europea y el Reino Unido:</strong>
+        <p>Usted y “Empresa” acuerdan que este acuerdo se ha celebrado y se ejecutará
+            en el estado de Washington (EE. UU.), y que cualquier disputa o reclamación
+            que surja se resolverá conforme a las leyes del estado de Washington,
+            excluyendo las leyes de conflicto de leyes y la Convención de las Naciones
+            Unidas sobre los Contratos de Compraventa Internacional de Mercancías. Esto
+            se aplica a (i) cualquier aspecto de la relación entre usted y “Empresa”; (ii) este
+            acuerdo, o (iii) el uso que usted haga de “Empresa”, su cuenta o los contenidos
+            y servicios. Usted y “Empresa” aceptan que cualquier disputa o reclamación
+            que surja entre ambas partes (incluidas las disputas previas a este acuerdo o a
+            cualquier acuerdo anterior) se resolverá exclusivamente en los tribunales
+            estatales o federales ubicados en el condado de King (Washington), y que
+            dichos tribunales tendrán jurisdicción exclusiva sobre el asunto. Por el presente
+            acuerdo, usted y “Empresa” reconocen la jurisdicción exclusiva de dichos
+            tribunales y renuncian a cualquier objeción respecto a la jurisdicción personal y
+            la competencia de los tribunales de ese estado.</p>
+        <p><strong> Si las leyes del lugar donde reside exigen opciones alternativas de
+                resolución de disputas, podrá buscar una solución conforme a esas
+                opciones. </strong> Si usted es un consumidor que reside en Rusia, también podrá
+            buscar una solución en los tribunales rusos locales.</p>
+        <strong>Para los suscriptores de la Unión Europea y el Reino Unido:</strong>ç
+        <p>El presente acuerdo se regirá por la legislación del país en el que tenga su
+            residencia habitual.
+
+            En caso de conflicto con respecto a la interpretación, ejecución o validez del
+            presente acuerdo, se podrá buscar una solución amistosa entre las partes
+            antes de recurrir a la vía judicial. Puede presentar su queja en http://help.”
+            Empresa” powered.com. Además, la Comisión Europea pone a disposición un
+            sitio web para la resolución de litigios en línea para consumidores de la UE en
+            https://ec.europa.eu/consumers/odr. “Empresa” no está registrada en este sitio
+            web debido a que no se permite la participación de empresas de Estados
+            Unidos. No obstante, si su queja está relacionada con el comportamiento del
+            responsable de la protección de datos de “Empresa”, “Empresa” GmbH, podrá
+            presentar una reclamación en dicho sitio web.
+            En caso de que el procedimiento de resolución alternativa de litigios no dé
+            como resultado una solución satisfactoria, o si “Empresa” o usted prefieren no
+            recurrir a este tipo de resolución, podrá iniciar acciones legales en los
+            tribunales del lugar donde resida.</p>
+        <h3 id="11">11. VARIOS</h3>
+        <p>En el caso de que un tribunal determine que alguna disposición de este
+            acuerdo es inválida o inaplicable, dicha disposición se considerará separable y
+            las disposiciones restantes de este acuerdo seguirán siendo plenamente
+            válidas y efectivas.
+            Este acuerdo, incluidas cualquier cláusula de suscripción, las normas de uso, la
+            política de privacidad de “Empresa” y la política de garantía limitada de
+            hardware de “Empresa”, constituye el acuerdo completo entre las partes en
+            cuanto al objeto del contrato, y reemplaza cualquier acuerdo previo, tanto oral
+            como escrito. Usted acepta que este acuerdo no concede ningún derecho o
+            recurso a personas que no sean las firmantes del acuerdo.
+            Las obligaciones de “Empresa” están sujetas a las leyes aplicables y los
+            procesos legales pertinentes, y “Empresa” podrá cumplir con solicitudes de
+            autoridades legales, incluso si alguna disposición entra en conflicto con dicho
+            cumplimiento.
+            Usted acepta cumplir todas las leyes y normativas de importación y exportación
+            aplicables. Además, acepta no exportar los contenidos y servicios o el
+            hardware, ni permitir el uso de su cuenta por individuos en países que apoyen
+            el terrorismo, para los que la Oficina de Administración de Exportaciones de
+            EE. UU. haya impuesto restricciones a la exportación cifrada en el momento de
+            la exportación. Usted declara y garantiza que no reside ni está bajo el control
+            de dichos países prohibidos, ni es ciudadano o residente en ellos.
+            Este acuerdo fue actualizado por última vez el 26 de septiembre de 2024
+            («Fecha de revisión»). Si ya era suscriptor antes de esta fecha de revisión, este
+
+            acuerdo reemplaza y sustituye al acuerdo previamente existente entre usted y
+            “Empresa” o “Empresa” SARL, con la entrada en vigor según lo estipulado en el
+            apartado 8 anterior.</p>
+
+
+
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container p-4 pb-0">
+            <!-- Sección: Redes sociales -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;"
+                    href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+
+                <!-- Twitter -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;"
+                    href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+                <!-- Google -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #dd4b39;"
+                    href="#!" role="button"><i class="fab fa-google"></i></a>
+
+                <!-- Instagram -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;"
+                    href="#!" role="button"><i class="fab fa-instagram"></i></a>
+
+                <!-- Linkedin -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;"
+                    href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+
+                <!-- Github -->
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #333333;"
+                    href="#!" role="button"><i class="fab fa-github"></i></a>
+            </section>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(58, 56, 56, 0.05);">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span
+                    property="dct:title">© 2025 Copyright Juegos</span> is licensed under <a
+                    href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank"
+                    rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
