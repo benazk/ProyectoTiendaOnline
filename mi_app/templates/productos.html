@@ -26,24 +26,20 @@
 </head>
 
 <body>
-    <div class="container mt-5 mb-5 mx-left-5 mx-right-5">
-        <h1 class="text-center text-white">Productos</h1>
-        <div class="row" id="containerbucle" data-user-cards-container>
-            {% for prod in productos.items %}
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card bg-black mt-3">
-                    <img src="{{ url_for('static', filename=prod['imagen']) }}" class="card-img-top"
-                        style="height: 200px;" alt="{{prod['nombre']}}">
-                    <div class="card-body">
-                        <a href="{{ url_for('catalog.producto', id=prod['idProducto']) }}">
-                            <h5 class="card-title text-white" data-header>{{prod["nombre"]}}</h5>
-                        </a>
-                        <p class="card-text text-success" data-body><b>{{"%.2f" % prod["precio"]}}€</b></p>
-                    </div>
+    <h1 class="text-center text-white">Productos</h1>
+    <div class="row" id="containerbucle" data-user-cards-container>
+        {% for prod in productos.items %}
+        <div class="col-sm-12 col-md-6 col-lg-4">
+                <img src="{{ url_for('static', filename=prod['imagen']) }}" class="card-img-top"
+                    style="height: 200px;" alt="{{prod['nombre']}}">
+                <div class="card-body">
+                    <a href="{{ url_for('catalog.producto', id=prod['idProducto']) }}">
+                        <h5 class="card-title text-white" data-header>{{prod["nombre"]}}</h5>
+                    </a>
+                    <p class="card-text text-success" data-body><b>{{"%.2f" % prod["precio"]}}€</b></p>
                 </div>
             </div>
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
 
     <h1>AMONGUS 2</h1><h2>AMONGUS 4</h2><button>AMONGUS 5</button>
