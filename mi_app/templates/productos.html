@@ -12,19 +12,25 @@
                 width: 90%;
                 margin: 5px 0;
             }
+
             .barraBusqueda {
                 width: 90%;
                 margin-right: 6%;
             }
         }
+
+        a {
+            text-decoration: none;
+        }
     </style>
 </head>
 
-<body style="background-color: rgb(136, 115, 136);">
-    
-    <!-- Contenedor principal con fila para juegos y sidebar -->
-    <div class="container mt-5 pt-5" >
+<body">
+    <div class="container mt-5 mb-5 mx-left-5 mx-right-5">
+        <h1 class="text-center text-white">Productos</h1>
+        <div class="row">
             <!-- Columna para los juegos -->
+<<<<<<< HEAD
             <div class="col-md-9"  id="containerbucle" data-user-cards-container>
                 <div class="row mb-4">
                     {% for prod in productos %}
@@ -37,11 +43,28 @@
                                 <p class="card-text" data-body><b>{{"%.2f" % prod["precio"]}}€</b></p>
                             </div>
                         </div>
+=======
+            {% for prod in productos.items %}
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card bg-black mt-3">
+                    <img src="{{ url_for('static', filename=prod['imagen']) }}" class="card-img-top"
+                        style="height: 200px;" alt="{{prod['nombre']}}">
+                    <div class="card-body">
+                        <a href="{{ url_for('catalog.producto', id=prod['idProducto']) }}">
+                            <h5 class="card-title text-white">{{prod["nombre"]}}</h5>
+                        </a>
+                        <p class="card-text text-success"><b>{{"%.2f" % prod["precio"]}}€</b></p>
+>>>>>>> 1f08b1cc0a8a6982b8ed5ced94056ca58d9a83c4
                     </div>
-                    {% endfor %}                 
                 </div>
             </div>
+            {% endfor %}
         </div>
+    </div>
+
+    <!-- Agregar iconos a los botones de categorías -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    </body>
         
         <div class="search-wrapper">
             <label for="search">Buscar Videojuego</label>
