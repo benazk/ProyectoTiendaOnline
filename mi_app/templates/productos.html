@@ -25,25 +25,10 @@
     </style>
 </head>
 
-<body">
+<body>
     <div class="container mt-5 mb-5 mx-left-5 mx-right-5">
         <h1 class="text-center text-white">Productos</h1>
-        <div class="row">
-            <!-- Columna para los juegos -->
-<<<<<<< HEAD
-            <div class="col-md-9"  id="containerbucle" data-user-cards-container>
-                <div class="row mb-4">
-                    {% for prod in productos %}
-                    <div class="col-md-4">
-                        <div class="card" height="600px">
-                            <img src="{{ url_for('static', filename=prod['imagen']) }}" class="card-img-top"
-                                alt="{{prod['nombre']}}" loading="lazy">
-                            <div class="card-body">
-                                <a href="{{ url_for('catalog.producto', id=prod['idProducto']) }}"><h5 class="card-title"  data-header>{{prod["nombre"]}}</h5></a>
-                                <p class="card-text" data-body><b>{{"%.2f" % prod["precio"]}}€</b></p>
-                            </div>
-                        </div>
-=======
+        <div class="row" id="containerbucle" data-user-cards-container>
             {% for prod in productos.items %}
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="card bg-black mt-3">
@@ -51,10 +36,9 @@
                         style="height: 200px;" alt="{{prod['nombre']}}">
                     <div class="card-body">
                         <a href="{{ url_for('catalog.producto', id=prod['idProducto']) }}">
-                            <h5 class="card-title text-white">{{prod["nombre"]}}</h5>
+                            <h5 class="card-title text-white" data-header>{{prod["nombre"]}}</h5>
                         </a>
-                        <p class="card-text text-success"><b>{{"%.2f" % prod["precio"]}}€</b></p>
->>>>>>> 1f08b1cc0a8a6982b8ed5ced94056ca58d9a83c4
+                        <p class="card-text text-success" data-body><b>{{"%.2f" % prod["precio"]}}€</b></p>
                     </div>
                 </div>
             </div>
