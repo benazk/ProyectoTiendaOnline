@@ -21,47 +21,66 @@
 </head>
 
 <body style="background-color: rgb(136, 115, 136);">
+    
     <!-- Contenedor principal con fila para juegos y sidebar -->
-    <div class="container mt-5 pt-5">
-        <div class="row">
+    <div class="container mt-5 pt-5" >
             <!-- Columna para los juegos -->
-            <div class="col-md-9">
+            <div class="col-md-9"  id="containerbucle" data-user-cards-container>
                 <div class="row mb-4">
-                    {% for prod in productos.items %}
+                    {% for prod in productos %}
                     <div class="col-md-4">
-                        <div class="card bg-dark" height="600px">
+                        <div class="card" height="600px">
                             <img src="{{ url_for('static', filename=prod['imagen']) }}" class="card-img-top"
                                 alt="{{prod['nombre']}}">
                             <div class="card-body">
-                                <a href="{{ url_for('catalog.producto', id=prod['idProducto']) }}"><h5 class="card-title">{{prod["nombre"]}}</h5></a>
-                                <p class="card-text"><b>{{"%.2f" % prod["precio"]}}€</b></p>
+                                <a href="{{ url_for('catalog.producto', id=prod['idProducto']) }}"><h5 class="card-title"  data-header>{{prod["nombre"]}}</h5></a>
+                                <p class="card-text" data-body><b>{{"%.2f" % prod["precio"]}}€</b></p>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
+                    {% endfor %}                 
                 </div>
             </div>
         </div>
-        {% if productos.has_prev %}
-            <a href="{{ url_for(request.endpoint, page=productos.prev_num) }}">
-            << Previous Page </a>
-        {% else %}
-            {{"<< Previous Page"}}
-        {% endif %} |
-        {% if productos.has_next %}
-            <a href="{{ url_for(request.endpoint, page=productos.next_num) }}">
-            Next page >>
-            </a>
-        {% else %}
-            {{"Next page >>"}}
-        {% endif %}
-
-
-
-        <!-- Agregar iconos a los botones de categorías -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        
+        <div class="search-wrapper">
+            <label for="search">Buscar Videojuego</label>
+            <input type="search" id="search" onfocus="onSearchbarFocus()" data-search>
+          </div>
+            
+        <script>
+            const userCardTemplate = document.querySelector("[data-user-template]");
+            const userCardContainer = document.querySelector("#containerbucle");
+            const searchInput = document.querySelector("#search");
+            
+            let users = [];
+            userCardContainer.querySelectorAll(".card").forEach(card => {
+              const header = card.querySelector(".card-title").innerText;
+            
+              const body = card.querySelector(".card-text").innerText; 
+            
+              users.push({ 
+                Nombre: header, 
+                Precio: body, 
+                element: card 
+              });
+            });
+            searchInput.addEventListener("input", e => {
+              const value = e.target.value.toLowerCase();
+              users.forEach(user => {
+                const isVisible = user.Nombre.toLowerCase().includes(value);
+                user.element.classList.toggle("hide", !isVisible);
+              });
+            });
+            
+            
+            
+            
+            console.log(users)
+            </script>
 
 </body>
 
 </html>
+
 {% endblock %}

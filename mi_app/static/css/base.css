@@ -53,3 +53,6 @@ a{
     background-color: #4c6b90;
     border-radius: 5px;
 }
+.hide{
+    display: none !important;
+}

@@ -84,7 +84,32 @@ const productos = Vue.createApp({
       for(prod of this.carrito){
         this.precioTotal += Number(prod.precio)
       }
-    }
+    },
+    conver(tipo){
+      fetch(' https://v6.exchangerate-api.com/v6/2d32faab06a3c28f785d7e33/latest/EUR')
+      .then(response=>response.json()) //Cuando se conecte lo anterior y da una respuesta ok el servidor, que haga lo siguiente
+      .then(data =>{
+
+      for(x in data.conversion_rates){
+          if(tipo==x){
+              this.tipoMoneda=tipo;
+              this.cambio= data.conversion_rates[x] 
+              document.getElementById("monedaTitulo").innerHTML=tipo 
+
+              if(tipo=="EUR"){
+                  this.Simbolo="€"
+              } else if(tipo=="USD"){
+                  this.Simbolo="$"
+              } else if(tipo=="NIO"){
+                  this.Simbolo="C$"
+              } else if(tipo=="JPY"){
+                  this.Simbolo="¥"
+              }
+          }
+        }   
+      })     //Exchange Rate API
+  },
+
   },
   
 });
