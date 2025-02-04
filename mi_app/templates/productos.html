@@ -31,7 +31,7 @@
                     <div class="col-md-4">
                         <div class="card" height="600px">
                             <img src="{{ url_for('static', filename=prod['imagen']) }}" class="card-img-top"
-                                alt="{{prod['nombre']}}">
+                                alt="{{prod['nombre']}}" loading="lazy">
                             <div class="card-body">
                                 <a href="{{ url_for('catalog.producto', id=prod['idProducto']) }}"><h5 class="card-title"  data-header>{{prod["nombre"]}}</h5></a>
                                 <p class="card-text" data-body><b>{{"%.2f" % prod["precio"]}}€</b></p>
