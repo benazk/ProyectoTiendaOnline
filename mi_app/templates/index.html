@@ -16,101 +16,101 @@
                 margin-right: 6%;
             }
         }
+
+        a {
+            text-decoration: none;
+        }
     </style>
 </head>
 
-<body style="background-color: rgb(77, 120, 170);">
+<body>
     <!-- Botón para desplegar categorías en pantallas pequeñas (justo debajo del navbar) -->
     <div class="d-block d-md-none">
-        <button style="width: 80px; height: 50px" class="btn btn-dark w-20 ms-auto d-block" type="button"
+        <button style="width: 100%; height: 70px" class="btn btn-dark w-20 ms-auto d-block text-light" type="button"
             data-bs-toggle="collapse" data-bs-target="#mobile-categories">
             <i class="bi bi-chevron-down"></i>
-        </button>
+            Categorías</button>
         <div class="collapse" id="mobile-categories">
             <ul class="list-unstyled">
                 {% for categ in categorias%} <!--Bucle para mostrar todas las categorías dentro del menú desplegable-->
                 <li><a href="{{url_for('catalog.categoria', categ=categ['idCategoria'])}}"
-                        class="link-dark rounded p-1">{{ categ["nombre"] }}</a></li>
+                        class="link-light rounded p-1">{{ categ["nombre"] }}</a></li>
                 {% endfor %}
             </ul>
         </div>
     </div>
-
-
-
-    <!-- Sidebar de categorías (se muestra solo en pantallas grandes) -->
-    <div class="d-flex">
-        <div class="col-md-3">
-            <div class="position- top-0 end-0 vh-100 bg-light p-4 d-none d-md-block categoria"
-                style="width: 250px; border-left: 1px solid #ccc;">
-
-
-                <ul class="list-unstyled">
-                    <li class="mb-3">
-                        <button
-                            class="btn text-dark btn-toggle align-items-center rounded d-flex justify-content-between w-100"
-                            data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                            Categorias
-                            <i class="bi bi-chevron-down"></i>
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <!--Este div de aquí le corresponde al carrusel de los juegos destacados de nuestra tienda y clicar en ellos te llevará a la página de dicho producto-->
+            <div class="col-sm-12 col-md-7 col-lg-9">
+                <h2 class="text-light text-center">Destacados y recomendados</h2>
+                <div class="container">
+                    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            {% set num = {"count":0} %} <!--Este diccionario con la key count sirve para hacer un conteo desde 0 porque el carrusel 
+                                                    necesita llevar un tracking de que imagen se muestra-->
+                            {% for destacado in destacados %}
+                            {% if destacado["destacados"] == true %}
+                            <button type="button" id="carruselSlide" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="{{ num.count }}" class="{% if num.count == 0 %}active{% endif %}"
+                                aria-label="Slide {{ num.count + 1 }}"></button>
+                            {% set _ = num.update({'count': num.count + 1}) %}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="carousel-inner">
+                            <!--La clase carousel-inner es la que muestra el contenido en el carrusel-->
+                            {% for destacado in destacados %}
+                            {% if destacado["destacados"] == true %}
+                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                <a href="{{url_for('catalog.producto', id=destacado['idProducto'])}}"><img
+                                        src="{{url_for('static', filename=destacado['imagen'])}}" class="d-block w-100"
+                                        alt="...">
+                                </a>
+                                <h3 class="text-center text-light">{{destacado['nombre']}}</h3>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <br>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev"> <!--Estos de aquí son botones para ir al siguente/anterior juego-->
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
                         </button>
-                        <div class="collapse show" id="home-collapse">
-                            <ul class="list-unstyled fw-normal small ">
-                                {% for categ in categorias%}
-                                <!--Bucle para mostrar todas las categorías dentro del menú desplegable-->
-                                <li><a href="{{url_for('catalog.categoria', categ=categ['idCategoria'])}}"
-                                        class="link-dark rounded p-1">{{ categ["nombre"] }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="border-top my-2"></li>
-
-
-                </ul>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!--Este div de aquí le corresponde al carrusel de los juegos destacados de nuestra tienda y clicar en ellos te llevará a la página de dicho producto-->
-        <div class="col-sm-12 col-md-6 col-lg-8">
-            <div class="container-fluid">
-                <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        {% set num = {"count":0} %} <!--Este diccionario con la key count sirve para hacer un conteo desde 0 porque el carrusel 
-                                                necesita llevar un tracking de que imagen se muestra-->
-                        {% for destacado in destacados %}
-                        {% if destacado["destacados"] == true %}
-                        <button type="button" id="carruselSlide" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="{{ num.count }}" class="{% if num.count == 0 %}active{% endif %}"
-                            aria-label="Slide {{ num.count + 1 }}"></button>
-                        {% set _ = num.update({'count': num.count + 1}) %}
-                        {% endif %}
-                        {% endfor %}
+            <!-- Sidebar de categorías (se muestra solo en pantallas grandes) -->
+            <div class="col-sm-12 col-md-5 col-lg-3" style="background-color:rgba(0, 0, 0, 0.911);">
+                <div class="container-fluid" style="background-color:rgba(0, 0, 0, 0.911);">
+                    <div class="position-top-0 end-0 vh-100 p-4 d-none d-md-block categoria text-light" 
+                        style="width: 250px;">
+                        <ul class="list-unstyled text-light" style="background-color: rgba(0, 0, 0, 0.911);">
+                            <li class="mb-3">
+                                <button
+                                    class="btn text-light btn-toggle align-items-center rounded d-flex justify-content-between w-100"
+                                    data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                                    Categorias
+                                    <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <div class="collapse show" id="home-collapse">
+                                    <ul class="list-unstyled fw-normal small ">
+                                        {% for categ in categorias%}
+                                        <!--Bucle para mostrar todas las categorías dentro del menú desplegable-->
+                                        <li><a href="{{url_for('catalog.categoria', categ=categ['idCategoria'])}}"
+                                                class="link-light rounded p-1">{{ categ["nombre"] }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="carousel-inner">
-                        <!--La clase carousel-inner es la que muestra el contenido en el carrusel-->
-                        {% for destacado in destacados %}
-                        {% if destacado["destacados"] == true %}
-                        <div class="carousel-item {% if loop.first %}active{% endif %}">
-                            <a href="{{url_for('catalog.producto', id=destacado['idProducto'])}}"><img
-                                    src="{{url_for('static', filename=destacado['imagen'])}}" class="d-block w-100"
-                                    alt="...">
-                            </a>
-                            <h3 style="text-align: center;">{{destacado['nombre']}}</h3>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                    <br>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev"> <!--Estos de aquí son botones para ir al siguente/anterior juego-->
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
                 </div>
             </div>
         </div>

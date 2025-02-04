@@ -1,17 +1,17 @@
 .btn{
-    border-radius: 5px;
+    border-radius: 0px;
 }
 .form-control{
-    border-radius: 5px;
+    border-radius: 0px;
 }
 .form-select{
-    border-radius: 5px;
+    border-radius: 0px;
 }
 .card{
-    border-radius: 5px;
+    border-radius: 0px;
 }
 .card-img-top{
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 #carruselSlide{ 
@@ -41,7 +41,7 @@ a{
 
 .nav-item button:hover {
     background-color: #4c6b90;
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 .btn-primary {
@@ -51,5 +51,9 @@ a{
 
 .btn-dark:hover {
     background-color: #4c6b90;
-    border-radius: 5px;
+    border-radius: 0px;
+}
+body {
+    background: rgb(133,31,61);
+    background: linear-gradient(180deg, rgba(133,31,61,1) 20%, rgba(41,6,6,1) 60%);
 }
