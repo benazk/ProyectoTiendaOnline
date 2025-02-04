@@ -24,11 +24,12 @@ def home():
     categorias = Category.query.all()
     destacados = Product.query.all()
     return render_template('index.html', categorias=categorias, destacados=destacados)  
-   
+
+
 @catalog.route('/productos')
-@catalog.route('/productos/<int:page>')
-def productos(page=1):
-    productos = Product.query.paginate(page=page, per_page=12)  
+def productos():
+    productos = Product.query.all()
+    print(productos[0].nombre)  
     return render_template('productos.html', productos=productos)
     
 
