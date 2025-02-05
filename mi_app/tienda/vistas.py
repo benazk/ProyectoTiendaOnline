@@ -162,14 +162,14 @@ def getfavs(user):
     prods_favs = [tuple(row) for row in results]
     prod = []
     for f in prods_favs:
-        print(p[1])
-        favs = Product.query.get_or_404(p[1])
+        print(f[1])
+        favs = Product.query.get_or_404(f[1])
         prod.append({
             'id': favs.idProducto,
             'nombre': favs.nombre,
             'precio': favs.precio,
             'imagen': favs.imagen,
-            'hora': p[2],
+            'hora': f[2],
             'nombreUsuario': current_user.nombre
         })
     return render_template("favoritos.html", )
