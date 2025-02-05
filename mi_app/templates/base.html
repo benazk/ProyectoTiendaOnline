@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar" style="background-color: rgba(0, 0, 0, 0.911);">
         <div class="container-fluid ">
             <!-- Logo en el navbar -->
-            <a class="navbar-brand fs-3 " href="{{ url_for('catalog.home') }}">Logo</a>
+            <a class="navbar-brand fs-3 " href="{{ url_for('tienda.home') }}">Logo</a>
             <!-- Botón "hamburguesa" para pantallas pequeñas -->
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -26,20 +26,20 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a href="{{ url_for('catalog.home') }}"><button class="btn btn-dark fs-6 ms-3"
+                        <a href="{{ url_for('tienda.home') }}"><button class="btn btn-dark fs-6 ms-3"
                                 type="button">Menú</button></a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url_for('catalog.productos') }}"><button class="btn btn-dark fs-6 ms-3"
+                        <a href="{{ url_for('tienda.productos') }}"><button class="btn btn-dark fs-6 ms-3"
                                 type="button">Productos</button></a>
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="nav-item">
-                        <a href="{{ url_for('catalog.carrito', user=current_user.nombre )}}"><button
+                        <a href="{{ url_for('tienda.carrito', user=current_user.nombre )}}"><button
                                 class="btn btn-dark  fs-6 ms-3" type="button">Carrito</button></a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url_for('catalog.favs', user=current_user.nombre  )}}"><button
+                        <a href="{{ url_for('tienda.favs', user=current_user.nombre  )}}"><button
                                 class="btn btn-dark fs-6 ms-3" type="button">Favoritos</button></a>
                     </li>
                     <li class="nav-item">
@@ -48,19 +48,22 @@
                     {% endif %}
                 </ul>
                 <!-- Barra de búsqueda -->
-                <form class="d-flex ms-auto barraBusqueda ">
-                    <input class="form-control form-control-sm me-2" onfocus="onSearchbarFocus()" id="search" type="search" placeholder="Buscar"
-                        aria-label="Search" data-search>
+                <form class="d-flex ms-auto barraBusqueda " method="GET" action="{{ url_for('tienda.query') }}" role="form">
+                    
+                    <input class="form-control form-control-sm me-2" id="search" name="query" type="search" placeholder="Buscar"
+                        aria-label="Search">
+                        <button class="btn btn-purple text-light" type="submit">Buscar</button>
+                    
                 </form>
                 <!-- Usuario y moneda en pantallas grandes -->
                 {% if current_user.is_authenticated %}
                 <div class="text-light fs-5 ms-3 d-none d-md-block"> </i>{{ current_user.nombre }}<span id="username"></span>
                 </div>
-                <a href="{{ url_for('catalog.logout') }}"> Logout</a>
+                <a href="{{ url_for('tienda.logout') }}"> Logout</a>
                 {% else %}
-                <a href="{{ url_for('catalog.login') }}"><button class="btn btn-dark fs-6 ms-3" type="button">Iniciar
+                <a href="{{ url_for('tienda.login') }}"><button class="btn btn-dark fs-6 ms-3" type="button">Iniciar
                         Sesión</button></a>
-                <a href="{{ url_for('catalog.registerform') }}"><button class="btn btn-dark fs-6 ms-3"
+                <a href="{{ url_for('tienda.registerform') }}"><button class="btn btn-dark fs-6 ms-3"
                         type="button">Registrarse</button></a>
                 {% endif %}
                 <div class="ms-3 d-none d-md-block">
@@ -127,32 +130,12 @@
                             src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a>
                 </p>
         </div>
-<<<<<<< HEAD
-        </footer>
-        <!-- Agregar iconos a los botones de categorías -->
-        <script src="https://unpkg.com/vue@3"></script>
-        <script src="{{ url_for('static', filename='js/vue.js') }}"></script>
-    </div>
-=======
   </footer>
   <!-- Agregar iconos a los botones de categorías -->
 
     <script src="https://unpkg.com/vue@3"></script>
     <script src="{{ url_for('static', filename='js/vue.js') }}"></script>
-    <script>
-        function onSearchbarFocus(){
-            window.flaskUrls = {
-            productos: "{{ url_for('catalog.productos') }}"
-            };
-            console.log(window.location.href)
-            if(!(window.location.href == "http://localhost:5000/productos")){
-                window.location.href = window.flaskUrls.productos;
-            }
-            
-        }
-    </script>
   </div>
->>>>>>> 5d06ef41e17a0aaa823618a0928415a0401ac437
 </body>
 
 </html>

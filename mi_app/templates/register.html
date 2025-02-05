@@ -55,7 +55,7 @@
 
 <div class="login-container">
     <h2>Registro</h2>
-    <form method="GET" action="{{ url_for('catalog.register') }}" role="form">
+    <form method="GET" action="{{ url_for('tienda.register') }}" role="form">
         <div class="mb-3">
             <label for="username" class="form-label">Usuario</label>
             <input type="text" class="form-control" id="username" name="nombre" placeholder="Ingresa tu usuario" required>
@@ -76,7 +76,7 @@
         </div>
         <button type="submit" class="btn btn-login">Registro</button>
         <div class="form-text">
-            ¿Ya tienes una cuenta? <a href="{{url_for('catalog.login')}}">Inicia sesión</a>
+            ¿Ya tienes una cuenta? <a href="{{url_for('tienda.login')}}">Inicia sesión</a>
         </div>
     </form>
 </div>

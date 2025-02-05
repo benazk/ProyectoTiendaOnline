@@ -35,7 +35,7 @@
                             <img loading="lazy" src="{{url_for('static', filename=categ['imagen'])}}" class="card-img-top"
                                 alt="{{categ['nombre']}}">
                             <div class="card-body">
-                                <a href="{{ url_for('catalog.producto', id=categ['id']) }}"><h5 class="card-title">{{categ["nombre"]}}</h5></a>
+                                <a href="{{ url_for('tienda.producto', id=categ['id']) }}"><h5 class="card-title">{{categ["nombre"]}}</h5></a>
                                 <p class="card-text"><b>{{"%.2f" % categ["precio"]}}€</b></p>
                             </div>
                         </div>

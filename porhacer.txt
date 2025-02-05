@@ -1,6 +1,3 @@
-- Poner descripción a las categorías
-- barra de búsqueda
 - (Opcional) divisas
-- Lista de deseados
 - pago con PayPal
 - Diseño (Parcialmente terminado)

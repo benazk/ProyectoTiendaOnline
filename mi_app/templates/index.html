@@ -33,7 +33,7 @@
         <div class="collapse" id="mobile-categories">
             <ul class="list-unstyled">
                 {% for categ in categorias%} <!--Bucle para mostrar todas las categorías dentro del menú desplegable-->
-                <li><a href="{{url_for('catalog.categoria', categ=categ['idCategoria'])}}"
+                <li><a href="{{url_for('tienda.categoria', categ=categ['idCategoria'])}}"
                         class="link-light rounded p-1">{{ categ["nombre"] }}</a></li>
                 {% endfor %}
             </ul>
@@ -63,7 +63,7 @@
                             {% for destacado in destacados %}
                             {% if destacado["destacados"] == true %}
                             <div class="carousel-item {% if loop.first %}active{% endif %}">
-                                <a href="{{url_for('catalog.producto', id=destacado['idProducto'])}}"><img
+                                <a href="{{url_for('tienda.producto', id=destacado['idProducto'])}}"><img
                                         src="{{url_for('static', filename=destacado['imagen'])}}" class="d-block w-100"
                                         alt="...">
                                 </a>
@@ -103,7 +103,7 @@
                                     <ul class="list-unstyled fw-normal small ">
                                         {% for categ in categorias%}
                                         <!--Bucle para mostrar todas las categorías dentro del menú desplegable-->
-                                        <li><a href="{{url_for('catalog.categoria', categ=categ['idCategoria'])}}"
+                                        <li><a href="{{url_for('tienda.categoria', categ=categ['idCategoria'])}}"
                                                 class="link-light rounded p-1">{{ categ["nombre"] }}</a></li>
                                         {% endfor %}
                                     </ul>

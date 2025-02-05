@@ -56,7 +56,7 @@
 
 <div class="login-container">
     <h2>Iniciar Sesión</h2>
-    <form method="GET" action="{{ url_for('catalog.login') }}" role="form">
+    <form method="GET" action="{{ url_for('tienda.login') }}" role="form">
         <div class="mb-3">
             <label for="username" class="form-label">Usuario</label>
             <input type="text" class="form-control" id="username" name="nombre" placeholder="Ingresa tu usuario" required>
@@ -69,9 +69,9 @@
             <input type="checkbox" class="form-check-input" id="remember" required>
             <label class="form-check-label remember-label" for="remember">Recordarme</label>
         </div>
-        <a href="{{url_for('catalog.home')}}"><button type="submit" class="btn btn-login">Iniciar Sesión</button></a>
+        <a href="{{url_for('tienda.home')}}"><button type="submit" class="btn btn-login">Iniciar Sesión</button></a>
         <div class="form-text">
-            ¿No tienes una cuenta? <a href="{{url_for('catalog.register')}}">Regístrate</a>
+            ¿No tienes una cuenta? <a href="{{url_for('tienda.register')}}">Regístrate</a>
         </div>
     </form>
 </div>

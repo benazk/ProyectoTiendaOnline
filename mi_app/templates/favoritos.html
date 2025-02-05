@@ -114,7 +114,7 @@
                                     <p>{{fav.nombre}}</p>
                                     <p>{{fav.precio}} €</p>
                                 </div>
-                                <a href=" {{ url_for('catalog.deletefavs', idUser=current_user.idUsuario, idProd=fav.id) }} "><button type="button" class="btn btn-secondary btn-sm" @click="calcularTotal">Eliminar producto</button></a>
+                                <a href=" {{ url_for('tienda.deletefavs', idUser=current_user.idUsuario, idProd=fav.id) }} "><button type="button" class="btn btn-secondary btn-sm" @click="calcularTotal">Eliminar producto</button></a>
                             </div>
                         </div>
                     </div>

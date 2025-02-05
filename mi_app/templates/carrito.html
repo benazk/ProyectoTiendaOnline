@@ -46,7 +46,7 @@
 <body>
     <script>
         window.flaskUrls = {
-            productDetail: "{{ url_for('catalog.deletecarrito', idUser=0, idProd=1) }}"
+            productDetail: "{{ url_for('tienda.deletecarrito', idUser=0, idProd=1) }}"
             .replace('0', '')
             .replace('1', ''),
             image: "{{url_for('static', filename=2)}}"
