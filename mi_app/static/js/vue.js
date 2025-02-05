@@ -43,7 +43,7 @@ const productos = Vue.createApp({
                             <p>Los impuestos de venta se calcularán durante el pago (si es aplicable)</p>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-secondary btn-sm">Continuar con el pago</button><br>
+                    <a :href="flaskUrls.pago"><button type="button" class="btn btn-secondary btn-sm">Continuar con el pago</button><br></a>
                     <button type="button" class="btn btn- btn-sm">Seguir comprando</button>
                     <button type="button"class="btn btn- btn-sm">Eliminar todos los articulos</button>
                 </div>

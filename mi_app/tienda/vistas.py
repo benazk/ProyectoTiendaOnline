@@ -1,4 +1,4 @@
-from flask  import request, jsonify, Blueprint
+from flask  import request, jsonify, Blueprint, request, send_from_directory
 from mi_app import db, login_manager
 from mi_app.tienda.modelos import Product, Category, User, favorite, cart, History, details, comment
 from flask import render_template
@@ -8,7 +8,9 @@ from flask_login import current_user, login_user, logout_user, login_required
 import json
 from datetime import datetime
 from sqlalchemy import select, column, text, insert, delete
-
+import stripe
+import os
+from dotenv import load_dotenv, find_dotenv
 
 
 @login_manager.user_loader
@@ -326,3 +328,46 @@ def create_product():
         db.session.add(product)
         db.session.commit()
     return redirect(url_for('tienda.home'))
+
+### COSAS PARA EL PAGO POR STRIPE
+
+load_dotenv(find_dotenv())
+stripe.api_version = '2020-08-27'
+stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
+
+@tienda.route('/pago')
+def get_root():
+    return render_template('ventana_pago.html')
+
+@tienda.route('/pago/completado')
+def completed():
+    return render_template('complete.html')
+
+@tienda.route("/create-payment-intent", methods=["POST"]) #Esta funcion crea un intent de pago, osea que esto es lo que le pasa los datos del carrito a stripe
+def create_payment_intent():
+    stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idCarrito")).select_from(cart).where(column("idUsuario") == current_user.idUsuario)
+    productos_pago = db.session.execute(stmt).fetchall()
+    amount = 0
+    results = db.session.execute(stmt).fetchall()
+    prods_pago = [tuple(row) for row in productos_pago]
+    pag = []
+    for p in prods_pago:
+        pago = Product.query.get_or_404(p[1])
+        pag.append({
+            'nombre': pago.nombre,
+            'precio': pago.precio,
+            'hora': p[2],
+            'nombreUsuario': current_user.nombre
+        })
+    for pa in pag:
+        amount += float(pa["precio"]) * 100
+    payment_intent=stripe.PaymentIntent.create(
+        amount=int(amount),
+        currency="eur",
+        automatic_payment_methods={'enabled':True}
+    )
+    return jsonify(clientSecret=payment_intent.client_secret)
+
+@tienda.route('/config', methods=['GET'])
+def get_config():
+    return jsonify({'publishableKey': os.getenv('STRIPE_PUBLISHABLE_KEY')})

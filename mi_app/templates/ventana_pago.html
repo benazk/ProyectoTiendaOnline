@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stripe Sample</title>
+    <meta name="description" content="A demo of Stripe" />
+
+    <link rel="icon" href="{{ url_for('static', filename='imagen/favicon.ico') }}" type="image/x-icon" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+  </head>
+
+  <body>
+    <div class="sr-root">
+      <div class="sr-main">
+        <h1>Aceptar pago</h1>
+        <form action="" id="payment-form">
+          <div id="payment-element">
+            
+            <div id="error-messages"></div>
+          </div>
+          <button>Pagar</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
