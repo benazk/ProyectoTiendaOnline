@@ -38,24 +38,27 @@ def producto(id):
     existing_prod = False # Esta y la de existing_fav sirven para comprobar si el producto está en la BBDD (si está en favoritos o en el carrito)
     existing_fav = False
     existing_coment = False
+    comentarios = []
+    stmt3 = select(column("usuario_id"), column("producto_id"), column("comentario")).select_from(comment).where(column("producto_id") == id)
+    resultados = db.session.execute(stmt3).fetchall()
+    existing_coment = [tuple(row) for row in resultados]
+    
+    for p in existing_coment:
+        busqueda = User.query.get_or_404(p[0])
+        comentarios.append({
+            'usuario': busqueda.nombre,
+            'comentario': p[2]
+        })
     if current_user.is_authenticated: # Solo lo hace si has iniciado sesión
         # Estos dos stmt son queries de sqlalchemy puro, porque cart y favorito al se tablas N:M, esta es la manera de hacer queries
         stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idCarrito")).select_from(cart).where(column("idUsuario") == current_user.idUsuario).where(column("idProducto") == id)
         stmt2 = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idFavorito")).select_from(favorite).where(column("idUsuario") == current_user.idUsuario).where(column("idProducto") == id)
-        stmt3 = select(column("usuario_id"), column("producto_id"), column("comentario")).select_from(comment).where(column("producto_id") == id)
+       
         existing_prod = db.session.execute(stmt).fetchone() # El .fecthone() equivale al .first()
         existing_fav = db.session.execute(stmt2).fetchone()      
-        resultados = db.session.execute(stmt3).fetchall()
-        existing_coment = [tuple(row) for row in resultados]
-        comentarios = []
-        for p in existing_coment:
-            busqueda = User.query.get_or_404(p[0])
-            comentarios.append({
-                'usuario': busqueda.nombre,
-                'comentario': p[2]
-            })
-
+        
     return render_template('pagina-producto-especifico.html', producto=producto, categoria=categoria, existing_prod=existing_prod, existing_fav=existing_fav, comentarios=comentarios)
+    
 
 
 @tienda.route('/anadirComentario/<int:id>')
@@ -85,7 +88,6 @@ def categoria(categ):
     return render_template('prods-por-categ.html', res=res, nombreCateg=categoria.nombre)
 
 @tienda.route('/addcart/<int:idUser>/<int:idProd>') # Se le llama desde la página de productos específicos al darle a añadir al carrito
-@login_required # La función solo se ejecutará si el usuario ha iniciado sesión
 def add_carrito(idUser, idProd):
     horaAnadido = datetime.today().strftime('%Y-%m-%d %H:%M') # Registrar la hora en la que el producto se ha añadido
     stmt = insert(cart).values( # Un insert de sqlalchemy puro por lo de las tablas N:M
@@ -120,13 +122,16 @@ def getcarrito(user):
 
 
 @tienda.route('/carrito/<string:user>')
-@login_required
 def carrito(user):
-    return render_template("carrito.html")
+    if not current_user.is_authenticated:
+        return redirect(url_for('tienda.home'))
+    else:
+        return render_template("carrito.html")
 
 @tienda.route('/deletecarrito/<int:idUser>/<int:idProd>') # Elimina un producto del carrito
-@login_required
 def deletecarrito(idUser, idProd):
+    if not current_user.is_authenticated:
+        return redirect(url_for('tienda.home'))
     stmt = delete(cart).where(column("idUsuario") == current_user.idUsuario, column("idProducto") == idProd) # Query de sqlalchemy
     db.session.execute(stmt)
     db.session.commit()
@@ -134,8 +139,9 @@ def deletecarrito(idUser, idProd):
 
 # Las siguientes funciones son iguales que la del carrito, no es necesario comentar
 @tienda.route('/addfavs/<int:idUser>/<int:idProd>') 
-@login_required
 def add_favs(idUser, idProd):
+    if not current_user.is_authenticated:
+        return redirect(url_for('tienda.home'))
     horaAnadido = datetime.today().strftime('%Y-%m-%d %H:%M')
     print(favorite.columns.keys())
     stmt = insert(favorite).values(
@@ -148,8 +154,9 @@ def add_favs(idUser, idProd):
     return redirect(url_for('tienda.producto', id=idProd))
 
 @tienda.route('/favs/<string:user>')
-@login_required
 def getfavs(user):
+    if not current_user.is_authenticated:
+        return redirect(url_for('tienda.home'))
     stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idFavorito")).select_from(favorite).where(column("idUsuario") == current_user.idUsuario)
     results = db.session.execute(stmt).fetchall()
     prods_favs = [tuple(row) for row in results]
@@ -169,8 +176,9 @@ def getfavs(user):
 
 
 @tienda.route('/lista-deseados/<string:user>')
-@login_required
 def favs(user):
+    if not current_user.is_authenticated:
+        return redirect(url_for('tienda.home'))
     stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idFavorito")).select_from(favorite).where(column("idUsuario") == current_user.idUsuario)
     results = db.session.execute(stmt).fetchall()
     prods_favs = [tuple(row) for row in results]
@@ -188,8 +196,9 @@ def favs(user):
     return render_template("favoritos.html", idUser=current_user.idUsuario, favs=fav)
 
 @tienda.route('/deletefavs/<int:idUser>/<int:idProd>')
-@login_required
 def deletefavs(idUser, idProd):
+    if not current_user.is_authenticated:
+        return redirect(url_for('tienda.home'))
     stmt = delete(favorite).where(column("idUsuario") == current_user.idUsuario, column("idProducto") == idProd)
     db.session.execute(stmt)
     db.session.commit()
@@ -238,6 +247,10 @@ def login():
 def registerform():
     return render_template('register.html')
 
+@tienda.route('/acuerdo-suscriptor')
+def acuerdo():
+    return render_template('acuerdo-suscriptor.html')
+
 @tienda.route('/register', methods=['GET', 'POST']) ## Función para crear cuenta
 def register():
     if current_user.is_authenticated:
@@ -261,14 +274,17 @@ def register():
     
 
 @tienda.route('/logout') ## Función para cerrar sesión
-@login_required
 def logout():
+    if not current_user.is_authenticated:
+        return redirect(url_for('tienda.home'))
     logout_user()
     return redirect(url_for('tienda.home'))
 
 
 @tienda.route('/category-create') ## Función para crear las categorías (solo para los desarrolladores)
 def create_category():
+    if not current_user.is_authenticated and not current_user.nombre == "ASduiq012açsdÑu189r1iurn2fdfçspf+" and not current_user.contrasena == "uisf289rqfç+2fasd+2p3r¡ASFJ":
+        return redirect(url_for('tienda.home'))
     with open("./mi_app/static/datos/categorias.json", encoding='utf-8') as f:
         categorias = json.load(f)
     for categ in categorias:

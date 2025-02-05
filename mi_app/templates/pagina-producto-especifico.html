@@ -112,6 +112,7 @@
                     {% endfor %}
                 </div>
             </div>
+            {% if current_user.is_authenticated %}
             <div>
                 <form method="GET" action="{{ url_for('tienda.anadirComentario', id=producto['idProducto'])}}" role="form">
                     <h2>Agregar comentario</h2>
@@ -122,6 +123,7 @@
                 </form>
 
             </div>
+            {% endif %}
             {% if comentarios %}
             <strong>COMENTARIOS</strong>
                 {% for comentario in comentarios%}
