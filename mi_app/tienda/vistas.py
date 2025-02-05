@@ -283,7 +283,7 @@ def logout():
     return redirect(url_for('tienda.home'))
 
 
-@tienda.route('/category-create') ## Función para crear las categorías (solo para los desarrolladores)
+@tienda.route('/category-create') ## Función para crear las categorías a partir del JSON (solo para los desarrolladores)
 def create_category():
     if not current_user.is_authenticated and not current_user.nombre == "ASduiq012açsdÑu189r1iurn2fdfçspf+" and not current_user.contrasena == "uisf289rqfç+2fasd+2p3r¡ASFJ":
         return redirect(url_for('tienda.home'))
@@ -296,7 +296,7 @@ def create_category():
         db.session.commit()
     return redirect(url_for('tienda.home'))
 
-@tienda.route('/product-create') ## Función para crear los productos (solo para los desarrolladores)
+@tienda.route('/product-create') ## Función para crear los productos a partir del JSON (solo para los desarrolladores)
 def create_product():
     with open("./mi_app/static/datos/productos.json", encoding='utf-8') as f:
         productos = json.load(f)
@@ -312,7 +312,7 @@ def create_product():
         palabrasClave = prod["palabrasClave"]
         idcategory = prod.get("idCategoria")
         destacados = prod["destacado"]
-        category = Category.query.get(idcategory)  # Assuming you have a Category model defined
+        category = Category.query.get(idcategory)
         product = Product(
             nombre=nombre,
             precio=precio,
