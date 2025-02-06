@@ -368,6 +368,19 @@ def create_payment_intent():
     )
     return jsonify(clientSecret=payment_intent.client_secret)
 
+@tienda.route('/get_items')
+def get_items():
+    este_usuario = current_user
+    carrito = este_usuario.productoRelacionCart
+    pag = []
+    for p in carrito:
+        pag.append({
+            'idUsuario': este_usuario.idUsuario,
+            'idProducto': p.idProducto,
+            'precio': p.precio,
+        })
+    return jsonify(pag)
+
 @tienda.route('/config', methods=['GET'])
 def get_config():
     return jsonify({'publishableKey': os.getenv('STRIPE_PUBLISHABLE_KEY')})
