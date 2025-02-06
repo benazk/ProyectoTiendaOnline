@@ -287,7 +287,7 @@ def logout():
 def create_category():
     if not current_user.is_authenticated and not current_user.nombre == "ASduiq012açsdÑu189r1iurn2fdfçspf+" and not current_user.contrasena == "uisf289rqfç+2fasd+2p3r¡ASFJ":
         return redirect(url_for('tienda.home'))
-    with open("../../mi_app/static/datos/categorias.json", encoding='utf-8') as f:
+    with open("./mi_app/static/datos/categorias.json", encoding='utf-8') as f:
         categorias = json.load(f)
     for categ in categorias:
         nombre = categ["nombreCategoria"]
@@ -298,7 +298,7 @@ def create_category():
 
 @tienda.route('/product-create') ## Función para crear los productos a partir del JSON (solo para los desarrolladores)
 def create_product():
-    with open("../../mi_app/static/datos/productos.json", encoding='utf-8') as f:
+    with open("./mi_app/static/datos/productos.json", encoding='utf-8') as f:
         productos = json.load(f)
         
     for prod in productos:
