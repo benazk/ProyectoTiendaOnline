@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar" style="background-color: rgba(0, 0, 0, 0.911);">
         <div class="container-fluid ">
             <!-- Logo en el navbar -->
-            <a class="navbar-brand fs-3 " href="{{ url_for('tienda.home') }}">Logo</a>
+            <a class="navbar-brand fs-3 " href="{{ url_for('tienda.home') }}" id="logito"><img src="{{ url_for('static', filename='imagen/Logo.webp') }}" alt="UnderKeys"> UnderKeys</a>
             <!-- Botón "hamburguesa" para pantallas pequeñas -->
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -66,13 +66,6 @@
                 <a href="{{ url_for('tienda.registerform') }}"><button class="btn btn-dark fs-6 ms-3"
                         type="button">Registrarse</button></a>
                 {% endif %}
-                <div class="ms-3 d-none d-md-block">
-                    <select class="form-select form-select-sm" id="currencySelector">
-                        <option value="eur">EUR (€)</option>
-                        <option value="usd">USD ($)</option>
-                        <option value="gbp">GBP (£)</option>
-                    </select>
-                </div>
             </div>
         </div>
     </nav>
