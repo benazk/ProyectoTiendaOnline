@@ -130,7 +130,7 @@
                             <div class="carousel-item {% if loop.first %}active{% endif %}">
                                 <a href="{{url_for('tienda.producto', id=destacado['idProducto'])}}"><img
                                         src="{{url_for('static', filename=destacado['imagenBig'])}}" class="d-block w-100"
-                                        alt="...">
+                                        alt="destacado['nombre']">
                                 </a>
                                 <h3 class="text-center text-light">{{destacado['nombre']}}</h3>
                             </div>
@@ -154,15 +154,15 @@
                     <div id="longitud">
                         <div id="posicion">
                             <div class="box">
-                                <span style="--i: 1"> <img src="{{ url_for('static', filename='imagen/FinalFantasyVLL.webp') }}" alt="Designer"></span>
-                                <span style="--i: 2"> <img src="{{ url_for('static', filename='imagen/ResidentEvil4.webp') }} " alt="Designer1"></span>
-                                <span style="--i: 3"> <img src="{{ url_for('static', filename='imagen/Rust.webp') }} " alt="Designer2"></span>
-                                <span style="--i: 4"> <img src="{{ url_for('static', filename='imagen/GTA5.webp') }} " alt="Designer3"></span>
-                                <span style="--i: 5"> <img src="{{ url_for('static', filename='imagen/GodofWarRagnarok.webp') }} " alt="Designer4"></span>
-                                <span style="--i: 6"> <img src="{{ url_for('static', filename='imagen/EldenRing.webp') }} " alt="Designer5"></span>
-                                <span style="--i: 7"> <img src="{{ url_for('static', filename='imagen/DragonBallSparkingZero.webp') }} " alt="Designer3"></span>
-                                <span style="--i: 8"> <img src="{{ url_for('static', filename='imagen/MortalKombat11.webp') }}" alt="Designer4"></span>
-                                <span style="--i: 9"> <img src="{{ url_for('static', filename='imagen/LethalCompany.webp') }}" alt="Designer5"></span>
+                                <span style="--i: 1"> <img src="{{ url_for('static', filename='imagen/FinalFantasyVLL.webp') }}" alt="FinalFantasyVLL"></span>
+                                <span style="--i: 2"> <img src="{{ url_for('static', filename='imagen/ResidentEvil4.webp') }} " alt="ResidentEvil4"></span>
+                                <span style="--i: 3"> <img src="{{ url_for('static', filename='imagen/Rust.webp') }} " alt="Rust"></span>
+                                <span style="--i: 4"> <img src="{{ url_for('static', filename='imagen/GTA5.webp') }} " alt="GTA5"></span>
+                                <span style="--i: 5"> <img src="{{ url_for('static', filename='imagen/GodofWarRagnarok.webp') }} " alt="GodofWarRagnarok"></span>
+                                <span style="--i: 6"> <img src="{{ url_for('static', filename='imagen/EldenRing.webp') }} " alt="EldenRing"></span>
+                                <span style="--i: 7"> <img src="{{ url_for('static', filename='imagen/DragonBallSparkingZero.webp') }} " alt="DragonBallSparkingZero"></span>
+                                <span style="--i: 8"> <img src="{{ url_for('static', filename='imagen/MortalKombat11.webp') }}" alt="MortalKombat11"></span>
+                                <span style="--i: 9"> <img src="{{ url_for('static', filename='imagen/LethalCompany.webp') }}" alt="LethalCompany"></span>
                             </div>
                         </div>
                     </div>
