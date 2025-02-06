@@ -27,69 +27,32 @@
     <div class="container mt-5 bg-black">
         <h1 class="text-light">{{producto["nombre"]}}</h1>
         <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-8">
-                <div class="container">
-                    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner mt-5 mb-5">
-                            <div class="carousel-item active">
-                                <img src="{{url_for('static', filename=producto['imagen'])}}" class="d-block w-100"
-                                    alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{url_for('static', filename=producto['imagen'])}}" class="d-block w-100"
-                                    alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{url_for('static', filename=producto['imagen'])}}" class="d-block w-100"
-                                    alt="...">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Anterior</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Siguiente</span>
-                        </button>
-                    </div>
+            <div class="col-sm-12 col-md-6 col-lg-7 mt-3 mb-3 mx-left-3 mx-right-3">
+                <div class="container mt-3 mb-3 mx-left-3 mx-right-3" id="imagen">
+                    <img src="{{url_for('static', filename=producto['imagen'])}}" alt="Ejemplo de imagen responsiva"
+                        class="img-fluid">
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="container bg-light">
-                    <div class="row">
-                        <div class="container" id="imagen">
-                            <img src="https://cdn.pixabay.com/photo/2017/04/04/18/09/video-game-console-2202582_960_720.jpg"
-                                style="width: 150px; height: 150px;" alt="Ejemplo de imagen responsiva">
-                        </div>
-                        <p class="small" id="descripcion">{{producto["descripcion"]}}</p>
-                        <p class="small">Categoría: {{categoria["nombre"]}} </p>
-
+            <div class="col-sm-12 col-md-6 col-lg-5 mx-left-3 mx-right-3">
+                <div class="container mt-3 mb-3 mx-left-3 mx-right-3" id="info" style="background: rgb(133,31,61);">
+                    <div class="row text-black">
+                        <p class="small mt-3 mb-3 mx-left-3 mx-right-3 bg-light" id="descripcion">
+                            {{producto["descripcion"]}}</p>
+                        <p class="small mt-0 mb-0 bg-light">Categoría: {{categoria["nombre"]}} </p>
                         {% if producto["disponibilidad"] == true %}
-                        <p class="small">Este producto esta en stock</p>
+                        <p class="small mt-0 mb-0 bg-light">Este producto está en stock</p>
                         {% else %}
-                        <p class="small">Este producto esta fuera de stock</p>
+                        <p class="small mt-0 mb-0 bg-light">Este producto está fuera de stock</p>
                         {% endif %}
-                        <p class="small">Desarrolladora: {{producto["desarrolladora"]}} </p>
-                        <p class="small">{{producto["precio"]}}€</p>
+                        <p class="small mt-0 mb-0 bg-light">Desarrolladora: {{producto["desarrolladora"]}} </p>
+                        <p class=" mt-0 mb-0 bg-light">{{producto["precio"]}}€</p>
                         {% if current_user.is_authenticated %}
                         {% if existing_prod == none %}
                         <a
                             href="{{ url_for('tienda.add_carrito', idUser=current_user.idUsuario, idProd=producto['idProducto']) }}"><button
                                 type="button" class="btn btn-primary btn-sm">Añadir al carrito</button></a>
                         {% else %}
-                        <button type="button" class="btn btn-gray btn-sm" style="border: 1px solid black;">Producto
-                            ya en el carrito</button>
+                        <p class="mb-0"><strong>Producto en el carrito.</strong></p>
                         {% endif %}
                         {% else %}
                         <a href="{{url_for('tienda.login')}}"><button type="button"
@@ -98,46 +61,53 @@
                         {% if current_user.is_authenticated %}
                         {% if existing_fav == none %}
                         <a
-                            href="{{ url_for('tienda.add_favs', idUser=current_user.idUsuario, idProd=producto['idProducto']) }}">ADD</a>
+                            href="{{ url_for('tienda.add_favs', idUser=current_user.idUsuario, idProd=producto['idProducto']) }}"><button
+                                type="button" class="btn btn-primary btn-sm">Añadir a la lista de favoritos</button></a>
                         {% else %}
-                        Ya te gusta esto
+                        <p><strong>Producto en la lista de favoritos.</strong></p>
                         {% endif %}
                         {% endif %}
-
-
                     </div>
                     <br>
+                    <p class="mb-0 text-black bg-light">Etiquetas similares para este producto:</p>
                     {% for clave in producto["palabrasClave"] %}
-                    <button type="button" class="btn btn-secondary btn-sm"> {{clave}}</button>
+                    <button type="button" class="btn btn-secondary btn-sm mb-3">{{clave}}</button>
                     {% endfor %}
                 </div>
             </div>
-            {% if current_user.is_authenticated %}
-            <div>
-                <form method="GET" action="{{ url_for('tienda.anadirComentario', id=producto['idProducto'])}}" role="form">
-                    <h2>Agregar comentario</h2>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="comentario" name="comentario" placeholder="comentario" required>
-                    </div>
-                    <button type="submit" class="btn btn-login">Agregar</button>
-                </form>
-
-            </div>
-            {% endif %}
-            {% if comentarios %}
-            <strong>COMENTARIOS</strong>
-                {% for comentario in comentarios%}
-                    <div>
-                        <h5>{{comentario["usuario"]}}</h5>
-                        <p> {{comentario["comentario"]}} </p>
-                    </div>
-                {% endfor %}
-            {% endif %}
         </div>
     </div>
+    <!-- Contenedor Agregar Comentarios -->
+    {% if current_user.is_authenticated %}
+    <div class="container mt-3 mb-5 bg-black">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3 mx-left-3 mx-right-3">
+                <h2 class="m-0 text-light">Agrega un comentario</h2>
+                <form method="GET" action="{{ url_for('tienda.anadirComentario', id=producto['idProducto'])}}"
+                    role="form">
+                    <div class="form-group mb-4">
+                        <textarea class="form-control" id="comentario" name="comentario" placeholder="comentario"
+                            rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar comentario</button>
+                </form>
+            </div>
+            {% endif %}
+            <div class="col-sm-12 col-md-6 col-lg-8 mt-3 mb-3 mx-left-3 mx-right-3">
+                <h2 class="text-light mb-0">Comentarios relacionados con este producto</h2>
+                <!-- Contenedor Visualizar Comentarios -->
+                {% if comentarios %}
+                {% for comentario in comentarios%}
+                <div class="container-fluid text-black bg-light mt-0">
+                    <p class="m-0"><strong>Nombre: {{comentario["usuario"]}}</strong></p>
+                    <p><strong>Comentario: {{comentario["comentario"]}}</strong></p>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
+
 </body>
 
 </html>

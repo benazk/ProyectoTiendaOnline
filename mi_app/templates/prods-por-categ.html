@@ -17,37 +17,77 @@
                 margin-right: 6%;
             }
         }
+        a {
+            text-decoration: none;
+        }
+
+        .card {
+            /* Fondo más oscuro con opacidad del 70% */
+            background: rgba(100, 20, 45, 0.7);
+            /* Ajuste del color y opacidad */
+            border: none;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border: 2px solid black;
+            border-radius: 0px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .card img {
+            object-fit: cover;
+            width: 100%;
+            height: 200px;
+        }
+
+        .card-title {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #28a745;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
     </style>
 </head>
 
 <body>
-    
-    <h1>Productos de la categoría: {{nombreCateg}}</h1>
-    <!-- Contenedor principal con fila para juegos y sidebar -->
-    <div class="container mt-5 pt-5">
+    <div class="container mt-5 mb-5 mx-left-5 mx-right-5">
+        <h1 class="text-center text-white">Productos de la categoría: {{nombreCateg}}</h1>
         <div class="row">
-            <!-- Columna para los juegos -->
-            <div class="col-md-9">
-                <div class="row mb-4">
-                    {% for categ in res %}
-                    <div class="col-md-4!">
-                        <div class="card" height="400px">
-                            <img loading="lazy" src="{{url_for('static', filename=categ['imagen'])}}" class="card-img-top"
-                                alt="{{categ['nombre']}}">
-                            <div class="card-body">
-                                <a href="{{ url_for('tienda.producto', id=categ['id']) }}"><h5 class="card-title">{{categ["nombre"]}}</h5></a>
-                                <p class="card-text"><b>{{"%.2f" % categ["precio"]}}€</b></p>
-                            </div>
-                        </div>
+            {% for categ in res %}
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card bg-black mt-3">
+                    <a href="{{ url_for('tienda.producto', id=categ['id']) }}">
+                        <img loading="lazy" src="{{url_for('static', filename=categ['imagen'])}}" class="card-img-top"
+                        style="height: 200px;" alt="{{categ['nombre']}}">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title text-white">{{categ["nombre"]}}</h5>
+                        <p class="card-text text-success"><b>{{"%.2f" % categ["precio"]}}€</b></p>
                     </div>
-                    {% endfor %}
                 </div>
             </div>
+            {% endfor %}
         </div>
+    </div>
         <!-- Agregar iconos a los botones de categorías -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 </body>
-
 </html>
 {% endblock %}
