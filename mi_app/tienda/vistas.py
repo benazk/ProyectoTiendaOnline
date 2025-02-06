@@ -379,7 +379,7 @@ def get_items():
             'idProducto': p.idProducto,
             'precio': p.precio,
         })
-    return jsonify(pag)
+    print("SDFIOEFJIOWEFJ289Y23Y8923Y89UIHWEFU82WT9O8H4T89HGUH3UI4H")
 
 @tienda.route('/config', methods=['GET'])
 def get_config():
