@@ -59,7 +59,7 @@
                 {% if current_user.is_authenticated %}
                 <div class="text-light fs-5 ms-3 d-none d-md-block"> </i>{{ current_user.nombre }}<span id="username"></span>
                 </div>
-                <a href="{{ url_for('tienda.logout') }}"> Logout</a>
+                <a href="{{ url_for('tienda.logout') }}"> <i class="bi bi-box-arrow-right text-light ms-2 me-2" style="font-size: 200%;"></i></a>
                 {% else %}
                 <a href="{{ url_for('tienda.login') }}"><button class="btn btn-dark fs-6 ms-3" type="button">Iniciar
                         Sesión</button></a>

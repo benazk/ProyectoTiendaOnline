@@ -16,7 +16,7 @@
 
         .azul {
             background-color: rgba(27, 28, 29, 0.4);
-            border-radius: 15px;
+            border-radius: 0px;
             /* Rounds the corners */
         }
 
@@ -37,16 +37,16 @@
 
         .nav-item button:hover {
             background-color: #4c6b90;
-            border-radius: 5px;
+            border-radius: 0px;
         }
 
         .btn-primary {
-            background-color: #66c0f4;
+            background-color: #4660f5;
             border: none;
         }
 
         .btn-primary:hover {
-            background-color: #417a9b;
+            background-color: #767ff1;
         }
 
         /* En pantallas pequeñas, los botones de la navbar ocuparán toda la anchura */
@@ -92,14 +92,14 @@
 
 <body>
     <!-- Contenedor principal 2 columnas-->
-    <div class="container">
+    <div class="container mt-3 mb-5">
         <h1>Lista de deseados</h1>
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 me-2 azul ">
                 <!-- Contenedor producto del carrito-->
-                <div class="container" style="padding: 20px;">
+                <div class="container mt-3" style="padding: 20px;">
                     {% for fav in favs %}
-                    <div class="row">
+                    <div class="row mt-3 mb-5">
                         <!-- Contenedor imagen-->
                         <div class="col-sm-4 col-md-4 col-lg-4 ">
                             <div class="container" id="imagen">
@@ -114,7 +114,7 @@
                                     <p>{{fav.nombre}}</p>
                                     <p>{{fav.precio}} €</p>
                                 </div>
-                                <a href=" {{ url_for('tienda.deletefavs', idUser=current_user.idUsuario, idProd=fav.id) }} "><button type="button" class="btn btn-secondary btn-sm" @click="calcularTotal">Eliminar producto</button></a>
+                                <a href=" {{ url_for('tienda.deletefavs', idUser=current_user.idUsuario, idProd=fav.id) }} "><button type="button" class="btn btn-primary btn-sm" @click="calcularTotal">Eliminar producto</button></a>
                             </div>
                         </div>
                     </div>
