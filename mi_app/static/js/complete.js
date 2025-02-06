@@ -8,4 +8,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
         const {paymentIntent} = await stripe.retrievePaymentIntent(clientSecret)
         const paymentIntentPre = document.getElementById("payment-intent")
         paymentIntentPre.innerText = JSON.stringify(paymentIntent, null, 2)
+        window.flaskUrls = { pago: "{{url_for('tienda.get_items')}}"};
+        await fetch(flaskUrls.pago)        
 })
+

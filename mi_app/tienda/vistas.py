@@ -287,7 +287,7 @@ def logout():
 def create_category():
     if not current_user.is_authenticated and not current_user.nombre == "ASduiq012açsdÑu189r1iurn2fdfçspf+" and not current_user.contrasena == "uisf289rqfç+2fasd+2p3r¡ASFJ":
         return redirect(url_for('tienda.home'))
-    with open("../../mi_app/static/datos/categorias.json", encoding='utf-8') as f:
+    with open("./mi_app/static/datos/categorias.json", encoding='utf-8') as f:
         categorias = json.load(f)
     for categ in categorias:
         nombre = categ["nombreCategoria"]
@@ -298,7 +298,7 @@ def create_category():
 
 @tienda.route('/product-create') ## Función para crear los productos a partir del JSON (solo para los desarrolladores)
 def create_product():
-    with open("../../mi_app/static/datos/productos.json", encoding='utf-8') as f:
+    with open("./mi_app/static/datos/productos.json", encoding='utf-8') as f:
         productos = json.load(f)
         
     for prod in productos:
@@ -335,12 +335,52 @@ load_dotenv(find_dotenv())
 stripe.api_version = '2020-08-27'
 stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
 
+#Hay que quitar esto.
 @tienda.route('/pago')
 def get_root():
     return render_template('ventana_pago.html')
 
+
 @tienda.route('/pago/completado')
 def completed():
+    este_usuario_id = current_user.idUsuario
+    este_usuario_nombre = current_user.nombre
+    stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idCarrito")).select_from(cart).where(column("idUsuario") == current_user.idUsuario)
+    results = db.session.execute(stmt).fetchall() # el .fetchall() equivale a el .query.all()
+    prods_carrito = [tuple(row) for row in results] # tengo que transformar el formato de la query de sqlalchemy a tuplas
+    prod = []
+    for p in prods_carrito:
+        print(p[1])
+        prods = Product.query.get_or_404(p[1])
+        prod.append({
+            'id': prods.idProducto,
+            'nombre': prods.nombre,
+            'precio': prods.precio,
+            'imagen': prods.imagen,
+            'idUsuario': p[0],
+            'hora': p[2],
+            'nombreUsuario': este_usuario_nombre
+        })
+    horaAnadido = datetime.today().strftime('%Y-%m-%d %H:%M')
+    for p in prod:
+        stmt = insert(History).values(
+            usuario_id = este_usuario_id,
+            fechaAgregado = horaAnadido,
+        )
+        db.session.execute(stmt)
+        db.session.commit()
+        idCompra = History.query.filter_by(usuario_id=este_usuario_id, fechaAgregado=horaAnadido).first()
+        stmt2 = insert(details).values(
+            producto_id = p["id"],
+            compra_id = idCompra.idCompra,
+            precio= p["precio"]
+        )
+        db.session.execute(stmt2)
+        db.session.commit()
+    
+    stmt = delete(cart).where(column("idUsuario") == este_usuario_id)
+    db.session.execute(stmt)
+    db.session.commit()
     return render_template('complete.html')
 
 @tienda.route("/create-payment-intent", methods=["POST"]) #Esta funcion crea un intent de pago, osea que esto es lo que le pasa los datos del carrito a stripe
@@ -367,6 +407,19 @@ def create_payment_intent():
         automatic_payment_methods={'enabled':True}
     )
     return jsonify(clientSecret=payment_intent.client_secret)
+
+@tienda.route('/get_items')
+def get_items():
+    este_usuario = current_user
+    carrito = este_usuario.productoRelacionCart
+    pag = []
+    for p in carrito:
+        pag.append({
+            'idUsuario': este_usuario.idUsuario,
+            'idProducto': p.idProducto,
+            'precio': p.precio,
+        })
+    print("SDFIOEFJIOWEFJ289Y23Y8923Y89UIHWEFU82WT9O8H4T89HGUH3UI4H")
 
 @tienda.route('/config', methods=['GET'])
 def get_config():

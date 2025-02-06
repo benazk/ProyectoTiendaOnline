@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar" style="background-color: rgba(0, 0, 0, 0.911);">
         <div class="container-fluid ">
             <!-- Logo en el navbar -->
-            <a class="navbar-brand fs-3 " href="{{ url_for('tienda.home') }}">Logo</a>
+            <a class="navbar-brand fs-3 " href="{{ url_for('tienda.home') }}" id="logito"><img src="{{ url_for('static', filename='imagen/Logo.webp') }}" alt="UnderKeys"> UnderKeys</a>
             <!-- Botón "hamburguesa" para pantallas pequeñas -->
             <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -66,13 +66,6 @@
                 <a href="{{ url_for('tienda.registerform') }}"><button class="btn btn-dark fs-6 ms-3"
                         type="button">Registrarse</button></a>
                 {% endif %}
-                <div class="ms-3 d-none d-md-block">
-                    <select class="form-select form-select-sm" id="currencySelector">
-                        <option value="eur">EUR (€)</option>
-                        <option value="usd">USD ($)</option>
-                        <option value="gbp">GBP (£)</option>
-                    </select>
-                </div>
             </div>
         </div>
     </nav>
@@ -88,32 +81,32 @@
                         <!-- Facebook -->
                         <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
                             style="background-color: #3b5998;" href="facebook.com" role="button"><i
-                                class="fab fa-facebook-f"></i></a>
+                                class="fab fa-facebook-f" title="Facebook"></i></a>
 
                         <!-- Twitter -->
                         <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
                             style="background-color: #55acee;" href="twitter.com" role="button"><i
-                                class="fab fa-twitter"></i></a>
+                                class="fab fa-twitter" title="Twitter"></i></a>
 
                         <!-- Google -->
                         <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
                             style="background-color: #dd4b39;" href="google.com" role="button"><i
-                                class="fab fa-google"></i></a>
+                                class="fab fa-google" title="Google"></i></a>
 
                         <!-- Instagram -->
                         <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
                             style="background-color: #ac2bac;" href="https://www.instagram.com" role="button"><i
-                                class="fab fa-instagram"></i></a>
+                                class="fab fa-instagram" title="Instagram"></i></a>
 
                         <!-- Linkedin -->
                         <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
                             style="background-color: #0082ca;" href="https://es.linkedin.com" role="button"><i
-                                class="fab fa-linkedin-in"></i></a>
+                                class="fab fa-linkedin-in" title="Linkedin"></i></a>
 
                         <!-- Github -->
                         <a data-mdb-ripple-init class="btn text-white btn-floating m-1"
                             style="background-color: #333333;" href="https://github.com/benazk/ProyectoTiendaOnline"
-                            role="button"><i class="fab fa-github"></i></a>
+                            role="button"><i class="fab fa-github" title="Github"></i></a>
                     </section>
                 </div>
                 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span
@@ -121,13 +114,13 @@
                         href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank"
                         rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img
                             style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+                            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="creativecommons"><img
                             style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                            src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+                            src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="creativecommons"><img
                             style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img
+                            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="creativecommons"><img
                             style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                            src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a>
+                            src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="creativecommons"></a>
                 </p>
         </div>
   </footer>

@@ -57,3 +57,8 @@ body {
     background: rgb(133,31,61);
     background: linear-gradient(180deg, rgba(133,31,61,1) 20%, rgba(41,6,6,1) 60%);
 }
+
+#logito{
+    text-align: center;
+
+}
