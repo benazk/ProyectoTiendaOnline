@@ -32,7 +32,7 @@
     <div class="container mt-5 azul">
         <h1 class="text-light">{{producto["nombre"]}}</h1>
         <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-7 mt-3 mb-3 mx-left-3 mx-right-3">
+            <div class="col-sm-12 col-md-6 col-lg-7 mt-0 mb-0 mx-left-3 mx-right-3">
                 <div class="container mt-3 mb-3 mx-left-3 mx-right-3" id="imagen">
                     <img src="{{url_for('static', filename=producto['imagenBig'])}}" alt="{{producto['nombre']}}"
                         class="img-fluid">
@@ -41,16 +41,16 @@
             <div class="col-sm-12 col-md-6 col-lg-5 mx-left-3 mx-right-3">
                 <div class="container mt-3 mb-3 mx-left-3 mx-right-3" id="info" style="background: rgb(133,31,61);">
                     <div class="row text-black">
-                        <p class="small mt-3 mb-3 mx-left-3 mx-right-3 bg-light" id="descripcion">
+                        <p class="small mt-3 mb-3 mx-left-3 mx-right-3 text-light" id="descripcion">
                             {{producto["descripcion"]}}</p>
-                        <p class="small mt-0 mb-0 bg-light">Categoría: {{categoria["nombre"]}} </p>
+                        <p class="small mt-0 mb-0 text-decoration-underline"><strong>Categoría: {{categoria["nombre"]}}</strong></p>
                         {% if producto["disponibilidad"] == true %}
-                        <p class="small mt-0 mb-0 bg-light">Este producto está en stock</p>
+                        <p class="small mt-0 mb-0 text-decoration-underline"><strong>Este producto está en stock</strong></p>
                         {% else %}
-                        <p class="small mt-0 mb-0 bg-light">Este producto está fuera de stock</p>
+                        <p class="small mt-0 mb-0 text-decoration-underline"><strong>Este producto está fuera de stock</strong></p>
                         {% endif %}
-                        <p class="small mt-0 mb-0 bg-light">Desarrolladora: {{producto["desarrolladora"]}} </p>
-                        <p class=" mt-0 mb-0 bg-light">{{producto["precio"]}}€</p>
+                        <p class="small mt-0 mb-0 text-decoration-underline"><strong>Desarrolladora: {{producto["desarrolladora"]}}</strong></p>
+                        <p class=" mt-0 mb-0 text-success"><strong>{{producto["precio"]}}€</strong></p>
                         {% if current_user.is_authenticated %}
                         {% if existing_prod == none %}
                         <a
@@ -74,7 +74,7 @@
                         {% endif %}
                     </div>
                     <br>
-                    <p class="mb-0 text-black bg-light">Etiquetas similares para este producto:</p>
+                    <p class="mb-0 text-light">Etiquetas similares para este producto:</p>
                     {% for clave in producto["palabrasClave"] %}
                     <button type="button" class="btn btn-secondary btn-sm mb-3">{{clave}}</button>
                     {% endfor %}
@@ -84,7 +84,7 @@
     </div>
     <!-- Contenedor Agregar Comentarios -->
     {% if current_user.is_authenticated %}
-    <div class="container mt-3 mb-5 bg-black">
+    <div class="container mt-3 mb-5 azul">
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3 mx-left-3 mx-right-3">
                 <h2 class="m-0 text-light">Agrega un comentario</h2>
