@@ -72,10 +72,10 @@
             <!-- Columna para los juegos -->
             {% for prod in productos %}
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <div class="card bg-black mt-3">
+                <div class="card bg-black mt-3" style="width: 300px;">
                     <a href="{{ url_for('tienda.producto', id=prod['idProducto']) }}">
-                    <img src="{{ url_for('static', filename=prod['imagen']) }}" class="card-img-top"
-                        style="height: 200px;" alt="{{prod['nombre']}}">
+                    <img src="{{ url_for('static', filename=prod['imagen']) }}" class="card-img-top img-fluid"
+                        style="height: 168px; width: 300px;" alt="{{prod['nombre']}}">
                     </a>
                     <div class="card-body">
                         <h5 class="card-title text-white">{{prod["nombre"]}}</h5>
@@ -87,32 +87,8 @@
         </div>
     </div>
 
-    <script>
-        const userCardTemplate = document.querySelector("[data-user-template]");
-        const userCardContainer = document.querySelector("#containerbucle");
-        const searchInput = document.querySelector("#search");
-
-        let users = [];
-        userCardContainer.querySelectorAll(".card").forEach(card => {
-            const header = card.querySelector(".card-title").innerText;
-
-            const body = card.querySelector(".card-text").innerText;
-
-            users.push({
-                Nombre: header,
-                Precio: body,
-                element: card
-            });
-        });
-        searchInput.addEventListener("input", e => {
-            const value = e.target.value.toLowerCase();
-            users.forEach(user => {
-                const isVisible = user.Nombre.toLowerCase().includes(value);
-                user.element.classList.toggle("hide", !isVisible);
-            });
-        });
-        console.log(users)
-    </script>
+    <!-- Agregar iconos a los botones de categorías -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </body>
 
 </html>

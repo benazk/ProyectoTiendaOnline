@@ -9,7 +9,14 @@
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <style>
         body {
-            background-image: url(img/fondo.jpg);
+          
+            background-color: rgb(217, 228, 235);
+            color: #ffffff;
+        }
+         .azul {
+            background-color: rgba(27, 28, 29, 0.4);
+            border-radius: 0px;
+            /* Rounds the corners */
         }
         .login-container {
             max-width: 400px;
@@ -17,7 +24,7 @@
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
         }
         .login-container h2 {
             text-align: center;
@@ -28,6 +35,7 @@
             border-radius: 5px;
         }
         .btn-login {
+            
             width: 100%;
             background-color: #007bff;
             border: none;
@@ -38,6 +46,7 @@
         }
         .btn-login:hover {
             background-color: #0056b3;
+            color: #fff;
         }
         .form-text {
             text-align: center;
@@ -57,20 +66,20 @@
 <div class="login-container">
     <h2>Iniciar Sesión</h2>
     <form method="GET" action="{{ url_for('tienda.login') }}" role="form">
-        <div class="mb-3">
-            <label for="username" class="form-label">Usuario</label>
+        <div class="mb-1 text-black">
+            <label for="username" class="form-label mb-0">Usuario:</label>
             <input type="text" class="form-control" id="username" name="nombre" placeholder="Ingresa tu usuario" required>
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Contraseña</label>
+        <div class="mb-1 text-black">
+            <label for="password" class="form-label mb-0">Contraseña:</label>
             <input type="password" class="form-control" id="password" name="contrasena"placeholder="Ingresa tu contraseña" required>
         </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="remember" required>
-            <label class="form-check-label remember-label" for="remember">Recordarme</label>
+        <div class="mb-1 form-check text-black">
+            <input type="checkbox" class="form-check-input mb-0" id="remember" required>
+            <label class="form-check-label remember-label text-black" for="remember" >Recordarme</label>
         </div>
         <a href="{{url_for('tienda.home')}}"><button type="submit" class="btn btn-login">Iniciar Sesión</button></a>
-        <div class="form-text">
+        <div class="form-text text-black">
             ¿No tienes una cuenta? <a href="{{ url_for('tienda.registerform') }}">Regístrate</a>
         </div>
     </form>

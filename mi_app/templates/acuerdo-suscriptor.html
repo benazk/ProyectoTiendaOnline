@@ -6,6 +6,10 @@
 <head>
     <title>Acuerdo de suscriptor</title>
     <style>
+        body {
+            background-color: rgb(217, 228, 235);
+            color: #ffffff;
+        }
 
         .darkFond {
             background-color: rgba(27, 28, 29, 0.9);
@@ -14,7 +18,9 @@
         .azul {
             background-color: rgba(27, 28, 29, 0.4);
             border-radius: 15px;
-            /* Rounds the corners */
+        }
+        a {
+            text-decoration: none;
         }
 
         /* En pantallas pequeñas, los botones de la navbar ocuparán toda la anchura */
@@ -44,34 +50,53 @@
         }
 
         .botonArriba {
-            background-image: url('img/flecha.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            width: 50px;
-            height: 50px;
-            font-size: 20px;
-            color: rgb(255, 2, 2);
+           
+            
+           
+            font-size: 40px;
+            color: rgb(0, 0, 0);
             cursor: pointer;
             position: fixed;
             bottom: 10px;
             right: 10px;
             z-index: 1;
-            opacity: 0.4;
+            opacity: 0.8;
             /* Hace todo el botón (incluido fondo y texto) más transparente */
             border-radius: 40px;
+        }
+
+        .azul {
+            background-color: rgba(27, 28, 29, 0.4);
+            border-radius: 0px;
+            /* Rounds the corners */
+        }
+
+        .btn-login {
+
+            width: 100%;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .btn-login:hover {
+            background-color: #0056b3;
+            color: #fff;
         }
     </style>
 </head>
 
 <body>
-    <a href="#principio"><button class="botonArriba"> </button></a>
+    <a href="#principio"><button class="botonArriba"><i class="bi bi-arrow-up-circle-fill"></i></button></a>
 
     <!-- Contenedor principal 2 columnas-->
-    <div class="container">
-        <h1 id="principio">Acuerdo de suscriptor a "OblitterKeys"</h1>
+    <div class="container azul" style="padding: 5%;">
+        <h1 id="principio">Acuerdo de suscriptor a "UnderKeys"</h1>
         <div class="container" id="acuerdo-suscriptor">
-            <p>Índice</p>
+            <h2>Índice</h2>
             <ol>
                 <li>
                     <a href="#1">Registro como suscriptor, términos aplicables, su cuenta, aceptación de

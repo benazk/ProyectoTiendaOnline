@@ -13,7 +13,7 @@
 
         .azul {
             background-color: rgba(27, 28, 29, 0.4);
-            border-radius: 15px;
+            border-radius: 0px;
             /* Rounds the corners */
         }
 
@@ -30,11 +30,6 @@
             }
         }
 
-        .sidebar {
-            background-color: #16202d;
-            padding: 15px;
-        }
-
     </style>
 </head>
 
@@ -46,11 +41,11 @@
             .replace('1', ''),
             image: "{{url_for('static', filename=2)}}"
             .replace('2', ''),
-            pago: "{{url_for('tienda.get_root')}}"
+            pago: "{{url_for('tienda.get_root')}}",
+            seguirComprando: "{{url_for('tienda.productos')}}"
         };
       </script>
     <div id="app"></div>
-    
 </body>
 
 </html>
