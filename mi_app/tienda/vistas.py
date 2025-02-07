@@ -63,9 +63,8 @@ def producto(id):
     
 
 
-@tienda.route('/anadirComentario/<int:id>')
+@tienda.route('/anadirComentario/<int:id>') # Función para añadir un comentario a un producto en especifico
 def anadirComentario(id):
-    print(current_user.idUsuario)
     stmt = insert(comment).values(
         usuario_id = current_user.idUsuario,
         producto_id = id,
@@ -109,7 +108,6 @@ def getcarrito(user):
     prods_carrito = [tuple(row) for row in results] # tengo que transformar el formato de la query de sqlalchemy a tuplas
     prod = []
     for p in prods_carrito:
-        print(p[1])
         prods = Product.query.get_or_404(p[1])
         prod.append({
             'id': prods.idProducto,
@@ -145,7 +143,6 @@ def add_favs(idUser, idProd):
     if not current_user.is_authenticated:
         return redirect(url_for('tienda.home'))
     horaAnadido = datetime.today().strftime('%Y-%m-%d %H:%M')
-    print(favorite.columns.keys())
     stmt = insert(favorite).values(
         idUsuario=idUser,
         idProducto=idProd,
@@ -155,29 +152,7 @@ def add_favs(idUser, idProd):
     db.session.commit()
     return redirect(url_for('tienda.producto', id=idProd))
 
-@tienda.route('/favs/<string:user>')
-def getfavs(user):
-    if not current_user.is_authenticated:
-        return redirect(url_for('tienda.home'))
-    stmt = select(column("idUsuario"), column("idProducto"), column("fechaAgregado"), column("idFavorito")).select_from(favorite).where(column("idUsuario") == current_user.idUsuario)
-    results = db.session.execute(stmt).fetchall()
-    prods_favs = [tuple(row) for row in results]
-    prod = []
-    for f in prods_favs:
-        print(f[1])
-        favs = Product.query.get_or_404(f[1])
-        prod.append({
-            'id': favs.idProducto,
-            'nombre': favs.nombre,
-            'precio': favs.precio,
-            'imagen': favs.imagen,
-            'hora': f[2],
-            'nombreUsuario': current_user.nombre
-        })
-    return render_template("favoritos.html", )
-
-
-@tienda.route('/lista-deseados/<string:user>')
+@tienda.route('/lista-deseados/<string:user>') # Función para mostrar los productos favoritos de un usuario
 def favs(user):
     if not current_user.is_authenticated:
         return redirect(url_for('tienda.home'))
@@ -197,7 +172,7 @@ def favs(user):
         })
     return render_template("favoritos.html", idUser=current_user.idUsuario, favs=fav)
 
-@tienda.route('/deletefavs/<int:idUser>/<int:idProd>')
+@tienda.route('/deletefavs/<int:idUser>/<int:idProd>') #Función para eliminar los datos del carrito
 def deletefavs(idUser, idProd):
     if not current_user.is_authenticated:
         return redirect(url_for('tienda.home'))
@@ -207,6 +182,30 @@ def deletefavs(idUser, idProd):
     return redirect(url_for('tienda.favs', user=current_user.nombre))
 ## Fin de las funciones parecidas a las del carrito
 
+@tienda.route('/historial/<string:user>') # Función para mostrar los productos favoritos de un usuario
+def historial(user):
+    if not current_user.is_authenticated:
+        return redirect(url_for('tienda.home'))
+    compra = History.query.filter_by(usuario_id=current_user.idUsuario).all() #Obtener id de la compra de cada usuario
+
+    fav = []
+    for x in compra:
+        stmt = select(column("producto_id"), column("compra_id"), column("precio"), column("idDetalle")).select_from(details).where(column("compra_id") == x.idCompra)
+        results = db.session.execute(stmt).fetchall() #Obtener cada uno de los id de la compra según el usuario
+        prods_favs = [tuple(row) for row in results]
+
+        for f in prods_favs: #Añadir a la tabla todos los datos del producto, según la compra y el usuario.
+            favs = Product.query.get_or_404(f[0])
+            fav.append({
+                'id': favs.idProducto,
+                'nombre': favs.nombre,
+                'precio': favs.precio,
+                'imagen': favs.imagen,
+                'hora': x.fechaAgregado,
+                'nombreUsuario': current_user.nombre,
+                'idCompra' : x.idCompra
+            })
+    return render_template("historial.html", idUser=current_user.idUsuario, favl=fav)
 
 @tienda.route('/buscar-query', methods=['GET', 'POST']) # Para buscar productos con la barra de busqueda
 def query():
@@ -261,7 +260,6 @@ def register():
     nombre = request.args.get('nombre')
     correo = request.args.get('email')
     contrasena = request.args.get('contrasena')
-    print(f"nombre de usuario: {nombre}")
     if (nombre and contrasena and correo):
         existing_user = User.query.filter_by(nombre=nombre).first()
         if existing_user:            
@@ -285,49 +283,56 @@ def logout():
 
 @tienda.route('/category-create') ## Función para crear las categorías a partir del JSON (solo para los desarrolladores)
 def create_category():
-    if not current_user.is_authenticated and not current_user.nombre == "ASduiq012açsdÑu189r1iurn2fdfçspf+" and not current_user.contrasena == "uisf289rqfç+2fasd+2p3r¡ASFJ":
+    if not current_user.is_authenticated:
         return redirect(url_for('tienda.home'))
-    with open("./mi_app/static/datos/categorias.json", encoding='utf-8') as f:
-        categorias = json.load(f)
-    for categ in categorias:
-        nombre = categ["nombreCategoria"]
-        category = Category(nombre=nombre)
-        db.session.add(category)
-        db.session.commit()
-    return redirect(url_for('tienda.home'))
+    elif not current_user.nombre == "ASduiq012açsdÑu189r1iurn2fdfçspf+":
+        return redirect(url_for('tienda.home'))
+    else:
+        with open("./mi_app/static/datos/categorias.json", encoding='utf-8') as f:
+            categorias = json.load(f)
+        for categ in categorias:
+            nombre = categ["nombreCategoria"]
+            category = Category(nombre=nombre)
+            db.session.add(category)
+            db.session.commit()
+        return redirect(url_for('tienda.home'))
 
 @tienda.route('/product-create') ## Función para crear los productos a partir del JSON (solo para los desarrolladores)
 def create_product():
-    with open("./mi_app/static/datos/productos.json", encoding='utf-8') as f:
-        productos = json.load(f)
-        
-    for prod in productos:
-        nombre = prod["nombre"]
-        precio = prod["precio"]
-        descripcion = prod["descripcion"]
-        imagen = prod["imagen"]
-        imagenBig = prod["imagenBig"]
-        disponibilidad = prod["disponibilidad"] 
-        desarrolladora = prod["desarrolladora"]
-        palabrasClave = prod["palabrasClave"]
-        idcategory = prod.get("idCategoria")
-        destacados = prod["destacado"]
-        category = Category.query.get(idcategory)
-        product = Product(
-            nombre=nombre,
-            precio=precio,
-            descripcion=descripcion,
-            destacados=destacados,
-            imagen=imagen,
-            imagenBig=imagenBig,
-            disponibilidad=disponibilidad,
-            desarrolladora=desarrolladora,
-            palabrasClave=palabrasClave,
-            category=category
-        )    
-        db.session.add(product)
-        db.session.commit()
-    return redirect(url_for('tienda.home'))
+    if not current_user.is_authenticated:
+        return redirect(url_for('tienda.home'))
+    elif not current_user.nombre == "ASduiq012açsdÑu189r1iurn2fdfçspf+":
+        return redirect(url_for('tienda.home'))
+    else:
+        with open("./mi_app/static/datos/productos.json", encoding='utf-8') as f:
+            productos = json.load(f)           
+        for prod in productos:
+            nombre = prod["nombre"]
+            precio = prod["precio"]
+            descripcion = prod["descripcion"]
+            imagen = prod["imagen"]
+            imagenBig = prod["imagenBig"]
+            disponibilidad = prod["disponibilidad"] 
+            desarrolladora = prod["desarrolladora"]
+            palabrasClave = prod["palabrasClave"]
+            idcategory = prod.get("idCategoria")
+            destacados = prod["destacado"]
+            category = Category.query.get(idcategory)
+            product = Product(
+                nombre=nombre,
+                precio=precio,
+                descripcion=descripcion,
+                destacados=destacados,
+                imagen=imagen,
+                imagenBig=imagenBig,
+                disponibilidad=disponibilidad,
+                desarrolladora=desarrolladora,
+                palabrasClave=palabrasClave,
+                category=category
+            )    
+            db.session.add(product)
+            db.session.commit()
+        return redirect(url_for('tienda.home'))
 
 ### COSAS PARA EL PAGO POR STRIPE
 
@@ -341,7 +346,7 @@ def get_root():
     return render_template('ventana_pago.html')
 
 
-@tienda.route('/pago/completado')
+@tienda.route('/pago/completado') # A la hora de hacer el pago, envía todos los productos que hay en el carrito a la tabla de historyal de compra y a detalles de compra.
 def completed():
     este_usuario_id = current_user.idUsuario
     este_usuario_nombre = current_user.nombre
@@ -350,7 +355,6 @@ def completed():
     prods_carrito = [tuple(row) for row in results] # tengo que transformar el formato de la query de sqlalchemy a tuplas
     prod = []
     for p in prods_carrito:
-        print(p[1])
         prods = Product.query.get_or_404(p[1])
         prod.append({
             'id': prods.idProducto,
@@ -407,19 +411,6 @@ def create_payment_intent():
         automatic_payment_methods={'enabled':True}
     )
     return jsonify(clientSecret=payment_intent.client_secret)
-
-@tienda.route('/get_items')
-def get_items():
-    este_usuario = current_user
-    carrito = este_usuario.productoRelacionCart
-    pag = []
-    for p in carrito:
-        pag.append({
-            'idUsuario': este_usuario.idUsuario,
-            'idProducto': p.idProducto,
-            'precio': p.precio,
-        })
-    print("SDFIOEFJIOWEFJ289Y23Y8923Y89UIHWEFU82WT9O8H4T89HGUH3UI4H")
 
 @tienda.route('/config', methods=['GET'])
 def get_config():
