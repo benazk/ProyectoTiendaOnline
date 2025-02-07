@@ -2,7 +2,7 @@
 {% block container %}
 <!DOCTYPE html>
 <head>
-    <title>Historial</title>
+    <title>Lista de deseados</title>
     <style>
         body {
             background: rgb(6, 11, 41);
@@ -93,11 +93,11 @@
 <body>
     <!-- Contenedor principal 2 columnas-->
     <div class="container mt-3 mb-5">
-        <h1>Mi historial de compras</h1>
+        <h1>Lista de deseados</h1>
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 me-2 azul ">
                 <!-- Contenedor producto del carrito-->
-                <div class="container mt-3" style="padding: 20px;" id="historial">
+                <div class="container mt-3" style="padding: 20px;">
                     {% for fav in favs %}
                     <div class="row mt-3 mb-5">
                         <!-- Contenedor imagen-->
@@ -113,8 +113,8 @@
                                 <div class="row">
                                     <p>Nombre: {{fav.nombre}}</p>
                                     <p>Precio: {{fav.precio}} €</p>
-                                    <p>Fecha de compra: {{fav.fecha}}</p>
                                 </div>
+                                <a href=" {{ url_for('tienda.deletefavs', idUser=current_user.idUsuario, idProd=fav.id) }} "><button type="button" class="btn btn-primary btn-sm" @click="calcularTotal">Eliminar producto</button></a>
                             </div>
                         </div>
                     </div>

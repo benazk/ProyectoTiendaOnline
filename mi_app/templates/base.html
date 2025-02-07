@@ -42,8 +42,9 @@
                         <a href="{{ url_for('tienda.favs', user=current_user.nombre  )}}"><button
                                 class="btn btn-dark fs-6 ms-3" type="button">Favoritos</button></a>
                     </li>
-                    <li class="nav-item">
-                        <button class="btn btn-dark fs-6 ms-3" type="button">Historial</button>
+                    <li class="nav-item" >
+                        <a href="{{ url_for('tienda.historial', user=current_user.nombre  )}}"><button 
+                                class="btn btn-dark fs-6 ms-3" type="button">Historial</button></a>
                     </li>
                     {% endif %}
                 </ul>
