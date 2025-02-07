@@ -41,7 +41,8 @@
             .replace('1', ''),
             image: "{{url_for('static', filename=2)}}"
             .replace('2', ''),
-            pago: "{{url_for('tienda.get_root')}}"
+            pago: "{{url_for('tienda.get_root')}}",
+            seguirComprando: "{{url_for('tienda.productos')}}"
         };
       </script>
     <div id="app"></div>

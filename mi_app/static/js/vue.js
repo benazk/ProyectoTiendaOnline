@@ -43,8 +43,7 @@ const productos = Vue.createApp({
                         </div>
                     </div>
                     <a :href="flaskUrls.pago"><button type="button" class="btn btn-primary btn-sm text-light">Continuar con el pago</button><br></a>
-                    <button type="button" class="btn btn- btn-sm text-light">Seguir comprando</button>
-                    <button type="button"class="btn btn- btn-sm text-light">Eliminar todos los articulos</button>
+                    <button type="button" class="btn btn- btn-sm text-light"><a :href="flaskUrls.seguirComprando" style="text-decoration: none; color: inherit;">Seguir comprando</a></button>
                 </div>
                 <div class="container text-light" id="acuerdo_suscriptor">
                     La compra de un producto digital otorga una licencia para el producto en Steam.
