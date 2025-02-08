@@ -8,8 +8,6 @@
     <link rel="icon" href="{{ url_for('static', filename='imagen/favicon.ico') }}" type="image/x-icon" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}" />
-    <script src="{{ url_for('static', filename='js/stripev3.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/payment.js') }}"></script>
   </head>
 
   <body>
@@ -25,5 +23,7 @@
         </form>
       </div>
     </div>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{ url_for('static', filename='js/payment.js') }}"></script>
   </body>
 </html>
