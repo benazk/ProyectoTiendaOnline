@@ -9,7 +9,7 @@ Compress(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 app.secret_key = 'key_dwes_2023'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://benat:12345678@localhost/tiendajuegos?port=5432'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://benat:12345678@localhost/TiendaJuegos?port=5432'
 db = SQLAlchemy(app)
 from  mi_app.tienda.vistas import tienda
 app.register_blueprint(tienda)
