@@ -1,5 +1,0 @@
-Paso 1: crear una instancia EC2 y poner que cree un par de claves. Eso te descargará el archivo con las claves publica y privada
-Paso 2: entrar en winscp y desde avanzado - SSH - autenticación pasale el archivo ppk que se ha creado
-Paso 3(Por si la cagas con las claves): En autenticación, clica en mostrar par de claves públicas y copias eso en al archivo /.ssh/authorized_keys
-Paso 4: reinicia ssh con systemctl restart ssh
-Paso 5: Disfruta de tu FTP
